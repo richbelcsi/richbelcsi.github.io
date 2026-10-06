@@ -3,522 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSC754 Urban Traffic Survey</title>
+    <meta name="description" content="A CSC754 survey of agent-based urban traffic modeling, congestion management, and simulation methods by Richard Belitski and Mohammad Jehangir.">
+    <meta name="theme-color" content="#132f43">
+    <title>Description | CSC754 Urban Traffic Survey</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
     <style>
-    body {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 24px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 16px;
-        color: #333333;
-        background-color: #ffffff;
-    }
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
 
-    h1 {
-        color: #17365d;
-        font-size: 2rem;
-        line-height: 1.25;
-        margin-bottom: 0.5rem;
-    }
-
-    h2 {
-        color: #17365d;
-        font-size: 1.5rem;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-    }
-
-    .authors {
-        font-size: 1.2rem;
-        color: #555555;
-        margin-top: 0.5rem;
-        margin-bottom: 1.5rem;
-    }
-
-    p {
-        margin-bottom: 1rem;
-        line-height: 1.6;
-    }
-
-    a {
-        color: #005ea8;
-        text-decoration: underline;
-    }
-
-    a:hover {
-        color: #17365d;
-    }
-
-    .bibliography {
-        padding-left: 1.5rem;
-    }
-
-    .bibliography li {
-        margin-bottom: 1.25rem;
-        line-height: 1.6;
-        overflow-wrap: anywhere;
-    }
-</style>
+        @media (max-width: 1000px) {
+            .header-inner {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
 </head>
-<body>
-    <h1>CSC754 Survey Paper - Agent-Based Modeling and Simulation of Urban Traffic</h1>
-    <p class="authors"> Richard Belitski, Mohammad Jehangir</p>
-    <h2>Description</h2>
-    <p>Our survey paper examines agent-based modeling and simulation of urban traffic using New York City as a motivating case study. Agent-based models represent individual vehicles or travelers as decision-making entities whose interactions contribute to network-wide traffic patterns. We will investigate how researchers model route selection, differences in driver behavior, and responses to changing road conditions to explain the emergence and persistence of traffic congestion.</p>
-    <p>The question we wanted to formulate is how do these models balance behavioral realism, computational efficiency, and agreement with observed traffic data. We will compare approaches according to their agent representations, behavioral assumptions, interaction mechanisms, simulation scale, and data requirements. Attention is needed towards calibration and validation that examine how researchers select model parameters and evaluate whether simulated traffic reproduces observed patterns, such as travel times, traffic volumes, and queue lengths. This comparison will help assess the evidence supporting each approach and the limitations affecting its conclusions.</p>
-    <p>Although New York City motivates the survey paper, we will include studies from other cities when their methods offer relevant insights. Applications such as traffic signal coordination and congestion management will provide context for evaluating model capabilities. We will also consider how surveyed approaches could inform future usage of DEVSJAVA, particularly the representation of individual behavior within interacting vehicle, road, and intersection models.</p>
-    <p>Through this review, we aim to organize the literature into meaningful categories, synthesize major findings, and identify unresolved challenges and opportunities for future research.</p>
-    <h2>Bibliography</h2>
-    <ol class="bibliography">
-         <li>
-            S. Abidi, P. Mathieu, A. Nongaillard. 2025.
-            Analyzing communication policies in cooperative multi-agent reinforcement learning for traffic signal control: A simulation-based study.
-            <em>Simulation Modelling Practice and Theory</em>,
-            Vol. 141.
-            <a href="https://doi.org/10.1016/j.simpat.2025.103100">
-                DOI / Publication
+<body id="top">
+    <a class="skip-link" href="#main">Skip to content.</a>
+    <header class="site-header">
+        <div class="shell header-inner">
+            <a class="brand" href="index.html" aria-label="Urban Traffic Survey Home">
+                <span class="brand-mark" aria-hidden="true">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </span>
+                <span>
+                    Urban Traffic Survey
+                    <small>CSC754 | Survey Paper</small>
+                </span>
             </a>
-        </li>
-         <li>
-            G. M. Arnaout, J. Arnaout. 2014.
-            Exploring the effects of cooperative adaptive cruise control on highway traffic flow using microscopic traffic simulation.
-            <em>Transportation Planning and Technology</em>,
-            Vol. 37, No.2, pp.186-199.
-            <a href="https://doi.org/10.1080/03081060.2013.870791">
-                DOI / Publication
-            </a>
-        </li>
-          <li>
-            M. Aslani, M. S. Mesgari, M. Wiering. 2017.
-            Adaptive traffic signal control with actor-critic methods in a real-world traffic network with different traffic disruption events.
-            <em>Transportation Research Part C: Emerging Technologies</em>,
-            Vol. 85, pp.732-752.
-            <a href="https://doi.org/10.1016/j.trc.2017.09.020">
-                DOI / Publication
-            </a>
-        </li>
-         <li>
-            S. Ban, K. H. Hyun. 2019.
-            Curvature-based distribution algorithm: rebalancing bike sharing system with agent-based simulation.
-            <em>Journal of Visualization</em>,
-            Vol. 22, pp.587-607.
-            <a href="https://doi.org/10.1007/s12650-019-00557-6">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            A. L. C. Bazzan, F. Klügl. 2013.
-            A review on agent-based technology for traffic and transportation.
-            <em>The Knowledge Engineering Review</em>,
-            Vol. 29, No. 3, pp.375-403.
-            <a href="https://doi.org/10.1017/S0269888913000118">
-                DOI / Publication
-            </a>
-        </li>
-         <li>
-            S. Bosmans, T. Bogaerts, W. Casteels, S. Mercelis, J. Denil, P. Hellinckx. 2022.
-            Adaptivity in multi-level traffic simulation using experimental frames.
-            <em>Simulation Modelling Practice and Theory</em>,
-            Vol. 114.
-            <a href="https://doi.org/10.1016/j.simpat.2021.102395">
-                DOI / Publication
-            </a>
-        </li>
-         <li>
-            Q. Chao, J. Shen, X. Jin. 2013.
-            Video-based personalized traffic learning.
-            <em>Graphical Models</em>,
-            Vol. 75, No. 6, pp.305-317.
-            <a href="https://doi.org/10.1016/j.gmod.2013.07.003">
-                DOI / Publication
-            </a>
-        </li>
-         <li>
-            H. Chen, R. Zhou, H. Chen. 2025.
-            Enhancing Travel Reservation Benefits Through Incentive and Penalty Mechanisms in Urban Congested Roads.
-            <em>Applied Sciences</em>,
-            Vol. 15, No. 1393.
-            <a href="https://doi.org/10.3390/app15031393">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            S. Djavadian, R. Tu, B. Farooq, M. Hatzopoulou. 2020.
-            Multi-objective eco-routing for dynamic control of connected & automated vehicles.
-            <em>Transportation Research Part D: Transport and Environment</em>,
-            Vol. 87.
-            <a href="https://doi.org/10.1016/j.trd.2020.102513">
-                DOI / Publication
-            </a>
-        </li>
-          <li>
-            A. D. Dumbuya, R. L. Wood. 2002.
-            Visual perception modelling for intelligent virtual driver agents in synthetic driving simulation.
-            <em>Taylor & Francis Group</em>,
-            Vol. 15, pp.73-102.
-            <a href="https://doi.org/10.1080/0952813021000031933">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            A. Fernández-Isabel, R. Fuentes-Fernández, I. Martín de Diego. 2020.
-            Modeling multi-agent systems to simulate sensor-based Smart Roads.
-            <em>Simulation Modelling Practice and Theory</em>,
-            Vol. 99.
-            <a href="https://doi.org/10.1016/j.simpat.2019.101994">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            H. Fujii, H. Uchida, S. Yoshimura. 2017.
-            Agent-based simulation framework for mixed traffic of cars, pedestrians and trams.
-            <em>Transportation Research Part C: Emerging Technologies</em>,
-            Vol. 85, pp.234-248.
-            <a href="https://doi.org/10.1016/j.trc.2017.09.018">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            M. Gorodnichev. 2022.
-            Simulation model of traffic flow based on agent-based modeling.
-            <em>Heritage and Sustainable Development</em>,
-            Vol. 4, No. 2, pp.185-190.
-            <a href="https://doi.org/10.37868/hsd.v4i2.149">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            O. Haas, S. Kamran, P. Jaworski, I. Gheorghe. 2013.
-            Urban Traffic Simulators for Intelligent Transportation Systems.
-            <em>Measurement and Control</em>,
-            Vol. 46, No. 10, pp.309-314.
-            <a href="https://doi.org/10.1177/0020294013510472">
-                DOI / Publication
-            </a>
-        </li>
-         <li>
-            W. Hu, B. Chen, S. Winter, K. Khoshelham. 2022.
-            Decentralized management of ephemeral traffic incidents.
-            <em>Transactions in GIS</em>.
-            <a href="https://doi.org/10.1111/tgis.12940">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            X. Jin, R. White. 2012.
-            An agent-based model of the influence of neighbourhood design on daily trip patterns.
-            <em>Computers, Environment and Urban Systems</em>,
-            Vol. 36, No. 5, pp.398-411.
-            <a href="https://doi.org/10.1016/j.compenvurbsys.2012.03.006">
-                DOI / Publication
-            </a>
-        </li>
-         <li>
-            I. Kaddoura, K. Nagel. 2018.
-            Simultaneous internalization of traffic congestion and noise exposure costs.
-            <em>Springer</em>,
-            Vol. 45, pp.1579-1600.
-            <a href="https://doi.org/10.1007/s11116-017-9776-0">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            T. S. Khan, D. Pfoser, S. Ruan, A. Züfle. 2024.
-            Simplifying traffic simulation - from Euclidean distances to agent-based models.
-            <em>Computational Urban Science</em>,
-            Vol. 4, No. 32.
-            <a href="https://doi.org/10.1007/s43762-024-00145-x">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            K. Kim, K. J. Kim. 2010.
-            Multi-agent-based simulation system for construction operations with congested flows.
-            <em>Automation in Construction</em>,
-            Vol. 19, No. 7, pp.867-874.
-            <a href="https://doi.org/10.1016/j.autcon.2010.05.005">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            E. Lakshika, M. Barlow, A. Easton. 2016.
-            Evolving lane merge traffic behaviour simulations via a macroscopic objective function and a machine learning system trained through bootstrapped human judgement.
-            <em>Applied Intelligence</em>,
-            Vol. 44, pp.862-877.
-            <a href="https://doi.org/10.1007/s10489-015-0733-3">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            S. Liyanage, H. Dia. 2020.
-            An Agent-Based Simulation Approach for Evaluating the Performance of On-Demand Bus Services.
-            <em>Sustainability</em>,
-            Vol. 12, No. 10.
-            <a href="https://doi.org/10.3390/su12104117">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            E. López-Neri, A. Ramírez-Treviño, E. López-Mellado. 2010.
-            A modeling framework for urban traffic systems microscopic simulation.
-            <em>Simulation Modelling Practice and Theory</em>,
-            Vol. 18, No.8, pp.1145-1161.
-            <a href="https://doi.org/10.1016/j.simpat.2009.09.007">
-                DOI / Publication
-            </a>
-        </li>
-         <li>
-            Z. Luo, Y. Zhang, L. Li, B. He, C. Li, H. Zhu, W. Wang, S. Ying, Y. Xi. 2019.
-            A Hybrid Method for Predicting Traffic Congestion during Peak Hours in the Subway System of Shenzhen.
-            <em>Sensors</em>,
-            Vol. 20, No.150.
-            <a href="https://doi.org/10.3390/s20010150">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            M. Mastio, M. Zargayouna, G. Scemama, O. Rana. 2018.
-            Two distribution methods for multiagent traffic simulations.
-            <em>Simulation Modelling Practice and Theory</em>,
-            Vol. 89, pp.35-47.
-            <a href="https://doi.org/10.1016/j.simpat.2018.09.005">
-                DOI / Publication
-            </a>
-        </li>
-         <li>
-            A. C. Moreno, M. Moreno, C. Porras, J. Pavón. 2023.
-            Human and Environmental Factors Analysis in Traffic Using Agent-Based Simulation.
-            <em>Applied Sciences</em>,
-            Vol. 13, No. 3499.
-            <a href="https://doi.org/10.3390/app13063499">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            SJ. Movius, JH. v. Vuuren. 2019.
-            Self-organisation in traffic signal control algorithms under light traffic conditions.
-            <em>OriON</em>,
-            Vol. 35, pp.57-87.
-            <a href="https://doi.org/10.5784/35-1-606">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            B. Nahmias-Biran, J. B. Oke, N. Kumar, C. L. Azevedo, M. Ben-Akiva. 2021.
-           Evaluating the impacts of shared automated mobility on-demand services: an activity-based accessibility approach.
-            <em>Springer</em>,
-            Vol. 48, pp.1613-1638.
-            <a href="https://doi.org/10.1007/s11116-020-10106-y">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            E. S. Natterer, S. R. Rao, A. T. Lapuerta, R. Engelhardt, S. Hörl, K. Bogenberger. 2025.
-            Machine learning surrogates for agent-based models in transportation policy analysis.
-            <em>Transportation Research Part C: Emerging Technologies</em>,
-            Vol. 180.
-            <a href="https://doi.org/10.1016/j.trc.2025.105360">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            J. Nguyen, S. T. Powers, N. Urquhart, T. Farrenkopf, M. Guckert. 2021.
-            An overview of agent-based traffic simulators.
-            <em>Transportation Research Interdisciplinary Perspectives</em>,
-            Vol. 12.
-            <a href="https://doi.org/10.1016/j.trip.2021.100486">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            M. H. Nguyen, T. V. Ho. 2016.
-            An agent-based model for simulation of traffic network status: Applied to Hanoi city.
-            <em>Simulation</em>,
-            Vol. 92, No. 11, pp.999-1012.
-            <a href="https://doi.org/10.1177/0037549716668259">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            S. Oh, A. F. Lentzakis, R. Seshadri, M. Ben-Akiva. 2021.
-            Impacts of Automated Mobility-on-Demand on traffic dynamics, energy and emissions: A case study of Singapore.
-            <em>Simulation Modelling Practice and Theory</em>,
-            Vol. 110.
-            <a href="https://doi.org/10.1016/j.simpat.2021.102327">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            A.U.Z. Patwary, W. Huang, H. K. Lo. 2021.
-            Metamodel-based calibration of large-scale multimodal microscopic traffic simulation.
-            <em>Transportation Research Part C: Emerging Technologies</em>,
-            Vol. 124.
-            <a href="https://doi.org/10.1016/j.trc.2020.102859">
-                DOI / Publication
-            </a>
-        </li>
-          <li>
-            A. Saprykin, N. Chokani, R. S. Abharbi. 2021.
-            Uncertainties of Sub-Scaled Supply and Demand in Agent-Based Mobility Simulations with Queuing Traffic Model.
-            <em>Networks and Spatial Economics</em>,
-            Vol. 21, pp.261-290.
-            <a href="https://doi.org/10.1007/s11067-021-09516-x">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            A. Saval, D. Minh, K. Chapuis, P. Tranouez, C. Caron, É. Daudé, P. Taillandier. 2023.
-            Dealing with mixed and non-normative traffic. An agent-based simulation with the GAMA platform.
-            <em>PLoS ONE</em>,
-            Vol. 18, No. 3, pp.1-27.
-            <a href="https://doi.org/10.1371/journal.pone.0281658">
-                DOI / Publication
-            </a>
-        </li>
-         <li>
-            J. Sewall, D. Wilkie, M. C. Lin. 2011.
-            Interactive hybrid simulation of large-scale traffic.
-            <em>ACM Transactions on Graphics</em>,
-            Vol. 30, No. 6, pp.1-12.
-            <a href="https://doi.org/10.1145/2070781.2024169">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            M. Smilovitskiy, S. Olmez, P. Richmond, R. Chisholm, P. Heywood, A. Cabrejas. 2025.
-            FLAME-GPU for Traffic Systems: A Scalable Agent-Based Simulation Framework.
-            <em>Gale Academic OneFile</em>,
-            Vol. 13, No. 5.
-            <a href="https://doi.org/10.3390/systems13050376">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            R. Sun, X. Wu, Y. Chen. 2022.
-            Assessing the impacts of ridesharing services: An agent-based simulation approach.
-            <em>Journal of Cleaner Production</em>,
-            Vol. 372, No. 133664.
-            <a href="https://doi.org/10.1016/j.jclepro.2022.133664">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            S. Suo, S. Regalado, S. Casas, R. Urtasun. 2021.
-            TrafficSim: Learning to Simulate Realistic Multi-Agent Behaviors.
-            <em>Robotics</em>,
-            Vol. 1.
-            <a href="https://doi.org/10.48550/arXiv.2101.06557">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            V. R. Tomás, L. A. García, A. L. Alonso. 2023.
-            An agent-based platform to evaluate V2X routing road traffic scenarios.
-            <em>Simulation Modelling Practice and Theory</em>,
-            Vol. 125.
-            <a href="https://doi.org/10.1016/j.simpat.2023.102750">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            S. Vehlken. 2020.
-            Traffic life: temporal dynamics and regulatory dimensions in agent-based transport simulations.
-            <em>MOBILITIES</em>,
-            Vol. 15, No. 5, pp.725-739.
-            <a href="https://doi.org/10.1080/17450101.2020.1806509">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            S. Vivek, D. Yanni, P. J. Yunker, J. L. Silverberg. 2019.
-            Cyberphysical risks of hacked internet-connected vehicles.
-            <em>Physical Review E</em>,
-            Vol. 100.
-            <a href="https://doi.org/10.1103/PhysRevE.100.012316">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            J. Wang, W. Lv, Y. Jiang, S. Qin, J. Li. 2021.
-            A multi-agent based cellular automata model for intersection traffic control simulation.
-            <em>Physica A: Statistical Mechanics and its Applications</em>,
-            Vol. 584.
-            <a href="https://doi.org/10.1016/j.physa.2021.126356">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            M. Witt, K. Kompaß, L. Wang, R. Kates, M. Mai, G. Prokop. 2019.
-            Driver profiling – Data-based identification of driver behavior dimensions and affecting driver characteristics for multi-agent traffic simulation.
-            <em>Transportation Research Part F: Traffic Psychology and Behaviour</em>,
-            Vol. 64, pp.361-376.
-            <a href="https://doi.org/10.1016/j.trf.2019.05.007">
-                DOI / Publication
-            </a>
-        </li>
-         <li>
-            H. Xiong, X. Zhou, D. A. Bennett. 2023.
-            Detecting spatiotemporal propagation patterns of traffic congestion from fine-grained vehicle trajectory data.
-            <em>iNTERNATIONAL JOURNAL OF GEOGRAPHICAL INFORMATION SCIENCE</em>,
-            Vol. 37, No. 5, pp.1157-1179.
-            <a href="https://doi.org/10.1080/13658816.2023.2178653">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            Y. Xu, V. Viswanathan, W. Cai. 2017.
-            Reducing Synchronization Overhead with Computation Replication in Parallel Agent-Based Road Traffic Simulation.
-            <em>IEEE Transactions on Parallel and Distributed Systems</em>,
-            Vol. 28, No. 11, pp.3286-3297.
-            <a href="https://doi.org/10.1109/TPDS.2017.2714165">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            Y. Yu, A. E. Kamel, G. Gong, F. Li. 2014.
-            Multi-agent based modeling and simulation of microscopic traffic in virtual reality system.
-            <em>Simulation Modelling Practice and Theory</em>,
-            Vol. 45, pp.62-79.
-            <a href="https://doi.org/10.1016/j.simpat.2014.04.001">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            N. Yuhara, J. Tajima. 2006.
-            Multi-driver agent-based traffic simulation systems for evaluating the effects of advanced driver assistance systems on road traffic accidents.
-            <em>Cognition, Technology & Work</em>,
-            Vol. 8, pp.283-300.
-            <a href="https://doi.org/10.1007/s10111-006-0045-9">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            J. Zeng, Z. Li, D. A. Hensher. 2025.
-            Travel decision making under uncertainty and road traffic behavior: The multifold role of ambiguity attitude.
-            <em>Simulation Modelling Practice and Theory</em>,
-            Vol. 192.
-            <a href="https://doi.org/10.1016/j.tra.2024.104326">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            T. Ziemke, L. N. Alegre, A. L. C. Bazzan. 2021.
-            Reinforcement learning vs. rule-based adaptive traffic signla control: A Fourier basis linear function approximation for traffic signal control.
-            <em>IOS Press</em>,
-            Vol. 34, pp.89-103.
-            <a href="https://doi.org/10.3233/AIC-201580">
-                DOI / Publication
-            </a>
-        </li>
-        <li>
-            N. Zornić, A. Marković, S. Čavoški. 2017.
-            Agent-Based Simulation Model for Real-Time Traffic Analyses.
-            <em>Central European Conference on Information and Intelligent Systems</em>,
-            pp.213-217.
-            <a href="https://csi.ezproxy.cuny.edu/login?url=https://www.proquest.com/conference-papers-proceedings/agent-based-simulation-model-real-time-traffic/docview/2125641571/se-2?accountid=28715">
-                DOI / Publication
-            </a>
-        </li>
+            <nav aria-label="Main Navigation">
+                <a href="index.html" aria-current="page">Description</a>
+                <a href="bibliography.html">Bibliography</a>
+                <a href="materials.html">Project Materials</a>
+                <a href="annotations.html">Annotations</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main" tabindex="-1">
+        <section class="hero">
+            <div class="shell hero-inner">
+                <div class="hero-copy">
+                    <p class="eyebrow">A survey of research methods.</p>
+                    <h1>
+                        Agent-Based Modeling<br>
+                        and Simulation of<br>
+                        <span>Urban Traffic</span>
+                    </h1>
+                    <p class="hero-deck">
+                        Understanding how individual decisions shape traffic congestion
+                        and how agent-based models can evaluate strategies to reduce it.
+                    </p>
+                    <p class="hero-authors">
+                        Richard Belitski
+                        <span aria-hidden="true">/</span>
+                        Mohammad Jehangir
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button light" href="bibliography.html">
+                            Explore the bibliography.
+                            <span aria-hidden="true">/</span>
+                        </a>
+                        <a class="button secondary" href="annotations.html">
+                            Read the annotations.
+                            <span aria-hidden="true">/</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="network-art" aria-hidden="true">
+                    <svg
+                        viewBox="0 0 400 420"
+                        fill="none"
+                        focusable="false"
+                    >
+                    <g stroke="#305065" stroke-width="18">
+                        <path d="M-40 95H440M-40 195H440M-40 295H440M95 -20V460M195 -20V460M295 -20V460"/>
+                    </g>
+                    <path
+                        d="M-20 295H95V195H295V95H440"
+                        stroke="#72c6bb"
+                        stroke-width="4"
+                    />
+                    <g fill="#d6eee7">
+                        <circle cx="95" cy="295" r="7"/>
+                        <circle cx="95" cy="195" r="7"/>
+                        <circle cx="295" cy="195" r="7"/>
+                        <circle cx="295" cy="95" r="7"/>
+                    </g>
+                    <g fill="#efbc79">
+                        <rect
+                            x="157" y="191"
+                            width="19" height="8" rx="3"
+                        />
+                        <rect
+                            x="291" y="132"
+                            width="8" height="19" rx="3"
+                        />
+                        <rect
+                            x="48" y="291"
+                            width="19" height="8" rx="3"
+                        />
+                    </g>
+                </svg>
+                <span>INDIVIDUAL AGENTS -> NETWORK PATTERNS</span>
+                </div>
+            </div>
+        </section>
+        <div class="shell overview-layout">
+            <section class="description" aria-labelledby="description-heading">
+                <p class="eyebrow">01 / Overview</p>
+                <h2 id="description-heading">Description</h2>
+                <p>
+                    Our survey paper examines agent-based modeling and simulation
+                    of urban traffic using New York City as a motivating case study.
+                    Agent-based models represent individual vehicles or travelers
+                    as decision-making entities whose interactions contribute to
+                    network-wide traffic patterns. We will investigate how
+                    researchers model route selection, differences in driver
+                    behavior, and responses to changing road conditions to explain
+                    the emergence and persistence of traffic congestion.
+                </p>
+                <p>
+                    Our guiding question is how these models evaluate strategies
+                    for reducing congestion while balancing behavioral realism,
+                    computational efficiency, and agreement with observed traffic
+                    data. We will compare approaches according to their agent
+                    representations, behavioral assumptions, interaction mechanisms,
+                    simulation scale, and data requirements. Particular attention
+                    will be given to calibration and validation: how researchers
+                    select model parameters and evaluate whether simulated traffic
+                    reproduces observed patterns, such as travel times, traffic
+                    volumes, and queue lengths. This comparison will help assess
+                    the evidence supporting each approach and the limitations
+                    affecting its conclusions.
+                </p>
+                <p>
+                    Although New York City motivates the survey paper, we will
+                    include studies from other cities when their methods offer
+                    relevant insights. Applications such as traffic signal
+                    coordination, route guidance, lane management, and travel
+                    incentives will provide context for evaluating model
+                    capabilities. We will also consider how surveyed approaches
+                    could inform a future DEVSJAVA implementation, particularly
+                    the representation of individual behavior within interacting
+                    vehicle, road, and intersection models.
+                </p>
+                <p>
+                    Through this review, we aim to organize the literature into
+                    meaningful categories, synthesize major findings, and identify
+                    unresolved challenges and opportunities for future research.
+                    The bibliography currently contains 60 publications, with
+                    20 selected for detailed reading. Preliminary summaries and
+                    annotations describe each paper’s contribution, relevant
+                    limitations, and connection to investigating urban traffic
+                    congestion.
+                </p>
+            </section>
+
+            <aside class="project-details" aria-labelledby="at-a-glance">
+                <h2 id="at-a-glance">The project at a glance.</h2>
+                <dl>
+                    <dt>Research Approach</dt>
+                    <dd>Agent-based Modeling and Simulation</dd>
+                    <dt>Application Focus</dt>
+                    <dd>Understanding and Reducing Traffic Congestion</dd>
+                    <dt>Motivating Case</dt>
+                    <dd>New York City</dd>
+                    <dt>Geographic Scope</dt>
+                    <dd>Methods From Cities Worldwide</dd>
+                    <dt>Implementation Connection</dt>
+                    <dd>Future Model Design in DEVSJAVA</dd>
+                    <dt>Research Collection</dt>
+                    <dd>
+                        <a href="bibliography.html">60 bibliography entries. /</a>
+                    </dd>
+                    <dt>Selected Papers</dt>
+                    <dd>
+                        <a href="annotations.html">20 papers with draft annotations. /</a>
+                    </dd>
+
+                    <dt>Selection Breakdown</dt>
+                    <dd>4 foundational, 8 journal, 6 conference, and 2 technical reports.</dd>
+                    <dt>Current Stage</dt>
+                    <dd>Preliminary annotations and preparation for detailed reading.</dd>
+                </dl>
+                <p class="aside-note">
+                    The annotations will be refined as the selected papers are
+                    read in full. Classification, presentation materials, and
+                    the final survey will follow.
+                </p>
+                <p>
+                    <a href="materials.html">View Project Materials and Milestones -></a>
+                </p>
+            </aside>
+        </div>
+        <section class="focus-section">
+            <div class="shell">
+                <p class="eyebrow">What we compare.</p>
+                <h2>Three questions guide the review.</h2>
+                <div class="focus-grid">
+                    <article>
+                        <span class="index">01</span>
+                        <h3>Behavioral Realism</h3>
+                        <p>
+                            How do agents choose routes, respond to congestion,
+                            and interact with other travelers and traffic controls?
+                        </p>
+                    </article>
+                    <article>
+                        <span class="index">02</span>
+                        <h3>Computational Efficiency</h3>
+
+                        <p>
+                            How do models support large networks and repeated
+                            comparisons of congestion-management strategies?
+                        </p>
+                    </article>
+                    <article>
+                        <span class="index">03</span>
+                        <h3>Validation</h3>
+
+                        <p>
+                            How well do simulation results agree with observed
+                            traffic, and what evidence supports the proposed
+                            improvements?
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="shell footer-inner">
+            <div>
+                <strong>CSC754 | Urban Traffic Survey</strong>
+                <p>Richard Belitski &amp; Mohammad Jehangir</p>
+            </div>
+            <a href="#top">Back to top.</a>
+        </div>
+    </footer>
 </body>
 </html>
