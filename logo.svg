@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <title>Urban Traffic Survey</title>
+  <rect width="64" height="64" rx="14" fill="#132f43"/>
+  <path d="M22 10V54M42 10V54M10 22H54M10 42H54"
+        stroke="#36586b" stroke-width="6" stroke-linecap="round"/>
+  <path d="M10 42H22V22H42V10"
+        stroke="#a6d7cc" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round"/>
+  <circle cx="22" cy="42" r="3.5" fill="#ffffff"/>
+  <circle cx="22" cy="22" r="3.5" fill="#ffffff"/>
+  <circle cx="42" cy="22" r="3.5" fill="#ffffff"/>
+  <rect x="29" y="19.5" width="8" height="5" rx="2" fill="#efbc79"/>
+</svg>
