@@ -7,8 +7,9 @@
         name="description"
         content="A literature survey of agent-based urban traffic modeling by Richard Belitski and Mohammad Jehangir."
     >
-    <meta name="theme-color" content="#132f43">
+    <meta name="theme-color" content="#252525">
     <title>Selected Papers and Annotations | CSC754 Urban Traffic Survey</title>
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
     <style>
@@ -23,8 +24,8 @@
             position: sticky;
             top: 1.5rem;
             padding: 1.25rem;
-            background: #f4f7f7;
-            border: 1px solid #dce5e9;
+            background: var(--wash);
+            border: 1px solid var(--line);
             border-radius: 12px;
         }
         .annotation-navigation h2 {
@@ -43,13 +44,13 @@
             padding: 0.65rem 0.75rem;
             border: 0;
             border-radius: 6px;
-            color: #132f43;
+            color: var(--navy);
             font-size: 0.95rem;
             line-height: 1.5;
             text-align: left;
         }
         .annotation-navigation nav a:hover {
-            background: #e3eeeb;
+            background: #eee2d0;
         }
         .annotation-main {
             width: 100%;
@@ -61,7 +62,7 @@
             padding: clamp(1rem, 2.5vw, 1.75rem);
             margin-bottom: 1.5rem;
             background: #fff;
-            border: 1px solid #dce5e9;
+            border: 1px solid var(--line);
             border-radius: 12px;
             overflow-wrap: anywhere;
         }
@@ -91,7 +92,7 @@
             line-height: 1.45;
         }
         .annotation-citation {
-            color: #586974;
+            color: var(--muted);
             font-size: 0.9rem;
         }
         @media (max-width: 1000px) {
@@ -147,12 +148,13 @@
                 href="index.html"
                 aria-label="Urban Traffic Survey Home"
             >
-                <span class="brand-mark" aria-hidden="true">
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                </span>
+                <img
+                    class="brand-logo"
+                    src="logo.svg"
+                    alt=""
+                    width="48"
+                    height="48"
+                >
                 <span>
                     Urban Traffic Survey
                     <small>CSC754 | Survey Paper</small>
@@ -848,7 +850,10 @@
                 <strong>CSC754 | Urban Traffic Survey</strong>
                 <p>Richard Belitski &amp; Mohammad Jehangir</p>
             </div>
-            <a href="#top">Back to top.</a>
+            <a class="back-to-top" href="#top">
+                Back to top
+                <span aria-hidden="true">↑</span>
+            </a>
         </div>
     </footer>
 </body>

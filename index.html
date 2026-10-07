@@ -4,35 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A CSC754 survey of agent-based urban traffic modeling, congestion management, and simulation methods by Richard Belitski and Mohammad Jehangir.">
-    <meta name="theme-color" content="#132f43">
+    <meta name="theme-color" content="#252525">
     <title>Description | CSC754 Urban Traffic Survey</title>
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
-    <style>
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        @media (max-width: 1000px) {
-            .header-inner {
-                flex-wrap: wrap;
-            }
-        }
-    </style>
 </head>
 <body id="top">
     <a class="skip-link" href="#main">Skip to content.</a>
     <header class="site-header">
         <div class="shell header-inner">
             <a class="brand" href="index.html" aria-label="Urban Traffic Survey Home">
-                <span class="brand-mark" aria-hidden="true">
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                </span>
+                <img
+                    class="brand-logo"
+                    src="logo.svg"
+                    alt=""
+                    width="48"
+                    height="48"
+                >
                 <span>
                     Urban Traffic Survey
                     <small>CSC754 | Survey Paper</small>
@@ -67,12 +56,12 @@
                     </p>
                     <div class="hero-actions">
                         <a class="button light" href="bibliography.html">
-                            Explore the bibliography.
-                            <span aria-hidden="true">/</span>
+                            Explore the bibliography
+                            <span aria-hidden="true">→</span>
                         </a>
                         <a class="button secondary" href="annotations.html">
-                            Read the annotations.
-                            <span aria-hidden="true">/</span>
+                            Read the annotations
+                            <span aria-hidden="true">→</span>
                         </a>
                     </div>
                 </div>
@@ -82,21 +71,21 @@
                         fill="none"
                         focusable="false"
                     >
-                    <g stroke="#305065" stroke-width="18">
+                    <g stroke="#50483E" stroke-width="18">
                         <path d="M-40 95H440M-40 195H440M-40 295H440M95 -20V460M195 -20V460M295 -20V460"/>
                     </g>
                     <path
                         d="M-20 295H95V195H295V95H440"
-                        stroke="#72c6bb"
+                        stroke="#E9AD42"
                         stroke-width="4"
                     />
-                    <g fill="#d6eee7">
+                    <g fill="#FAF0DD">
                         <circle cx="95" cy="295" r="7"/>
                         <circle cx="95" cy="195" r="7"/>
                         <circle cx="295" cy="195" r="7"/>
                         <circle cx="295" cy="95" r="7"/>
                     </g>
-                    <g fill="#efbc79">
+                    <g fill="#FFFFFF">
                         <rect
                             x="157" y="191"
                             width="19" height="8" rx="3"
@@ -111,7 +100,7 @@
                         />
                     </g>
                 </svg>
-                <span>INDIVIDUAL AGENTS -> NETWORK PATTERNS</span>
+                <span>INDIVIDUAL AGENTS → NETWORK PATTERNS</span>
                 </div>
             </div>
         </section>
@@ -167,7 +156,7 @@
             </section>
 
             <aside class="project-details" aria-labelledby="at-a-glance">
-                <h2 id="at-a-glance">The project at a glance.</h2>
+                <h2 id="at-a-glance">Project at a glance</h2>
                 <dl>
                     <dt>Research Approach</dt>
                     <dd>Agent-based Modeling and Simulation</dd>
@@ -181,17 +170,17 @@
                     <dd>Future Model Design in DEVSJAVA</dd>
                     <dt>Research Collection</dt>
                     <dd>
-                        <a href="bibliography.html">60 bibliography entries. /</a>
+                        <a href="bibliography.html">60 bibliography entries</a>
                     </dd>
                     <dt>Selected Papers</dt>
                     <dd>
-                        <a href="annotations.html">20 papers with draft annotations. /</a>
+                        <a href="annotations.html">20 annotated papers</a>
                     </dd>
 
                     <dt>Selection Breakdown</dt>
                     <dd>4 foundational, 8 journal, 6 conference, and 2 technical reports.</dd>
                     <dt>Current Stage</dt>
-                    <dd>Preliminary annotations and preparation for detailed reading.</dd>
+                    <dd>Preliminary annotations available; detailed reading and classification in progress.</dd>
                 </dl>
                 <p class="aside-note">
                     The annotations will be refined as the selected papers are
@@ -199,14 +188,14 @@
                     the final survey will follow.
                 </p>
                 <p>
-                    <a href="materials.html">View Project Materials and Milestones -></a>
+                    <a href="materials.html">View project materials</a>
                 </p>
             </aside>
         </div>
         <section class="focus-section">
             <div class="shell">
                 <p class="eyebrow">What we compare.</p>
-                <h2>Three questions guide the review.</h2>
+                <h2>Three questions guide the review</h2>
                 <div class="focus-grid">
                     <article>
                         <span class="index">01</span>
@@ -245,7 +234,10 @@
                 <strong>CSC754 | Urban Traffic Survey</strong>
                 <p>Richard Belitski &amp; Mohammad Jehangir</p>
             </div>
-            <a href="#top">Back to top.</a>
+            <a class="back-to-top" href="#top">
+                Back to top
+                <span aria-hidden="true">↑</span>
+            </a>
         </div>
     </footer>
 </body>

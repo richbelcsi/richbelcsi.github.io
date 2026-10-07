@@ -1,13 +1,13 @@
 /* These color options and basic settings are shared on all webpages. */
 :root {
-    --navy: #132f43;
-    --ink: #223542;
-    --muted: #586974;
-    --teal: #16665f;
-    --line: #d8e1e4;
-    --paper: #ffffff;
-    --wash: #f4f7f7;
-    --accent: #a6d7cc;
+    --navy: #252525;
+    --ink: #302c27;
+    --muted: #6b6258;
+    --teal: #8a4517;
+    --line: #ded7cc;
+    --paper: #faf8f3;
+    --wash: #f2ede4;
+    --accent: #e9ad42;
 }
 
 * {
@@ -55,7 +55,7 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 summary:focus-visible {
-    outline: 3px solid #bd781b;
+    outline: 3px solid #8a4517;
     outline-offset: 4px;
 }
 
@@ -155,25 +155,6 @@ p {
     letter-spacing: 0.03em;
 }
 
-.brand-mark {
-    display: grid;
-    grid-template-columns: repeat(2, 10px);
-    gap: 4px;
-    transform: rotate(-8deg);
-    padding: 11px;
-    border: 1px solid var(--line);
-}
-
-.brand-mark i {
-    width: 10px;
-    height: 10px;
-    background: var(--navy);
-}
-
-.brand-mark i:last-child {
-    background: #48a69b;
-}
-
 nav {
     display: flex;
     align-items: stretch;
@@ -193,7 +174,7 @@ nav a {
 
 nav a:hover {
     color: var(--navy);
-    border-bottom-color: #b8d3ce;
+    border-bottom-color: #c9a46a;
 }
 
 nav a[aria-current="page"] {
@@ -244,7 +225,7 @@ nav a[aria-current="page"] {
 }
 
 .hero-deck {
-    color: #dde6ed;
+    color: #eee8de;
     max-width: 470px;
     font-size: 1.1rem;
     line-height: 1.6;
@@ -252,13 +233,13 @@ nav a[aria-current="page"] {
 
 .hero-authors {
     font-size: 0.83rem;
-    color: #c9d8e0;
+    color: #d5cbbd;
     margin-bottom: 29px;
 }
 
 .hero-authors span {
     padding: 0 10px;
-    color: #86a2b5;
+    color: #b4a38c;
 }
 
 .button {
@@ -276,17 +257,17 @@ nav a[aria-current="page"] {
 }
 
 .button.light {
-    background: #e1f0ea;
+    background: #e9ad42;
     color: var(--navy);
 }
 
 .button.light:hover {
-    background: #ffffff;
+    background: #f2c56b;
 }
 
 .button.secondary {
     background: #ffffff;
-    border-color: #9baeb7;
+    border-color: #a99b88;
     color: var(--ink);
 }
 
@@ -312,7 +293,7 @@ nav a[aria-current="page"] {
     display: block;
     font-size: 0.6rem;
     letter-spacing: 0.15em;
-    color: #b7cecf;
+    color: #cbbda8;
     margin-top: 22px;
     text-transform: uppercase;
 }
@@ -387,7 +368,7 @@ nav a[aria-current="page"] {
 }
 
 .focus-grid article {
-    border-top: 1px solid #b7c8ca;
+    border-top: 1px solid #cbbfae;
     padding-top: 20px;
 }
 
@@ -482,7 +463,7 @@ nav a[aria-current="page"] {
 .controls input,
 .controls select {
     width: 100%;
-    border: 1px solid #9baeb7;
+    border: 1px solid #a99b88;
     border-radius: 3px;
     background: white;
     color: var(--ink);
@@ -668,8 +649,8 @@ summary > span:first-of-type {
     font-size: 0.67rem;
     text-transform: uppercase;
     letter-spacing: 0.07em;
-    color: #4b6169;
-    border: 1px solid #d3dedf;
+    color: #665744;
+    border: 1px solid #d7cbb9;
     border-radius: 20px;
     padding: 3px 10px;
 }
@@ -697,7 +678,7 @@ summary > span:first-of-type {
     list-style: none;
     margin: 0;
     padding: 0 0 0 17px;
-    border-left: 1px solid #a9bfc1;
+    border-left: 1px solid #b9a78c;
 }
 
 .milestones li {
@@ -797,10 +778,6 @@ summary > span:first-of-type {
 
     .brand {
         font-size: 0.98rem;
-    }
-
-    .brand-mark {
-        padding: 8px;
     }
 
     nav {
@@ -1010,6 +987,88 @@ summary > span:first-of-type {
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
+    }
+}
+
+/* Logo */
+.brand-logo {
+    display: block;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+}
+
+/* Homepage buttons */
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.hero .button {
+    border-radius: 6px;
+    gap: 0.75rem;
+}
+
+.hero .button.light {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--navy);
+}
+
+.hero .button.light:hover {
+    background: #f2c56b;
+    border-color: #f2c56b;
+}
+
+.hero .button.secondary {
+    background: transparent;
+    border-color: #a99b88;
+    color: #faf8f3;
+}
+
+.hero .button.secondary:hover {
+    background: #3b352e;
+    border-color: var(--accent);
+}
+
+/* Supporting text */
+.project-details dt {
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+}
+
+.footer-inner {
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+}
+
+/* Footer navigation */
+.back-to-top {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.5rem 0.85rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--teal);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.back-to-top:hover {
+    background: var(--wash);
+    border-color: var(--teal);
+}
+
+/* Smaller logo on mobile */
+@media (max-width: 760px) {
+    .brand-logo {
+        width: 42px;
+        height: 42px;
     }
 }
 
