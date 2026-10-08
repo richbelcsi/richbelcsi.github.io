@@ -22,7 +22,7 @@ body {
     margin: 0;
     color: var(--ink);
     background: var(--paper);
-    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-family: "Manrope", Arial, sans-serif;
     font-size: 16px;
     line-height: 1.7;
 }
@@ -79,8 +79,8 @@ h3 {
 
 h1,
 h2 {
-    font-family: Georgia, "Times New Roman", serif;
-    font-weight: 400;
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
 }
 
 h2 {
@@ -530,6 +530,19 @@ nav a[aria-current="page"] {
 
 .reference p {
     margin-bottom: 8px;
+}
+
+/* This is for the paper access links on bibliography and annotation webpages. */
+.reference .paper-access,
+.paper-annotation .paper-access {
+    margin: 0.65rem 0 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.paper-access a {
+    font-weight: 600;
+    text-underline-offset: 0.2em;
 }
 
 .reference-authors {
