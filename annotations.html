@@ -230,17 +230,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            This study represents individual travelers
-                            within a modular transport simulation and
-                            tests an initial implementation on Swiss
-                            morning traffic. Repeated route adjustment
-                            links individual decisions to network
-                            conditions, while parallel computing
-                            supports a large simulated population.
+                            This paper presents a modular transportation simulation that represents individual travelers and allows their route choices to change through repeated simulation and learning. The implementation combines travel demand, route planning, traffic simulation, and feedback, using experienced travel times to improve agents’ plans over successive iterations. Experiments model approximately one million car trips during the Swiss morning peak and compare simulated traffic volumes with observed counts and an existing transportation model. The results demonstrate the feasibility of large regional agent-based simulations and show how repeated route adjustment can redistribute traffic across the network.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            Raney and colleagues connect individual route choices with the traffic conditions those choices collectively produce, establishing a foundation for large-scale agent-based traffic modeling. The repeated route adjustment captures feedback between travelers and the network, which matters when evaluating interventions that change travel times or route attractiveness. The model also combines demand generation, routing, and parallel simulation, illustrating how behavioral representation and computational scale can be addressed together. Its initial focus on Swiss morning car traffic limits direct application to New York City's multimodal travel, but the feedback structure remains relevant to studying congestion. This paper fits the survey as a foundation for investigating whether changes to routes or road networks produce lasting congestion relief once travelers adjust their decisions.
+                            Raney and colleagues combine individual route planning, a queue-based traffic simulation, and repeated feedback to model how travelers adapt to congestion across Switzerland. Their experiments show that learning from previous trips spreads traffic across alternative routes, while comparisons with traffic counts demonstrate the importance of checking simulated patterns against observations. This provides a foundation for our survey because a congestion intervention can change travelers’ decisions, which then change the traffic conditions the intervention was intended to improve. However, the tested model uses car trips derived from origin–destination matrices and adjusts routes between simulation runs, limiting its representation of multimodal travel and rerouting during a journey.                        
                         </p>
                     </article>
                     <!-- Paper 2 -->
@@ -265,17 +259,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            Bazzan investigates coordinating traffic
-                            signals through interacting autonomous
-                            agents and evolutionary game-theoretic
-                            mechanisms. Traffic scenarios are used to
-                            examine whether distributed decisions can
-                            produce coordinated signal operation without
-                            relying on a central controller.
+                            This paper investigates how traffic signals can coordinate their decisions through a distributed mechanism based on evolutionary game theory. Signal agents adapt their strategies in response to traffic conditions and interactions with other agents, seeking coordination without relying entirely on a central controller. Simulation experiments compare the proposed mechanism with centralized signal synchronization under different patterns of directional demand. The distributed approach performs better when competing traffic streams require adaptation, while centralized synchronization remains effective when traffic consistently favors one direction.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            Bazzan treats traffic signals as autonomous agents that coordinate through evolutionary game-theoretic mechanisms. This approach addresses a central congestion problem: improving traffic flow at one intersection can increase queues and delays at neighboring intersections. The paper provides a foundation for comparing how distributed controllers balance local decisions with coordination across a road network. Its agents represent signal controllers, making its contribution to the survey primarily about traffic management rather than individual driver behavior. The paper directly fits the investigation of congestion reduction by examining how cooperation among signal agents can coordinate traffic movement across intersections, providing a foundation for comparison with more recent learning-based controllers.
+                            Bazzan models traffic signals as autonomous agents that use evolutionary game theory to coordinate their timing while responding to local traffic conditions. In the simulated arterial, this adaptive approach performs better than centralized synchronization when both directions compete for priority, but centralized control performs better when demand consistently favors one direction. The study gives our survey an early example of how cooperation among signal agents can relieve congestion without relying entirely on a central controller. Its results also show why decentralized control should be evaluated under different demand patterns, since rapid changes can slow coordination and reduce its benefits.
                         </p>
                     </article>
                     <!-- Paper 3 -->
@@ -300,16 +288,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            This paper develops a genetic algorithm that
-                            maintains and improves alternative daily
-                            activity plans for individual travelers.
-                            A utility function evaluates plans, linking
-                            the benefits of activities with the travel
-                            needed to reach them.
+                            This paper develops a genetic algorithm for generating complete daily activity plans for individual travelers. Candidate plans specify activities, locations, and timing, and are evaluated using a utility function that balances activity benefits against travel and scheduling costs. Selection, crossover, and mutation progressively improve these plans, with experiments examining both busy and less constrained daily schedules. The algorithm produces plausible plans with high utility in the tested examples, providing a method for generating individual travel demand, although the experiments use simplified travel-time estimates rather than feedback from a dynamic traffic simulation.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            Charypar and Nagel use genetic algorithms to generate and improve travelers’ daily activity plans, linking travel demand to the activities people want to complete. The utility-based approach represents travel as part of a broader scheduling decision, giving agent-based models a behavioral basis for when and why trips occur. This connection is relevant to congestion management because changes in travel costs or incentives can affect the timing and organization of travel. The paper’s main contribution is a method for constructing travel plans; the realism of those plans depends on the utility assumptions and constraints used to evaluate them. This paper fits the survey by supplying a behavioral basis for investigating demand-management measures, such as incentives to travel outside peak periods, although the paper itself does not establish the effectiveness of those measures.
+                            Charypar and Nagel use a genetic algorithm to construct daily activity plans that balance the benefits of activities against travel time and scheduling constraints. The algorithm produces plausible plans in the test scenarios by jointly choosing activities, locations, and time allocations, connecting individual preferences to the demand placed on a transport network. This is relevant to our survey because evaluating congestion policies requires understanding why people travel and how changes in travel conditions could alter their schedules. However, the experiments use simplified travel-time estimates, so congestion avoidance through feedback from a traffic simulation remains a proposed extension rather than a demonstrated result.                        
                         </p>
                     </article>
                     <!-- Paper 4 -->
@@ -331,17 +314,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            This paper couples detailed vehicle agents
-                            in selected areas with a faster aggregate
-                            traffic-flow model elsewhere in the network.
-                            Dynamic coupling allows large road networks
-                            to be simulated interactively, with
-                            demonstrations using real traffic data and
-                            synthetic scenarios.
+                            This paper introduces a hybrid traffic simulator that combines individual vehicle agents with a continuum model describing aggregate traffic flow. Detailed vehicle simulation operates in selected regions, while the aggregate model handles the rest of the network, with conversion procedures connecting the two representations. Experiments on real and synthetic road networks evaluate computational performance, and comparisons with recorded highway traffic examine the reproduction of observed flow patterns. The approach supports interactive simulation of large networks at lower computational cost than a fully agent-based model while retaining individual vehicle detail where it is needed.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            Sewall and colleagues combine detailed vehicle agents with an aggregate traffic-flow model to make large road networks more practical to simulate interactively. This hybrid structure supports detailed analysis of selected locations while retaining the surrounding traffic that influences them. For congestion studies, it offers a way to examine bottlenecks without applying the same computationally expensive level of detail throughout the network. The approach also makes the transfer of traffic between representations an important consideration, since inconsistencies at their boundaries could affect simulated congestion. The paper fits the survey by offering a modeling approach for testing local congestion interventions while accounting for their wider effects, such as queues spreading onto surrounding roads.
+                            Sewall and colleagues combine individual vehicle simulation with an aggregate traffic-flow model, allowing different parts of a road network to use different levels of detail. Their hybrid method runs faster than a fully agent-based simulation in the reported benchmarks and retains important traffic-flow patterns when compared with NGSIM freeway observations. For our survey, it offers a way to study local bottlenecks while keeping the surrounding network computationally manageable. Its main limitation is that switching between representations preserves traffic distributions more reliably than individual vehicle positions, which matters when interpreting detailed interactions near the boundaries.
                         </p>
                     </article>
                 </section>
@@ -371,16 +348,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            The study evaluates information-sharing
-                            policies in decentralized multi-agent
-                            reinforcement learning for traffic signal
-                            control. Its Co-DQN experiments examine how
-                            exchanged information affects controller
-                            learning and cumulative vehicle waiting time.
+                            This study examines how information exchanged between traffic signal agents affects cooperative deep reinforcement learning under partial observation. Using a cooperative deep Q-network approach, the authors compare policies that share rewards, signal phases, traffic pressure, or more extensive neighboring information. Simulation experiments evaluate these policies under balanced, unbalanced, and mixed traffic conditions using traffic delay and learning performance. Sharing rewards and signal phases produces the strongest results across the tested scenarios, indicating that carefully chosen information can support coordination more effectively than sharing a larger amount of data.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            Abidi and colleagues examine how information sharing affects cooperation among reinforcement-learning agents that control traffic signals. Their Co-DQN experiments connect communication policies with controller learning and cumulative vehicle waiting time, making coordination a measurable part of congestion management. The study is useful for understanding how neighboring traffic information can inform decisions that would otherwise rely on local observations. It extends the survey’s treatment of distributed signal control by making the content and use of shared information central to the comparison of control strategies. This paper directly supports the survey’s investigation of congestion reduction by examining which communication policies help signal agents make coordinated decisions and reduce vehicle waiting.
+                            Abidi and colleagues investigate how the information exchanged between learning-based signal controllers affects their ability to coordinate traffic. In their Co-DQN experiments, sharing rewards and signal phases produces lower delays than the other tested communication policies, including sharing all neighboring observations. This directly supports our survey’s congestion focus by showing that effective coordination depends on selecting useful information, rather than simply increasing the amount shared. The findings provide a concrete comparison with earlier distributed-control approaches, although their effectiveness beyond the tested simulation scenarios still requires validation.
                         </p>
                     </article>
                     <!-- Paper 6 -->
@@ -404,18 +376,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            RouteRL is a software framework combining
-                            multi-agent reinforcement learning with
-                            microscopic traffic simulation for urban
-                            route-choice experiments. It supports
-                            interactions between behaviorally modeled
-                            human travelers and autonomous vehicles
-                            learning routing policies under different
-                            objectives.
+                            RouteRL is an open-source framework for studying route choice in traffic networks shared by human drivers and autonomous vehicles. It combines SUMO traffic simulation with behavioral learning for human travelers and multi-agent reinforcement learning for autonomous vehicles, whose objectives can be configured to represent different routing strategies. Example applications in Cologne, Ingolstadt, and Manhattan examine how repeated route choices and the proportion of autonomous vehicles affect travel times. Initial results show that autonomous vehicles can improve their own journeys while increasing travel times for human drivers, illustrating how routing objectives influence both individual outcomes and network performance.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            RouteRL combines multi-agent reinforcement learning with microscopic traffic simulation to study route choice in traffic containing human travelers and autonomous vehicles. Its framework supports comparisons between modeled human decisions and learned routing policies, including policies with different individual or cooperative objectives. This makes it relevant to congestion research because routing decisions redistribute demand across roads and can shift delays between groups of travelers. Its main contribution is an experimental framework; the congestion benefits of a routing policy still depend on the behavioral assumptions, objectives, and traffic scenarios used. This paper fits the survey by providing a way to test whether cooperative route guidance reduces network-wide congestion more effectively than routing decisions that prioritize each vehicle’s own travel time.
+                            RouteRL combines behavioral models of human route choice with reinforcement-learning agents for autonomous vehicles in SUMO. Its experiments, including a Manhattan network, show how routing objectives and the proportion of autonomous vehicles can change travel times and the distribution of benefits between driver groups. This makes the framework useful for our survey because it allows congestion strategies to be assessed in terms of both overall efficiency and their effects on travelers outside an automated fleet. However, each agent repeats a single origin–destination trip and chooses its route before departure, leaving trip chains and rerouting during travel outside the current model.
                         </p>
                     </article>
                     <!-- Paper 7 -->
@@ -440,17 +405,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            The authors combine agent-based optimization
-                            and dynamic traffic simulation to study
-                            incentives and penalties in a travel
-                            reservation system. Experiments on the
-                            Sioux Falls network examine heterogeneous
-                            traveler responses and report improvements
-                            in selected network and travel-cost measures.
+                            This study examines whether incentives and penalties can improve participation and traffic outcomes in a travel reservation system. An agent-based model represents travelers with different values of time and travel choices, while a multiobjective optimization approach considers the interests of both travelers and system managers. Experiments on an extended Sioux Falls network evaluate changes in reservation participation, travel costs, revenue, and traffic conditions. The proposed mechanisms increase participation and revenue while reducing travel costs and improving average traffic speed in the tested scenarios, showing how traveler responses influence the effectiveness of reservation policies.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            Chen and colleagues investigate how incentives and penalties in a travel reservation system can influence demand on congested roads. Their combination of agent-based optimization and dynamic traffic simulation represents differences among travelers and examines their responses on the Sioux Falls network. The paper broadens the survey beyond signal timing and route guidance by showing how congestion management can target travelers’ decisions before traffic reaches a bottleneck. Its reported network and travel-cost benefits are relevant to demand management, although their practical significance depends on participation, compliance, and the costs of providing incentives. The paper directly fits the survey by investigating how a reservation policy can influence individual travel decisions to manage demand on congested roads, allowing comparison with strategies that control traffic after vehicles enter the network.
+                            Chen and colleagues model a travel reservation system in which incentives and penalties encourage travelers to adjust departure times and transport modes. Their Sioux Falls experiments represent differences in travelers’ values of time and report improved traffic performance and lower travel costs when these mechanisms are introduced. The paper broadens our survey by examining how congestion can be reduced through changes in demand before vehicles enter crowded roads. Because the evidence comes from simulated choices, the reported benefits depend on whether actual travelers would participate and respond to incentives as the model assumes.
                         </p>
                     </article>
                     <!-- Paper 8 -->
@@ -475,17 +434,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            FAIRLANE uses multi-agent reinforcement
-                            learning to manage access to priority lanes
-                            in mixed traffic containing connected
-                            autonomous, semi-autonomous, and human-driven
-                            vehicles. The framework considers traffic
-                            efficiency, comfort, and safety when agents
-                            learn how to use available lane space.
+                            FAIRLANE uses multi-agent reinforcement learning to manage priority lane access in traffic containing connected autonomous vehicles, standalone autonomous vehicles, and human-driven vehicles. The approach adjusts access for standalone autonomous vehicles while considering traffic efficiency, driving comfort, and safety-related measures. Simulation experiments compare the method with unmanaged lanes and lanes reserved exclusively for connected autonomous vehicles under different vehicle compositions. Priority lane management improves waiting times, speeds, and throughput in several tested settings, particularly at moderate connected-vehicle shares, while exclusive lanes can become more effective as that share increases.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            FAIRLANE applies multi-agent reinforcement learning to priority-lane management in traffic containing connected autonomous, semi-autonomous, and human-driven vehicles. It connects decisions about access to limited lane space with traffic efficiency, comfort, and safety. The paper fits the congestion topic by examining how road capacity can be allocated as different vehicle technologies share the same network. Its broader set of objectives also helps frame an important comparison: an intervention’s value depends on both overall performance and how its benefits are distributed among vehicle groups. The paper supports the survey’s investigation by treating lane access as a controllable decision, allowing assessment of whether adaptive allocation improves traffic flow while accounting for safety, comfort, and the needs of different road users.
+                            FAIRLANE uses multi-agent reinforcement learning to manage priority-lane access for semi-autonomous vehicles sharing roads with connected autonomous vehicles and human drivers. The simulations find that its benefits depend on the vehicle mix, with strong results at moderate connected-autonomous-vehicle shares and no single lane strategy performing best under every condition. This helps our survey investigate when adaptive use of existing road space can reduce waiting and improve throughput during the transition to mixed automated traffic. The safety findings require particular care because they rely on surrogate measures in SUMO rather than observed crash outcomes.
                         </p>
                     </article>
                     <!-- Paper 9 -->
@@ -509,17 +462,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            This study models repeated route choice by
-                            human drivers and coordinated
-                            autonomous-vehicle fleets on a two-route
-                            network. Different fleet objectives can
-                            improve or worsen overall network outcomes
-                            and can advantage or disadvantage human
-                            travelers.
+                            This paper studies how coordinated route choices by connected and autonomous vehicles affect human drivers and overall traffic performance. A model with two alternative routes combines human learning from previous trips with autonomous fleet decisions guided by objectives ranging from fleet benefit to broader social benefit. Experiments vary traffic demand, fleet size, and human route preferences to examine both travel times and the distribution of benefits. The results show that coordination can improve or worsen outcomes for human drivers depending on the fleet’s objective and size, so lower total travel time does not necessarily imply that all travelers benefit equally.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            Jamróz and colleagues show how the objectives of coordinated autonomous-vehicle fleets influence route choice and the outcomes experienced by human drivers. Their two-route model demonstrates that fleet coordination can improve or worsen network performance, depending on the goal being optimized. This directly supports the congestion focus by distinguishing improvements for one group of road users from improvements for the network as a whole. The simplified network makes these interactions easier to interpret, while limiting direct generalization to a complex urban network such as New York City's network. This paper fits the survey by helping explain how the objectives assigned to routing agents can determine whether a proposed congestion solution reduces total delays or transfers them to other travelers.
+                            Jamróz and colleagues use a two-route agent-based model to examine how coordinated autonomous vehicles interact with human drivers who learn from past journeys. Their results show that fleet objectives, market share, and human preferences can determine whether coordination improves overall travel times or benefits the fleet at other drivers’ expense. This is important for our survey because a congestion strategy should be judged by its effects across the network, including who gains and who experiences additional delay. The simplified network and analytical travel-time functions make these mechanisms easier to identify, but limit direct predictions for a complex city such as New York.
                         </p>
                     </article>
                     <!-- Paper 10 -->
@@ -543,17 +490,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            This study compares MATSim with faster
-                            shortest-path routing using GraphHopper as
-                            an approximation to more detailed traffic
-                            simulation. The comparison considers travel
-                            times, congestion, route similarity, and
-                            vehicle distance to assess when simplified
-                            calculations may be useful.
+                            This paper compares simplified routing calculations with agent-based traffic simulation to examine the trade-off between computational cost and model detail. Using more than three million car trips in the Washington region, the authors compare GraphHopper routing with MATSim in terms of travel times, distances, route overlap, traffic volumes, and resource requirements. The simpler approach reproduces several broad travel and network patterns while requiring substantially less computation. However, its limited representation of congestion feedback means that agreement in aggregate measures does not establish equivalence for applications requiring interactions between traffic conditions and traveler decisions.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            Khan and colleagues compare MATSim with faster routing approximations using GraphHopper, examining travel times, congestion, route similarity, and vehicle distance. The study addresses a practical modeling decision: how much simulation detail is needed to obtain useful results for a transportation problem. For congestion management, simplified methods can support initial screening, while interactions among travelers may require a more detailed model for evaluating particular interventions. Its contribution to the survey is a comparison of computational convenience with the traffic information retained or lost through simplification. The paper fits the survey by helping assess whether an inexpensive approximation is sufficient for comparing potential congestion solutions or whether a detailed agent-based model is needed to capture the interactions that determine their effectiveness.
+                            Khan and colleagues compare a simple GraphHopper routing approach with MATSim to determine how much traffic information can be reproduced with less computational effort. For more than three million car trips, GraphHopper produces broadly similar aggregate travel measures and traffic patterns, although differences remain in individual routes and congested areas. The study helps our survey assess when a fast approximation may be useful for preliminary analysis and when interactions among travelers justify a more detailed agent-based model. Since the tested routing approach does not dynamically account for congestion, similarity in average results alone does not establish that it can predict the effects of congestion interventions.
                         </p>
                     </article>
                     <!-- Paper 11 -->
@@ -578,18 +519,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            The authors develop a machine-learning
-                            surrogate for an agent-based transport
-                            model using graph and temporal
-                            representations. Experiments based on Paris
-                            MATSim scenarios predict road-level outcomes
-                            of capacity-reduction policies at a lower
-                            computational cost than repeated full
-                            simulation.
+                            This paper develops a machine learning surrogate that approximates the output of an agent-based transportation model for faster policy analysis. The model combines graph-based learning with Transformer attention to predict changes in daily traffic volumes on individual road segments following road-capacity interventions. Training and evaluation use a large collection of MATSim simulations for the Paris road network, covering more than 30,000 segments. The surrogate predicts traffic-volume changes accurately and much faster than running the full simulation, although producing the training data requires substantial computation and application to new settings would require further validation.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            Natterer and colleagues develop machine-learning surrogates that approximate an agent-based transport model’s outputs at a lower computational cost. Their Paris MATSim experiments examine road-capacity reductions, connecting the method directly to the evaluation of transport policies. For congestion studies, this approach makes it more practical to screen numerous scenarios before selecting a smaller set for detailed simulation. A key limitation is that agreement with the source simulation does not establish agreement with observed traffic, and the surrogate can inherit the source model’s assumptions and errors. The paper fits the survey by supporting faster investigation of how road-capacity policies affect congestion, while illustrating why promising predictions still require confirmation through detailed simulation and appropriate traffic data.
+                            Natterer and colleagues train machine-learning surrogates on Paris MATSim simulations to predict how road-capacity reductions redistribute traffic across street segments. Their best model reproduces simulated daily traffic-volume changes with an R² of 0.91 while evaluating scenarios far faster than the underlying simulation. This supports our survey by making it more practical to screen many policy options before examining promising congestion interventions in detail. However, daily volumes can conceal peak-hour delays, and the surrogate inherits the source simulation’s limitations while requiring new training data for different cities or policy types.
                         </p>
                     </article>
                     <!-- Paper 12 -->
@@ -612,17 +546,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            This paper presents a GPU-accelerated
-                            road-traffic agent model built with FLAME-GPU
-                            and compares its performance with CPU-based
-                            SUMO simulation. Experiments using the
-                            Isle of Wight road network investigate
-                            execution speed, vehicle population scale,
-                            and traffic representation.
+                            This paper presents a GPU-based framework for simulating large populations of individual vehicles using FLAME GPU. Vehicle agents follow a modified Krauss car-following model, and parallel execution handles vehicle updates and interactions across the road network. Benchmarks on an Isle of Wight network and two synthetic grid networks compare the framework with CPU-based SUMO in terms of runtime and vehicle-processing performance. The framework achieves substantial speed improvements in the tested cases, while differences in vehicle insertion and supported traffic-management features qualify the comparison between the two simulators.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            Smilovitskiy and colleagues use FLAME-GPU to accelerate agent-based road-traffic simulation and compare its performance with SUMO on the Isle of Wight network. The paper addresses the computational demands of representing large vehicle populations and running repeated traffic experiments. This supports congestion research by making larger scenario comparisons and repeated runs more practical. Execution speed alone does not establish equivalent traffic realism, so the performance comparison must be interpreted alongside differences in hardware and behavioral representation. This paper fits the survey as a computational approach that could expand the range of congestion interventions and demand conditions researchers can test, supporting more extensive evaluation rather than proposing a traffic-control policy itself.
+                            Smilovitskiy and colleagues use GPU parallelism to accelerate simulations of individual vehicles on the Isle of Wight road network and synthetic grids. Their benchmarks show substantial runtime improvements over SUMO as vehicle populations increase, demonstrating how computing architecture can expand the scale of agent-based traffic experiments. For our survey, this offers a practical way to investigate more demand conditions and congestion scenarios within a limited computing budget. However, the framework lacks some SUMO features, including adaptive traffic lights, so faster execution should not be treated as evidence of equivalent behavioral realism or control capabilities.
                         </p>
                     </article>
                 </section>
@@ -654,18 +582,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            This MATSim study evaluates a hypothetical
-                            mixed-traffic automated-vehicle corridor
-                            between the Staten Island Expressway and the
-                            Hugh L. Carey Tunnel. Reduced-headway
-                            scenarios alter modeled link capacity, and
-                            the reported comparison shows why additional
-                            corridor capacity can create congestion on
-                            connecting roads.
+                            This study uses an agent-based model of New York City to assess the wider effects of introducing an automated vehicle corridor in mixed traffic. The MATSim scenarios represent automation through changes in vehicle headways and road capacity, then examine resulting changes in traffic conditions, travel patterns, and mode choice. Comparisons between corridor scenarios show that additional capacity does not improve conditions uniformly across the network, with benefits in some locations accompanied by congestion elsewhere. The results indicate that corridor design must account for connecting roads and network-wide responses, while the tested scenarios produce relatively limited changes in mode choice.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            Alnajjar and colleagues use MATSim to evaluate a hypothetical automated-vehicle corridor linking the Staten Island Expressway and the Hugh L. Carey Tunnel. Their scenarios show that increasing corridor capacity can transfer congestion to connecting roads, highlighting the importance of evaluating effects across the wider network. This is especially relevant to the survey’s New York City focus because improvements within a corridor do not necessarily produce equivalent benefits for surrounding traffic. Automated-vehicle effects are represented through headway-related link-capacity assumptions, so the results concern network responses to those assumptions rather than detailed autonomous driving behavior. The paper directly fits the survey by evaluating a proposed congestion intervention in New York City and demonstrating how agent-based analysis can reveal unintended bottlenecks that a corridor-only assessment might overlook.
+                            Alnajjar and colleagues use MATSim to examine how a hypothetical automated-vehicle corridor would affect travel across New York City. Their scenarios produce benefits on some roads, including the Lincoln Tunnel, while increasing delays elsewhere, showing that corridor improvements can redistribute congestion across the network. This directly supports our survey’s NYC focus by demonstrating why a proposed intervention must be assessed beyond the roads it is designed to improve. Automated-vehicle effects are represented through capacity assumptions rather than detailed driving behavior, so the findings should be interpreted as scenario-dependent network responses.
                         </p>
                     </article>
                     <!-- Paper 14 -->
@@ -689,17 +610,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            The authors use the CMA-ES evolutionary
-                            algorithm to calibrate route probabilities
-                            for SUMO's routeSampler under limited
-                            observation availability. Experiments with
-                            the Mannheim SUMO Traffic Model report
-                            improved demand calibration over baseline
-                            methods for shorter and full-day scenarios.
+                            This paper addresses the calibration of traffic simulations when only limited observations are available. The method combines routes derived from GPS data with sparse traffic counts and uses the CMA-ES evolutionary algorithm to adjust route probabilities supplied to SUMO’s routeSampler. Experiments on Mannheim scenarios evaluate whether the resulting simulated traffic better matches observed vehicle counts over different time periods. The approach improves agreement with those counts relative to the tested baseline, demonstrating a practical use of evolutionary optimization for demand calibration without establishing that the estimated routes uniquely reproduce actual traveler behavior.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            Kappenberger and Stuckenschmidt use the CMA-ES evolutionary algorithm to calibrate route probabilities in SUMO when traffic observations are limited. Their Mannheim experiments address the difficulty of constructing realistic travel demand from incomplete data. This matters for congestion management because inaccurate demand can distort both the location of bottlenecks and the predicted benefits of an intervention. The paper strengthens the survey’s treatment of calibration, while sparse observations leave uncertainty about how well a fitted scenario represents traffic beyond the measured locations. This paper fits the survey by addressing a prerequisite for evaluating congestion solutions: constructing plausible traffic demand so that comparisons of signal timing, routing, or network changes are based on credible conditions.
+                            Kappenberger and Stuckenschmidt combine GPS-derived routes with an evolutionary optimization method to calibrate SUMO demand against limited traffic counts in Mannheim. Their approach improves agreement between simulated and observed counts, providing a practical starting point when detailed origin–destination data are unavailable. This matters for our survey because misleading demand estimates can produce unrealistic bottlenecks and distort the predicted benefits of congestion interventions. However, matching counts at observed locations does not establish that the inferred routes are correct, and calibration on a single date leaves performance on other days uncertain.
                         </p>
                     </article>
                     <!-- Paper 15 -->
@@ -725,17 +640,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Summary:</strong>
-                            The authors' reproducibility materials
-                            describe DEv-CF, a discrete-event
-                            car-following model implemented in Java
-                            using fwkDEVS. Experiments compare its
-                            vehicle behavior with the Intelligent
-                            Driver Model in SUMO and compare execution
-                            times as the simulated workload increases.
+                            This paper presents DEvCF, a microscopic car-following simulator that updates vehicle states through discrete events rather than at fixed time intervals. Implemented with fwkDEVSJava, the model uses interacting components to generate vehicles, represent road traffic, and collect simulation outputs. Experiments on a 20-kilometer road compare its performance with SUMO’s Intelligent Driver Model under the same demand inputs, including tests involving up to one million vehicles. DEvCF runs faster on average and produces fewer output records in these benchmarks, although its simplified treatment of acceleration and deceleration limits direct comparisons of behavioral detail.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            The authors’ reproducibility materials describe DEv-CF, a discrete-event car-following model implemented in Java using fwkDEVS. Comparisons with SUMO’s Intelligent Driver Model address vehicle behavior and execution time as the simulation workload increases. This approach is relevant to congestion modeling because it connects individual vehicle interactions with the computational demands of microscopic simulation. It also provides a methodological reference for a future DEVSJAVA implementation, although fwkDEVS is a separate framework and simulator agreement alone does not establish agreement with observed traffic. This paper fits the survey by informing how an event-based model could represent the vehicle interactions underlying queue formation and traffic flow, providing a possible basis for later congestion experiments rather than a demonstrated congestion-reduction strategy.
+                            Kieu and colleagues introduce DEv-CF, a car-following model that updates vehicle dynamics at relevant events rather than at every fixed time step. Implemented in fwkDEVS, it runs about 2.9 times faster than SUMO in the reported large-scale tests, but simplifies acceleration and deceleration and is evaluated on a single-road setting. The paper supports our survey by explaining how computational savings can be balanced against the detail needed to represent vehicle interactions underlying congestion. Its DEVS structure also provides a useful reference for a future DEVSJAVA implementation, although agreement with SUMO does not by itself validate the model against observed traffic.
                         </p>
                     </article>
                     <!-- Paper 16 -->
@@ -755,18 +664,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            DiTAT combines roadside-camera traffic
-                            observations with a SUMO digital twin to
-                            evaluate candidate traffic-light settings.
-                            Its repeated observation, simulation, and
-                            control cycle is intended to adapt signal
-                            choices to changing traffic, with
-                            demonstrations using real-world traffic
-                            scenarios.
+                            This paper proposes DiTAT, a traffic-control system that uses camera observations to construct and update a simulated representation of an intersection. Vehicle detection and tracking provide inputs to a SUMO digital twin, which evaluates alternative signal settings and selects a configuration for a subsequent control interval. The study tests the approach using two recorded traffic videos from an intersection in Bellevue and compares outcomes across several decision intervals. Some adaptive configurations improve simulated throughput and travel times, with performance depending on the update interval and observed demand; the reported evaluation is based on recorded data rather than a live municipal deployment.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            Pradhananga and colleagues combine roadside-camera observations with a SUMO digital twin to evaluate alternative traffic-signal settings. The repeated observation, simulation, and control cycle connects traffic modeling with decisions that respond to changing conditions. The paper fits the congestion topic by using simulation to support signal adjustments rather than only to compare fixed scenarios offline. Its practical value depends on the accuracy of the observed traffic state and whether candidate settings can be evaluated quickly enough to remain relevant to current conditions. This paper directly supports the survey by investigating how observed traffic and simulated alternatives can guide signal-control decisions intended to relieve congestion as it develops.
+                            Pradhananga and colleagues combine vehicle detections from traffic videos with a SUMO digital twin that compares alternative signal settings for the next control interval. Their evaluation uses recordings from a Bellevue intersection and shows that selected adaptive settings can improve throughput and travel time relative to fixed timing. This connects directly to our survey by demonstrating how observed traffic can inform simulation-based decisions intended to relieve congestion as conditions change. However, the reported evaluation is limited to short recordings from one intersection, so it does not establish the benefits of continuous deployment across an urban network.
                         </p>
                     </article>
                     <!-- Paper 17 -->
@@ -791,17 +693,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            This paper improves the MATSim Open Berlin
-                            scenario through updated scenario generation
-                            and calibration methods. Its evaluation
-                            compares simulated behavior with several
-                            sources of transport evidence and identifies
-                            remaining challenges in representing parts
-                            of urban travel demand.
+                            This paper describes improvements to the open MATSim Berlin scenario, focusing on travel-demand generation, data integration, and calibration. The updated scenario incorporates revised activity patterns and commercial traffic, together with automated procedures for calibrating mode choice. Evaluation compares simulated outcomes with travel surveys, routing-based travel-time estimates, and stationary traffic counts. The changes improve agreement with observed mode shares and several travel distributions, although discrepancies remain in road traffic volumes, particularly where external and commercial travel demand are difficult to represent.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            Rakow and colleagues improve the MATSim Open Berlin scenario through updated scenario generation and calibration methods. Their comparison with transport evidence highlights the work required to represent baseline travel demand and behavior before evaluating policy changes. This is relevant to congestion research because an intervention’s predicted benefits depend on the realism of the traffic conditions against which it is tested. The study provides a useful reference for developing a New York City scenario, although local demand, network, and travel-behavior data would be needed to support that application. The paper fits the survey by showing how a calibrated city-scale model can provide a credible starting point for comparing congestion interventions and assessing their effects across an entire urban travel system.
+                            Rakow and colleagues improve the Open Berlin MATSim scenario through updated demand generation and automated calibration of transport-mode choices. The revised model closely matches survey mode shares and improves trip-distance distributions, but still underestimates traffic volumes, particularly on motorways, where some travel demand is incompletely represented. This is useful for our survey because reliable congestion analysis requires a credible baseline before changes to infrastructure or travel policy can be evaluated. The study also shows why calibration should use several kinds of evidence: matching mode shares does not necessarily mean that road volumes and travel times are equally accurate.
                         </p>
                     </article>
                     <!-- Paper 18 -->
@@ -827,16 +723,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            Autonomic CityMoS adjusts the number of
-                            computing nodes used by a distributed
-                            microscopic traffic simulation. Predictive
-                            cost models and partition information guide
-                            resource changes to maintain a target
-                            simulation pace as traffic workloads vary.
+                            This paper investigates how a distributed microscopic traffic simulation can adjust its computing resources as traffic volumes and spatial patterns change. The proposed CityMoS extension monitors simulation progress and uses cost models to decide when to change the number of computing nodes. A partition-aware model additionally considers vehicle distribution, communication, and the cost of moving work between nodes, with experiments on grid and non-grid networks. The results show that accounting for these factors can improve resource decisions under changing demand, while the benefits depend on the overhead of reconfiguration and the required simulation pace.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            Siguenza-Torres and colleagues adapt the computing resources assigned to CityMoS as the workload of a distributed microscopic traffic simulation changes. Predictive cost models and partition information guide adjustments intended to maintain a target simulation pace. The approach supports congestion research by addressing the computing resources needed for large networks and repeated scenario studies. Its main trade-off is between the benefits of adapting resources and the overhead of reallocating work, making it a contribution to simulation efficiency rather than a congestion-control strategy itself. This paper fits the survey by addressing how large congestion experiments can remain computationally manageable as traffic workloads change, supporting investigation of interventions beyond small or isolated road networks.
+                            Siguenza-Torres and colleagues extend CityMoS so that a distributed traffic simulation can adjust its computing resources as traffic volumes and movement patterns change. Their partition-aware cost model accounts for vehicles moving between computing partitions and responds more effectively to changing workloads than a simpler model based on vehicle and node counts. This supports our survey by addressing the practical computing demands of large congestion experiments with uneven traffic activity across a network. The benefits are constrained by the cost of saving and redistributing simulation state, so resource adaptation does not always reduce total computing effort.
                         </p>
                     </article>
                     <!-- Paper 19 -->
@@ -862,17 +753,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            This technical report combines Deep
-                            Q-Networks, autoencoders, and hyperparameter
-                            optimization to study traffic-light timing.
-                            Simulated single-intersection,
-                            multiple-intersection, and protected-left-turn
-                            scenarios show improvements in selected
-                            waiting-time or vehicle-speed measures.
+                            This report investigates adaptive traffic control using deep reinforcement learning to reduce delays and improve vehicle movement through intersections. Its main approach combines deep Q-networks with an autoencoder that compresses traffic-state information, alongside parameter tuning and the use of average vehicle speed as a traffic-performance indicator. Simulation studies examine single-intersection control, multiple-intersection control, and a separate application involving left-turn movements and vehicle communication. The proposed approaches improve waiting-time or speed measures relative to the tested baselines, while their effectiveness in more complex conditions and with live traffic data remains to be established.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            Liu combines Deep Q-Networks, autoencoders, and hyperparameter optimization to investigate adaptive traffic-signal timing. Simulated single-intersection, multiple-intersection, and protected-left-turn scenarios connect the method with waiting-time and vehicle-speed measures. The report directly supports the congestion topic by examining how learned control decisions can improve traffic movement under the tested conditions. Its combination of compressed traffic-state information and learned signal control provides a useful comparison with approaches centered on communication among controllers or repeated digital-twin simulation. The paper fits the survey as an applied investigation of congestion reduction through adaptive signal control, linking the controller’s representation of traffic conditions to measurable changes in waiting and vehicle movement.
+                            Liu investigates reinforcement-learning approaches to traffic management, including a Deep Q-Network signal controller paired with an autoencoder that compresses traffic-state information. In the reported single-intersection experiment, this combination reduces average waiting time from 340 seconds for the baseline to 212 seconds, providing a concrete example of the benefits of learned control in simulation. The report supports our survey by connecting the controller’s representation of traffic conditions with measurable congestion outcomes and offering a comparison with approaches that emphasize communication among signal agents. Its results still require testing with more varied traffic, pedestrians, and real-world observations before similar improvements can be expected in deployment.
                         </p>
                     </article>
                     <!-- Paper 20 -->
@@ -901,17 +786,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            This FHWA report uses naturalistic freeway
-                            driving data to define calibration targets
-                            for vehicle spacing, acceleration, and jerk.
-                            It also presents a tool for comparing
-                            simulated car-following trajectories with
-                            observed behavior, supplementing conventional
-                            aggregate traffic calibration.
+                            This report develops methods for checking and calibrating microscopic freeway simulations using observed driver behavior. Drawing on more than 1,600 hours of naturalistic driving data from over 1,700 drivers, it examines measures such as vehicle spacing, acceleration, and jerk across different speed ranges. The accompanying Naturalistic Assessments of Car-Following Trajectories tool compares simulated trajectories with empirical distributions to identify differences in modeled behavior. These measures supplement conventional checks based on traffic flow, travel times, and queues, providing a more detailed basis for assessing whether a simulation reproduces how individual drivers follow other vehicles.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            Medina and colleagues use naturalistic driving data to establish calibration targets for vehicle spacing, acceleration, and jerk in microscopic traffic simulation. Their trajectory-comparison tool supplements aggregate measures by examining whether simulated vehicle interactions resemble observed driving behavior. This matters for congestion studies because car-following assumptions influence queue formation and discharge, which can change the predicted effects of an intervention. The report strengthens the survey’s validation criteria, although its focus on freeway passenger vehicles in daytime and good weather limits direct transfer to other urban driving conditions. This paper fits the survey by providing a way to assess whether models used to investigate congestion solutions represent realistic driving behavior, helping distinguish credible predicted improvements from effects caused by poorly calibrated vehicle interactions.
+                            Medina and colleagues use naturalistic driving data to establish reference distributions for vehicle spacing, acceleration, and changes in acceleration. Their comparison tool checks simulated trajectories against these observations, supplementing calibration based only on aggregate travel times, delays, and queues without automatically selecting model parameters. This strengthens our survey by providing a way to assess whether predicted congestion improvements depend on realistic vehicle interactions or on poorly calibrated driving behavior. The reference data cover passenger cars on freeways in daytime and good weather, so their application to urban intersections or other conditions requires further validation.
                         </p>
                     </article>
                 </section>
