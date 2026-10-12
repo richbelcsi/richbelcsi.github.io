@@ -168,12 +168,13 @@
                 <a href="bibliography.html">Bibliography</a>
                 <a href="materials.html">Project Materials</a>
                 <a href="annotations.html" aria-current="page">Annotations</a>
+                <a href="review.html">Detailed Review</a>
             </nav>
         </div>
     </header>
     <main id="main" tabindex="-1">
         <section class="page-heading shell">
-            <p class="eyebrow">October 15 / Annotated Shortlist</p>
+            <p class="eyebrow">04 / Annotations</p>
             <h1>Selected Papers and Annotations</h1>
             <p class="lead">
                 Agent-based modeling and simulation for understanding and
@@ -434,11 +435,11 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            FAIRLANE uses multi-agent reinforcement learning to manage priority lane access in traffic containing connected autonomous vehicles, standalone autonomous vehicles, and human-driven vehicles. The approach adjusts access for standalone autonomous vehicles while considering traffic efficiency, driving comfort, and safety-related measures. Simulation experiments compare the method with unmanaged lanes and lanes reserved exclusively for connected autonomous vehicles under different vehicle compositions. Priority lane management improves waiting times, speeds, and throughput in several tested settings, particularly at moderate connected-vehicle shares, while exclusive lanes can become more effective as that share increases.
+                            This paper investigates how priority lanes can be shared effectively among connected autonomous vehicles, semi-autonomous vehicles, and human-driven vehicles. The authors propose FAIRLANE, a multi-agent reinforcement learning framework that adapts lane-access decisions while considering traffic efficiency, driving comfort, and safety-related measures. Simulation experiments compare its performance with alternative lane-management strategies across different vehicle compositions. The results show reduced waiting times and increased average speeds in several tested settings, particularly when connected autonomous vehicles make up less than 40% of traffic and semi-autonomous vehicles account for half of the remaining vehicles.                        
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
-                            FAIRLANE uses multi-agent reinforcement learning to manage priority-lane access for semi-autonomous vehicles sharing roads with connected autonomous vehicles and human drivers. The simulations find that its benefits depend on the vehicle mix, with strong results at moderate connected-autonomous-vehicle shares and no single lane strategy performing best under every condition. This helps our survey investigate when adaptive use of existing road space can reduce waiting and improve throughput during the transition to mixed automated traffic. The safety findings require particular care because they rely on surrogate measures in SUMO rather than observed crash outcomes.
+                            The paper’s main contribution to our survey is its treatment of road-space allocation as an interaction among travelers with different vehicle capabilities. It supports the investigation of congestion reduction by examining whether more flexible access to existing lanes can make better use of available capacity during the transition to automated traffic. The dependence of its results on vehicle composition shows why a lane policy should be evaluated under several adoption scenarios before being recommended for a city. Its safety conclusions are more limited because they rely on approximate measures within SUMO rather than observed crash outcomes.                        
                         </p>
                     </article>
                     <!-- Paper 9 -->
@@ -639,7 +640,7 @@
                             Full text and PDF available through the DOI link above.
                         </p>
                         <p class="abstract-summary">
-                            <strong>Summary:</strong>
+                            <strong>Abstract Summary:</strong>
                             This paper presents DEvCF, a microscopic car-following simulator that updates vehicle states through discrete events rather than at fixed time intervals. Implemented with fwkDEVSJava, the model uses interacting components to generate vehicles, represent road traffic, and collect simulation outputs. Experiments on a 20-kilometer road compare its performance with SUMO’s Intelligent Driver Model under the same demand inputs, including tests involving up to one million vehicles. DEvCF runs faster on average and produces fewer output records in these benchmarks, although its simplified treatment of acceleration and deceleration limits direct comparisons of behavioral detail.
                         </p>
                         <p class="brief-comments">
