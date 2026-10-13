@@ -87,74 +87,86 @@
             </p>
 
             <p class="muted">
-                60 bibliography entries | 20 selected for detailed reading.
-                <a href="annotations.html">View the 4/8/8 shortlist and annotations</a>.
+                60 publications, including
+                <a href="annotations.html">20 selected papers with annotations</a>.
             </p>
         </section>
 
         <div class="shell bibliography-layout">
             <div class="bibliography-main">
-                <form id="bibliography-controls"
-                      class="controls"
-                      role="search"
-                      hidden>
-
+                <form
+                    id="bibliography-controls"
+                    class="controls"
+                    role="search"
+                    aria-label="Search bibliography"
+                    hidden
+                >
                     <div class="search-field">
                         <label for="paper-search">
                             Search the bibliography
                         </label>
 
-                        <input id="paper-search"
-                               type="search"
-                               placeholder="Try route choice, Nguyen, or simulation…"
-                               autocomplete="off">
+                        <input
+                            id="paper-search"
+                            type="search"
+                            placeholder="Search authors, titles, or keywords"
+                            autocomplete="off"
+                        >
                     </div>
 
                     <div class="filter-row">
                         <div>
-                            <label for="paper-year">Publication Year</label>
+                            <label for="paper-year">Publication year</label>
 
                             <select id="paper-year">
-                                <option value="all">All Years</option>
+                                <option value="all">All years</option>
                             </select>
                         </div>
 
                         <div>
-                            <label for="paper-sort">Sort By</label>
+                            <label for="paper-sort">Sort by</label>
 
                             <select id="paper-sort">
                                 <option value="author">Author A–Z</option>
-                                <option value="newest">Newest First</option>
-                                <option value="oldest">Oldest First</option>
+                                <option value="newest">Newest first</option>
+                                <option value="oldest">Oldest first</option>
                                 <option value="title">Title A–Z</option>
                             </select>
                         </div>
 
                         <button type="reset" class="button secondary">
-                            Reset
+                            Clear filters
                         </button>
                     </div>
+
+                    <label class="selection-filter" for="selected-only">
+                        <input type="checkbox" id="selected-only">
+                        <span>Selected papers only</span>
+                    </label>
                 </form>
 
                 <div class="results-bar">
-                    <p id="result-count"
-                       role="status"
-                       aria-live="polite"
-                       aria-atomic="true">
-                        Showing all 60 entries.
+                    <p
+                        id="result-count"
+                        role="status"
+                        aria-live="polite"
+                        aria-atomic="true"
+                    >
+                        Showing 60 of 60 papers
                     </p>
 
-                    <button type="button"
-                            class="text-button"
-                            id="print-list"
-                            hidden>
-                        Print List
+                    <button
+                        type="button"
+                        class="text-button"
+                        id="print-list"
+                        hidden
+                    >
+                        Print / Save as PDF
                     </button>
                 </div>
 
                 <p id="empty-state" class="empty-state" hidden>
-                    No papers match your search. Try a different
-                    keyword or reset the filters.
+                    No papers match your search. Try another keyword or clear the filters.
                 </p>
 
                 <ol class="bibliography" id="paper-list">
@@ -172,11 +184,11 @@
                             <a href="https://doi.org/10.1016/j.simpat.2025.103100">https://doi.org/10.1016/j.simpat.2025.103100</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                             <p class="selection-link">
-                                <a href="annotations.html#paper-1">Selected for detailed reading | View annotation</a>
+                                <span class="selection-badge">Selected for review</span>
+                                <a href="annotations.html#paper-1">View annotation</a>
                             </p>
                         </article>
                     </li>
@@ -194,10 +206,11 @@
                             <a href="https://doi.org/10.1016/j.softx.2025.102279">https://doi.org/10.1016/j.softx.2025.102279</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                             <p class="selection-link">
-                                <a href="annotations.html#paper-2">Selected for detailed reading | View annotation</a>
+                                <span class="selection-badge">Selected for review</span>
+                                <a href="annotations.html#paper-2">View annotation</a>
                             </p>
                         </article>
                     </li>
@@ -215,10 +228,11 @@
                             <a href="https://doi.org/10.1016/j.procs.2024.06.081">https://doi.org/10.1016/j.procs.2024.06.081</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                             <p class="selection-link">
-                                <a href="annotations.html#paper-3">Selected for detailed reading | View annotation</a>
+                                <span class="selection-badge">Selected for review</span>
+                                <a href="annotations.html#paper-3">View annotation</a>
                             </p>
                         </article>
                     </li>
@@ -236,8 +250,7 @@
                             <a href="https://doi.org/10.1016/j.trc.2017.09.020">https://doi.org/10.1016/j.trc.2017.09.020</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -255,8 +268,7 @@
                             <a href="https://doi.org/10.1007/s12650-019-00557-6">https://doi.org/10.1007/s12650-019-00557-6</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -275,11 +287,12 @@
                             </p>
                             <p class="paper-access">
                                 <a href="https://silo.tips/download/a-distributed-approach-for-coordination-of-traffic-signal-agents">
-                                    Download & Read PDF version
+                                    Download & Read PDF version.
                                 </a>
                             </p>
                             <p class="selection-link">
-                                <a href="annotations.html#paper-6">Selected for detailed reading | View annotation</a>
+                                <span class="selection-badge">Selected for review</span>
+                                <a href="annotations.html#paper-6">View annotation</a>
                             </p>
                         </article>
                     </li>
@@ -297,8 +310,7 @@
                             <a href="https://doi.org/10.1017/S0269888913000118">https://doi.org/10.1017/S0269888913000118</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -316,8 +328,7 @@
                             <a href="https://doi.org/10.1016/j.simpat.2021.102395">https://doi.org/10.1016/j.simpat.2021.102395</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -335,8 +346,7 @@
                             <a href="https://doi.org/10.1016/j.gmod.2013.07.003">https://doi.org/10.1016/j.gmod.2013.07.003</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -355,11 +365,12 @@
                             </p>
                             <p class="paper-access">
                                 <a href="https://svn.vsp.tu-berlin.de/repos/public-svn/publications/vspwp/2004/04-04/30nov04.pdf">
-                                    Read PDF version
+                                    PDF version provided.
                                 </a>
                             </p>
                             <p class="selection-link">
-                                <a href="annotations.html#paper-10">Selected for detailed reading | View annotation</a>
+                                <span class="selection-badge">Selected for review</span>
+                                <a href="annotations.html#paper-10">View annotation</a>
                             </p>
                         </article>
                     </li>
@@ -377,10 +388,11 @@
                             <a href="https://doi.org/10.3390/app15031393">https://doi.org/10.3390/app15031393</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                             <p class="selection-link">
-                                <a href="annotations.html#paper-11">Selected for detailed reading | View annotation</a>
+                                <span class="selection-badge">Selected for review</span>
+                                <a href="annotations.html#paper-11">View annotation</a>
                             </p>
                         </article>
                     </li>
@@ -398,8 +410,7 @@
                             <a href="https://doi.org/10.1016/j.trd.2020.102513">https://doi.org/10.1016/j.trd.2020.102513</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -417,10 +428,11 @@
                             <a href="https://doi.org/10.1016/j.trc.2024.104919">https://doi.org/10.1016/j.trc.2024.104919</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                             <p class="selection-link">
-                                <a href="annotations.html#paper-13">Selected for detailed reading | View annotation</a>
+                                <span class="selection-badge">Selected for review</span>
+                                <a href="annotations.html#paper-13">View annotation</a>
                             </p>
                         </article>
                     </li>
@@ -438,8 +450,7 @@
                             <a href="https://doi.org/10.1016/j.simpat.2019.101994">https://doi.org/10.1016/j.simpat.2019.101994</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -457,7 +468,7 @@
                             <a href="https://doi.org/10.1016/j.trc.2017.09.018">https://doi.org/10.1016/j.trc.2017.09.018</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                         </article>
                     </li>
@@ -475,7 +486,7 @@
                             <a href="https://doi.org/10.37868/hsd.v4i2.149">https://doi.org/10.37868/hsd.v4i2.149</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                         </article>
                     </li>
@@ -493,7 +504,7 @@
                             <a href="https://doi.org/10.1177/0020294013510472">https://doi.org/10.1177/0020294013510472</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                         </article>
                     </li>
@@ -511,7 +522,7 @@
                             <a href="https://doi.org/10.1016/j.procs.2024.06.085">https://doi.org/10.1016/j.procs.2024.06.085</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                         </article>
                     </li>
@@ -529,7 +540,7 @@
                             <a href="https://doi.org/10.1111/tgis.12940">https://doi.org/10.1111/tgis.12940</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                         </article>
                     </li>
@@ -547,10 +558,11 @@
                             <a href="https://doi.org/10.1038/s41598-025-90783-w">https://doi.org/10.1038/s41598-025-90783-w</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                             <p class="selection-link">
-                                <a href="annotations.html#paper-20">Selected for detailed reading | View annotation</a>
+                                <span class="selection-badge">Selected for review</span>
+                                <a href="annotations.html#paper-20">View annotation</a>
                             </p>
                         </article>
                     </li>
@@ -568,8 +580,7 @@
                             <a href="https://doi.org/10.1016/j.compenvurbsys.2012.03.006">https://doi.org/10.1016/j.compenvurbsys.2012.03.006</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -587,8 +598,7 @@
                             <a href="https://doi.org/10.1007/s11116-017-9776-0">https://doi.org/10.1007/s11116-017-9776-0</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -606,10 +616,11 @@
                             <a href="https://doi.org/10.52825/scp.v6i.2590">https://doi.org/10.52825/scp.v6i.2590</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                             <p class="selection-link">
-                                <a href="annotations.html#paper-23">Selected for detailed reading | View annotation</a>
+                                <span class="selection-badge">Selected for review</span>
+                                <a href="annotations.html#paper-23">View annotation</a>
                             </p>
                         </article>
                     </li>
@@ -627,7 +638,7 @@
                             <a href="https://proceedings.iclr.cc/paper_files/paper/2025/hash/3107ddd4209e5f93c0371425763041a3-Abstract-Conference.html">https://proceedings.iclr.cc/paper_files/paper/2025/hash/3107ddd4209e5f93c0371425763041a3-Abstract-Conference.html</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                         </article>
                     </li>
@@ -645,10 +656,11 @@
                             <a href="https://doi.org/10.1007/s43762-024-00145-x">https://doi.org/10.1007/s43762-024-00145-x</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                             <p class="selection-link">
-                                <a href="annotations.html#paper-25">Selected for detailed reading | View annotation</a>
+                                <span class="selection-badge">Selected for review</span>
+                                <a href="annotations.html#paper-25">View annotation</a>
                             </p>
                         </article>
                     </li>
@@ -666,10 +678,11 @@
                             <a href="https://doi.org/10.1145/3726301.3728409">https://doi.org/10.1145/3726301.3728409</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                             <p class="selection-link">
-                                <a href="annotations.html#paper-26">Selected for detailed reading | View annotation</a>
+                                <span class="selection-badge">Selected for review</span>
+                                <a href="annotations.html#paper-26">View annotation</a>
                             </p>
                         </article>
                     </li>
@@ -687,8 +700,7 @@
                             <a href="https://doi.org/10.1016/j.autcon.2010.05.005">https://doi.org/10.1016/j.autcon.2010.05.005</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -706,8 +718,7 @@
                             <a href="https://doi.org/10.1007/s10489-015-0733-3">https://doi.org/10.1007/s10489-015-0733-3</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -726,11 +737,12 @@
                             </p>
                             <p class="paper-access">
                                 <a href="https://rosap.ntl.bts.gov/view/dot/84808/dot_84808_DS1.pdf">
-                                    Download & Read PDF version
+                                    PDF version provided.
                                 </a>
                             </p>
                             <p class="selection-link">
-                                <a href="annotations.html#paper-29">Selected for detailed reading | View annotation</a>
+                                <span class="selection-badge">Selected for review</span>
+                                <a href="annotations.html#paper-29">View annotation</a>
                             </p>
                         </article>
                     </li>
@@ -748,7 +760,7 @@
                             <a href="https://doi.org/10.3390/su12104117">https://doi.org/10.3390/su12104117</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                         </article>
                     </li>
@@ -766,8 +778,7 @@
                             <a href="https://doi.org/10.1016/j.simpat.2009.09.007">https://doi.org/10.1016/j.simpat.2009.09.007</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -785,7 +796,7 @@
                             <a href="https://doi.org/10.3390/s20010150">https://doi.org/10.3390/s20010150</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                         </article>
                     </li>
@@ -803,7 +814,7 @@
                             <a href="https://doi.org/10.52825/scp.v6i.2628">https://doi.org/10.52825/scp.v6i.2628</a>.
                             </p>
                             <p class="paper-access">
-                                Download & Read PDF version
+                                Download & Read PDF version.
                             </p>
                         </article>
                     </li>
@@ -821,8 +832,7 @@
                             <a href="https://doi.org/10.1016/j.simpat.2018.09.005">https://doi.org/10.1016/j.simpat.2018.09.005</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -839,8 +849,14 @@
                             
                             <a href="https://rosap.ntl.bts.gov/view/dot/74233">https://rosap.ntl.bts.gov/view/dot/74233</a>.
                             </p>
+                            <p class="paper-access">
+                                <a href="https://rosap.ntl.bts.gov/view/dot/74233/dot_74233_DS1.pdf">
+                                    PDF version provided.
+                                </a>
+                            </p>
                             <p class="selection-link">
-                                <a href="annotations.html#paper-35">Selected for detailed reading | View annotation</a>
+                                <span class="selection-badge">Selected for review</span>
+                                <a href="annotations.html#paper-35">View annotation</a>
                             </p>
                         </article>
                     </li>
@@ -858,7 +874,7 @@
                             <a href="https://doi.org/10.3390/app13063499">https://doi.org/10.3390/app13063499</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                         </article>
                     </li>
@@ -876,7 +892,7 @@
                             <a href="https://doi.org/10.5784/35-1-605">https://doi.org/10.5784/35-1-605</a>.
                             </p>
                             <p class="paper-access">
-                                Download & Read PDF version
+                                Download & Read PDF version.
                             </p>
                         </article>
                     </li>
@@ -894,8 +910,7 @@
                             <a href="https://doi.org/10.1007/s11116-020-10106-y">https://doi.org/10.1007/s11116-020-10106-y</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -913,10 +928,11 @@
                             <a href="https://doi.org/10.1016/j.trc.2025.105360">https://doi.org/10.1016/j.trc.2025.105360</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                             <p class="selection-link">
-                                <a href="annotations.html#paper-39">Selected for detailed reading | View annotation</a>
+                                <span class="selection-badge">Selected for review</span>
+                                <a href="annotations.html#paper-39">View annotation</a>
                             </p>
                         </article>
                     </li>
@@ -934,7 +950,7 @@
                             <a href="https://doi.org/10.1016/j.trip.2021.100486">https://doi.org/10.1016/j.trip.2021.100486</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                         </article>
                     </li>
@@ -952,8 +968,7 @@
                             <a href="https://doi.org/10.1016/j.simpat.2021.102327">https://doi.org/10.1016/j.simpat.2021.102327</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -971,8 +986,7 @@
                             <a href="https://doi.org/10.1016/j.trc.2020.102859">https://doi.org/10.1016/j.trc.2020.102859</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -990,10 +1004,11 @@
                             <a href="https://doi.org/10.52825/scp.v6i.2619">https://doi.org/10.52825/scp.v6i.2619</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                             <p class="selection-link">
-                                <a href="annotations.html#paper-43">Selected for detailed reading | View annotation</a>
+                                <span class="selection-badge">Selected for review</span>
+                                <a href="annotations.html#paper-43">View annotation</a>
                             </p>
                         </article>
                     </li>
@@ -1011,10 +1026,11 @@
                             <a href="https://doi.org/10.1016/j.trpro.2025.04.091">https://doi.org/10.1016/j.trpro.2025.04.091</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                             <p class="selection-link">
-                                <a href="annotations.html#paper-44">Selected for detailed reading | View annotation</a>
+                                <span class="selection-badge">Selected for review</span>
+                                <a href="annotations.html#paper-44">View annotation</a>
                             </p>
                         </article>
                     </li>
@@ -1033,11 +1049,12 @@
                             </p>
                             <p class="paper-access">
                                 <a href="https://svn.vsp.tu-berlin.de/repos/public-svn/publications/kn-old/ch-trb/ch-trb.pdf">
-                                    Read PDF version
+                                    PDF version provided.
                                 </a>
                             </p>
                             <p class="selection-link">
-                                <a href="annotations.html#paper-45">Selected for detailed reading | View annotation</a>
+                                <span class="selection-badge">Selected for review</span>
+                                <a href="annotations.html#paper-45">View annotation</a>
                             </p>
                         </article>
                     </li>
@@ -1055,7 +1072,7 @@
                             <a href="https://doi.org/10.1007/s11067-021-09516-x">https://doi.org/10.1007/s11067-021-09516-x</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                         </article>
                     </li>
@@ -1073,7 +1090,7 @@
                             <a href="https://doi.org/10.1371/journal.pone.0281658">https://doi.org/10.1371/journal.pone.0281658</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                         </article>
                     </li>
@@ -1091,10 +1108,11 @@
                             <a href="https://doi.org/10.1145/2070781.2024169">https://doi.org/10.1145/2070781.2024169</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                             <p class="selection-link">
-                                <a href="annotations.html#paper-48">Selected for detailed reading | View annotation</a>
+                                <span class="selection-badge">Selected for review</span>
+                                <a href="annotations.html#paper-48">View annotation</a>
                             </p>
                         </article>
                     </li>
@@ -1112,10 +1130,11 @@
                             <a href="https://doi.org/10.1145/3726301.3728412">https://doi.org/10.1145/3726301.3728412</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                             <p class="selection-link">
-                                <a href="annotations.html#paper-49">Selected for detailed reading | View annotation</a>
+                                <span class="selection-badge">Selected for review</span>
+                                <a href="annotations.html#paper-49">View annotation</a>
                             </p>
                         </article>
                     </li>
@@ -1133,10 +1152,11 @@
                             <a href="https://doi.org/10.3390/systems13050376">https://doi.org/10.3390/systems13050376</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                             <p class="selection-link">
-                                <a href="annotations.html#paper-50">Selected for detailed reading | View annotation</a>
+                                <span class="selection-badge">Selected for review</span>
+                                <a href="annotations.html#paper-50">View annotation</a>
                             </p>
                         </article>
                     </li>
@@ -1154,7 +1174,7 @@
                             <a href="https://doi.org/10.52825/scp.v5i.1099">https://doi.org/10.52825/scp.v5i.1099</a>.
                             </p>
                             <p class="paper-access">
-                                Download & Read PDF version
+                                Download & Read PDF version.
                             </p>
                         </article>
                     </li>
@@ -1172,8 +1192,7 @@
                             <a href="https://doi.org/10.1016/j.jclepro.2022.133664">https://doi.org/10.1016/j.jclepro.2022.133664</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -1191,7 +1210,7 @@
                             <a href="https://openaccess.thecvf.com/content/CVPR2021/html/Suo_TrafficSim_Learning_To_Simulate_Realistic_Multi-Agent_Behaviors_CVPR_2021_paper.html">https://openaccess.thecvf.com/content/CVPR2021/html/Suo_TrafficSim_Learning_To_Simulate_Realistic_Multi-Agent_Behaviors_CVPR_2021_paper.html</a>.
                             </p>
                             <p class="paper-access">
-                                Download & Read PDF version
+                                Download & Read PDF version.
                             </p>
                         </article>
                     </li>
@@ -1209,7 +1228,7 @@
                             <a href="https://doi.org/10.1016/j.simpat.2023.102750">https://doi.org/10.1016/j.simpat.2023.102750</a>.
                             </p>
                             <p class="paper-access">
-                                Full text and PDF available through the DOI link above.
+                                Open-access full text and PDF.
                             </p>
                         </article>
                     </li>
@@ -1227,8 +1246,7 @@
                             <a href="https://doi.org/10.1016/j.physa.2021.126356">https://doi.org/10.1016/j.physa.2021.126356</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -1246,8 +1264,7 @@
                             <a href="https://doi.org/10.1016/j.trf.2019.05.007">https://doi.org/10.1016/j.trf.2019.05.007</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -1265,8 +1282,7 @@
                             <a href="https://doi.org/10.1016/j.simpat.2014.04.001">https://doi.org/10.1016/j.simpat.2014.04.001</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -1284,8 +1300,7 @@
                             <a href="https://doi.org/10.1007/s10111-006-0045-9">https://doi.org/10.1007/s10111-006-0045-9</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -1303,8 +1318,7 @@
                             <a href="https://doi.org/10.1016/j.tra.2024.104326">https://doi.org/10.1016/j.tra.2024.104326</a>.
                             </p>
                             <p class="paper-access">
-                                Full text is available through the publisher;
-                                institutional access may be required.
+                                Full text may require institutional access.
                             </p>
                         </article>
                     </li>
@@ -1322,7 +1336,7 @@
                             <a href="https://archive.ceciis.foi.hr/public/conferences/2017/05/CECIIS-2017_paper_48_final.pdf">https://archive.ceciis.foi.hr/public/conferences/2017/05/CECIIS-2017_paper_48_final.pdf</a>.
                             </p>
                             <p class="paper-access">
-                                Read PDF version
+                                PDF version provided.
                             </p>
                         </article>
                     </li>
@@ -1332,30 +1346,33 @@
             <aside class="collection-guide">
                 <p class="eyebrow">Using the collection</p>
 
-                <h2>From sources<br>to synthesis</h2>
+                <h2>Explore the research</h2>
 
                 <p>
-                    This bibliography brings together candidate
-                    publications for the survey.
+                    Entries marked “Selected for review” link to their
+                    abstract summaries and brief comments.
+                </p>
+
+                <p>
+                    <a href="annotations.html">Browse all annotations</a>
                 </p>
 
                 <hr>
 
-                <h3>Selected papers and annotations</h3>
+                <h3>Detailed review</h3>
 
                 <p>
-                    A shortlist of 20 papers has been prepared, with draft summaries
-                    and annotations explaining their relevance to urban traffic congestion.
+                    The next stage compares the selected studies and
+                    organizes their approaches into research categories.
                 </p>
 
                 <p>
-                    <a href="annotations.html">Read the selected papers and annotations</a>
+                    <a href="review.html">View review progress</a>
                 </p>
 
-                <a href="materials.html">
-                    View project milestones
-                </a>
-
+                <p>
+                    <a href="materials.html">View project milestones</a>
+                </p>
             </aside>
         </div>
     </main>

@@ -198,14 +198,62 @@
                 </nav>
             </aside>
             <div class="annotation-main">
-                <section class="annotation-intro">
-                    <p>
-                        How can agent-based models evaluate congestion-reduction
-                        strategies while balancing behavioral realism,
-                        computational efficiency, and agreement with observed
-                        traffic?
+                <form
+                    id="annotation-controls"
+                    class="annotation-controls"
+                    role="search"
+                    aria-label="Search selected papers"
+                    hidden
+                >
+                    <div class="annotation-field">
+                        <label for="annotation-search">
+                            Search selected papers
+                        </label>
+                        <input
+                            id="annotation-search"
+                            type="search"
+                            placeholder="Search authors, titles, or keywords"
+                            autocomplete="off"
+                        >
+                    </div>
+                    <div class="annotation-filter-row">
+                        <div class="annotation-field">
+                            <label for="annotation-category">
+                                Paper category
+                            </label>
+                            <select id="annotation-category">
+                                <option value="all">All categories</option>
+                                <option value="foundational">Foundational papers</option>
+                                <option value="journal">Journal papers</option>
+                                <option value="conference-report">Conference papers and reports</option>
+                            </select>
+                        </div>
+                        <button type="reset" class="utility-button">
+                            Clear filters
+                        </button>
+                    </div>
+                </form>
+                <div class="annotation-results">
+                    <p
+                        id="annotation-count"
+                        role="status"
+                        aria-live="polite"
+                        aria-atomic="true"
+                    >
+                        Showing 20 of 20 selected papers
                     </p>
-                </section>
+                    <button
+                        id="print-annotations"
+                        type="button"
+                        class="utility-button"
+                        hidden
+                    >
+                        Print / Save as PDF
+                    </button>
+                </div>
+                <p id="annotation-empty" class="empty-state" hidden>
+                    No papers match your search. Try another keyword or clear the filters.
+                </p>
                 <!-- Foundational papers -->
                 <section class="annotation-group" id="foundational">
                     <h2>4 foundational papers</h2>
