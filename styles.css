@@ -130,6 +130,7 @@ p {
 .header-inner {
     min-height: 104px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 28px;
@@ -460,7 +461,7 @@ nav a[aria-current="page"] {
     margin-bottom: 7px;
 }
 
-.controls input,
+.controls input[type="search"],
 .controls select {
     width: 100%;
     border: 1px solid #a99b88;
@@ -482,6 +483,7 @@ nav a[aria-current="page"] {
 
 .results-bar {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
@@ -733,6 +735,210 @@ summary > span:first-of-type {
     margin-top: 4px;
 }
 
+/* This is for the main navigation. */
+.site-header nav {
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+}
+
+/* These are for the selected bibliography papers. */
+.controls .selection-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin: 1rem 0 0;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.controls .selection-filter input[type="checkbox"] {
+    flex: 0 0 auto;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin: 0;
+    padding: 0;
+    accent-color: var(--teal);
+}
+
+.selection-link {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.85rem;
+}
+
+.selection-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--wash);
+    color: var(--ink);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* These are for the annotation search and filters. */
+.annotation-controls {
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--wash);
+}
+
+.annotation-field {
+    display: grid;
+    gap: 0.4rem;
+    min-width: 0;
+}
+
+.annotation-field label {
+    color: var(--ink);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.annotation-field input,
+.annotation-field select {
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid #a99b88;
+    border-radius: 6px;
+    background: #fff;
+    color: var(--ink);
+    font: inherit;
+}
+
+.annotation-filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.annotation-filter-row .annotation-field {
+    flex: 1 1 14rem;
+}
+
+.annotation-results {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.annotation-results p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.utility-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #fff;
+    color: var(--ink);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.utility-button:hover {
+    background: var(--wash);
+    border-color: var(--teal);
+}
+
+/* This highlights a paper reached through a direct link. */
+.paper-annotation:target {
+    outline: 2px solid var(--teal);
+    outline-offset: 4px;
+}
+
+/* These are for the project materials. */
+.material-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.material-card {
+    padding: 1.25rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fff;
+}
+
+.material-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.material-heading h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    line-height: 1.4;
+}
+
+.material-heading .status {
+    flex-shrink: 0;
+}
+
+.material-card > :last-child {
+    margin-bottom: 0;
+}
+
+.content-updated {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+/* These are for highlighting the next research stage. */
+.milestones li.milestone-focus {
+    padding: 1rem;
+    border: 1px solid var(--teal);
+    border-radius: 8px;
+    background: var(--paper);
+}
+
+.milestones li.milestone-focus::before {
+    top: 24px;
+}
+
+.milestones li > .milestone-note {
+    margin-top: 0.5rem;
+    color: var(--teal);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* These are for the detailed review introduction. */
+.review-intro {
+    padding-bottom: 4rem;
+}
+
+.review-intro p {
+    max-width: 75ch;
+}
+
+/* This restores space after the homepage definition list. */
+.project-details dl + p {
+    margin-top: 1.25rem;
+}
+
 /* This is for displaying on large monitors. */
 
 @media (min-width: 1600px) {
@@ -774,10 +980,6 @@ summary > span:first-of-type {
     .materials-layout {
         gap: 35px;
         grid-template-columns: minmax(0, 1fr) 280px;
-    }
-
-    .header-inner {
-        flex-wrap: wrap;
     }
 }
 
@@ -955,6 +1157,14 @@ summary > span:first-of-type {
     .milestones {
         padding: 24px;
     }
+
+    .site-header nav {
+        gap: 0.25rem 0.75rem;
+    }
+
+    .site-header nav a {
+        flex: 1 1 8rem;
+    }
 }
 
 @media (max-width: 370px) {
@@ -1091,6 +1301,7 @@ summary > span:first-of-type {
     body {
         font-size: 11pt;
         color: #000000;
+        background: #ffffff;
     }
 
     .shell {
@@ -1105,7 +1316,11 @@ summary > span:first-of-type {
     .text-button,
     .network-art,
     .skip-link,
-    .button {
+    .button,
+    .utility-button,
+    .annotation-controls,
+    .annotation-navigation,
+    .selection-link {
         display: none !important;
     }
 
@@ -1170,5 +1385,41 @@ summary > span:first-of-type {
 
     .results-bar {
         margin-top: 10px;
+    }
+
+    .annotation-layout {
+        display: block;
+    }
+
+    .annotation-main,
+    .bibliography-main {
+        width: 100%;
+        max-width: none;
+    }
+
+    .paper-annotation {
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background: #fff;
+    }
+
+    .paper-annotation:target {
+        outline: none;
+    }
+
+    .paper-annotation h3 {
+        break-after: avoid;
+    }
+
+    .paper-annotation p {
+        orphans: 3;
+        widows: 3;
+    }
+
+    .material-card {
+        break-inside: avoid;
+        background: #fff;
     }
 }
