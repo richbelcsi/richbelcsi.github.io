@@ -8,7 +8,9 @@
         content="Detailed reviews and classification of research on agent-based urban traffic simulation and congestion reduction."
     >
     <meta name="theme-color" content="#252525">
+
     <title>Detailed Review | CSC754 Urban Traffic Survey</title>
+
     <link rel="icon" href="logo.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,9 +20,313 @@
     >
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+
+    <style>
+        /* These are for the page layout. */
+        .review-content {
+            padding-bottom: 4rem;
+        }
+
+        .review-overview,
+        .review-comparison {
+            margin-bottom: 2.5rem;
+        }
+
+        .review-overview p {
+            max-width: 78ch;
+        }
+
+        .review-content h2 {
+            font-size: clamp(1.5rem, 2.5vw, 1.9rem);
+            line-height: 1.3;
+        }
+
+        .review-progress {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* Comparison table */
+        .review-table-scroll {
+            overflow-x: auto;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: #fff;
+        }
+
+        .review-table-scroll:focus-visible {
+            outline: 3px solid var(--teal);
+            outline-offset: 4px;
+        }
+
+        .review-comparison-table {
+            width: 100%;
+            min-width: 44rem;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .review-comparison-table th,
+        .review-comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--line);
+            text-align: left;
+            vertical-align: top;
+            overflow-wrap: anywhere;
+        }
+
+        .review-comparison-table thead th {
+            background: var(--wash);
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .review-comparison-table tbody th {
+            width: 29%;
+            font-weight: 600;
+        }
+
+        .review-comparison-table tbody tr:last-child th,
+        .review-comparison-table tbody tr:last-child td {
+            border-bottom: 0;
+        }
+
+        /* These are for the research categories and detailed reviews. */
+        .review-category {
+            scroll-margin-top: 1.5rem;
+        }
+
+        .review-category + .review-category {
+            margin-top: 3rem;
+        }
+
+        .review-category-description {
+            max-width: 78ch;
+            color: var(--muted);
+        }
+
+        .detailed-review {
+            padding: clamp(1rem, 3vw, 2rem);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: #fff;
+            scroll-margin-top: 1.5rem;
+            overflow-wrap: anywhere;
+        }
+
+        .detailed-review:target {
+            outline: 2px solid var(--teal);
+            outline-offset: 4px;
+        }
+
+        .review-paper-heading {
+            max-width: 78ch;
+            margin-bottom: 1.75rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .review-paper-heading h3 {
+            margin-bottom: 1rem;
+            font-size: clamp(1.2rem, 2vw, 1.45rem);
+            line-height: 1.4;
+        }
+
+        .review-citation {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .review-paper-heading > :last-child {
+            margin-bottom: 0;
+        }
+
+        .review-text {
+            max-width: 78ch;
+        }
+
+        .review-text p {
+            margin-bottom: 1.4rem;
+            line-height: 1.8;
+        }
+
+        .review-text > :last-child {
+            margin-bottom: 0;
+        }
+
+        /* These are for the classification of each paper. */
+        .review-classification {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .review-classification h4 {
+            margin: 0 0 0.75rem;
+            color: var(--navy);
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+
+        .review-classification-note {
+            max-width: 78ch;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .review-classification-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .review-classification-table th,
+        .review-classification-table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid var(--line);
+            text-align: left;
+            vertical-align: top;
+            overflow-wrap: anywhere;
+        }
+
+        .review-classification-table th {
+            width: 30%;
+            background: var(--wash);
+            font-weight: 600;
+        }
+
+        .review-classification-table tr:last-child th,
+        .review-classification-table tr:last-child td {
+            border-bottom: 0;
+        }
+
+        @media (max-width: 760px) {
+            .review-content {
+                padding-bottom: 2.5rem;
+            }
+
+            .review-overview,
+            .review-comparison {
+                margin-bottom: 2rem;
+            }
+
+            .review-classification-table {
+                font-size: 0.88rem;
+            }
+
+            .review-classification-table th {
+                width: 36%;
+            }
+
+            .review-classification-table th,
+            .review-classification-table td {
+                padding: 0.65rem;
+            }
+        }
+        
+        /* These are for placing the classification beside the review on wide screens. */
+        @media screen and (min-width: 1100px) {
+            .detailed-review {
+                display: grid;
+                grid-template-columns: minmax(0, 1.8fr) minmax(18rem, 1fr);
+                gap: 2rem;
+                align-items: start;
+            }
+
+            .review-paper-heading {
+                grid-column: 1 / -1;
+                max-width: none;
+                margin-bottom: 0;
+            }
+
+            .review-text {
+                min-width: 0;
+                max-width: none;
+            }
+
+            .review-classification {
+                min-width: 0;
+                margin-top: 0;
+                padding: 0 0 0 1.5rem;
+                border-top: 0;
+                border-left: 1px solid var(--line);
+            }
+
+            .review-classification-table {
+                font-size: 0.88rem;
+            }
+
+            .review-classification-table th,
+            .review-classification-table td {
+                padding: 0.65rem;
+            }
+        }
+
+        @media print {
+            .review-content {
+                max-width: none;
+                padding-bottom: 0;
+            }
+
+            .review-overview,
+            .review-comparison {
+                margin-bottom: 1.5rem;
+            }
+
+            .review-table-scroll {
+                overflow: visible;
+                border: 0;
+                border-radius: 0;
+            }
+
+            .review-comparison-table {
+                min-width: 0;
+                font-size: 9pt;
+            }
+
+            .review-comparison-table th,
+            .review-comparison-table td {
+                padding: 0.5rem;
+            }
+
+            .detailed-review {
+                padding: 0;
+                border: 0;
+                border-radius: 0;
+            }
+
+            .detailed-review:target {
+                outline: none;
+            }
+
+            .review-paper-heading,
+            .review-text,
+            .review-overview p {
+                max-width: none;
+            }
+
+            .review-content h2,
+            .review-content h3,
+            .review-content h4 {
+                break-after: avoid;
+            }
+
+            .review-text p {
+                orphans: 3;
+                widows: 3;
+            }
+
+            .review-comparison-table tr,
+            .review-classification-table tr {
+                break-inside: avoid;
+            }
+        }
+    </style>
 </head>
+
 <body id="top">
     <a class="skip-link" href="#main">Skip to content</a>
+
     <header class="site-header">
         <div class="shell header-inner">
             <a
@@ -40,17 +346,17 @@
                     <small>CSC754 | Survey Paper</small>
                 </span>
             </a>
+
             <nav aria-label="Main navigation">
                 <a href="index.html">Description</a>
                 <a href="bibliography.html">Bibliography</a>
                 <a href="materials.html">Project Materials</a>
                 <a href="annotations.html">Annotations</a>
-                <a href="review.html" aria-current="page">
-                    Detailed Review
-                </a>
+                <a href="review.html" aria-current="page">Detailed Review</a>
             </nav>
         </div>
     </header>
+
     <main id="main" tabindex="-1">
         <section class="page-heading shell">
             <p class="eyebrow">05 / Detailed Review</p>
@@ -60,30 +366,619 @@
                 simulation and congestion reduction.
             </p>
         </section>
-        <section
-            class="shell review-intro"
-            aria-labelledby="review-status"
-        >
-            <h2 id="review-status">Review in progress</h2>
-            <p>
-                Detailed comments and a classification of the selected
-                papers are being prepared for the October 29 milestone.
-                The review will compare modeling approaches, findings,
-                validation methods, and limitations.
-            </p>
-            <p>
-                <a href="annotations.html">
-                    View the selected papers and annotations
-                </a>
-            </p>
-        </section>
+
+        <div class="shell review-content">
+            <section
+                class="review-overview"
+                aria-labelledby="review-overview-heading"
+            >
+                <h2 id="review-overview-heading">Review progress</h2>
+
+                <p>
+                    Detailed reviews are being added as the selected
+                    papers are read thoroughly. Each review examines
+                    the modeling approach, supporting evidence,
+                    limitations, and relevance to urban traffic
+                    congestion.
+                </p>
+
+                <p>
+                    The provisional classification organizes papers by
+                    their main contribution: travel behavior and route
+                    choice, traffic control and coordination, simulation
+                    frameworks and computational efficiency, or
+                    calibration and validation methods. These categories
+                    will be refined as comparisons between studies develop.
+                </p>
+
+                <p class="review-progress">
+                    2 of 20 selected papers reviewed.
+                </p>
+
+                <p>
+                    <a href="annotations.html">
+                        View all selected papers and annotations
+                    </a>
+                </p>
+            </section>
+
+            <section
+                class="review-comparison"
+                aria-labelledby="review-comparison-heading"
+            >
+                <h2 id="review-comparison-heading">Comparison of reviewed papers</h2>
+
+                <div
+                    class="review-table-scroll"
+                    role="region"
+                    aria-labelledby="review-comparison-heading"
+                    tabindex="0"
+                >
+                    <table class="review-comparison-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Paper</th>
+                                <th scope="col">Primary category</th>
+                                <th scope="col">Modeling approach</th>
+                                <th scope="col">Evaluation evidence</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <a href="#review-raney">
+                                        Raney, B. et al. (2003):
+                                        An Agent-Based Microsimulation
+                                        Model of Swiss Travel
+                                    </a>
+                                </th>
+                                <td>
+                                    Travel behavior and route choice
+                                </td>
+                                <td>
+                                    Individual route learning combined
+                                    with queue-based road simulation
+                                </td>
+                                <td>
+                                    Controlled route-choice scenario,
+                                    observed traffic counts, and
+                                    comparison with VISUM
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <a href="#review-bazzan">
+                                        Bazzan, A. L. C. (2005):
+                                        A Distributed Approach for Coordination
+                                        of Traffic Signal Agents
+                                    </a>
+                                </th>
+                                <td>
+                                    Traffic control and coordination
+                                </td>
+                                <td>
+                                    Intersection agents using evolutionary game theory
+                                    and reinforcement learning to select signal plans
+                                </td>
+                                <td>
+                                    Repeated coordination experiments and comparison
+                                    with centralized signal synchronization across
+                                    three traffic scenarios
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section
+                class="review-category"
+                id="travel-behavior"
+                aria-labelledby="travel-behavior-heading"
+            >
+                <h2 id="travel-behavior-heading">
+                    Travel Behavior and Route Choice
+                </h2>
+
+                <p class="review-category-description">
+                    Studies in this category examine how travelers
+                    select routes, respond to traffic conditions,
+                    and collectively influence congestion.
+                </p>
+
+                <article
+                    class="detailed-review"
+                    id="review-raney"
+                    aria-labelledby="review-raney-heading"
+                >
+                    <header class="review-paper-heading">
+                        <h3 id="review-raney-heading">
+                            An Agent-Based Microsimulation Model of
+                            Swiss Travel: First Results
+                        </h3>
+
+                        <p class="review-citation">
+                            Raney, B. et al. 2003.
+                            An Agent-Based Microsimulation Model of
+                            Swiss Travel: First Results.
+                            <em>Networks and Spatial Economics</em>
+                            3, 1 (2003), 23–41.
+                            <a href="https://doi.org/10.1023/A:1022096916806">
+                                https://doi.org/10.1023/A:1022096916806
+                            </a>.
+                        </p>
+
+                        <p>
+                            <a href="annotations.html#paper-45">
+                                View the abstract summary and brief comment
+                            </a>
+                        </p>
+                    </header>
+
+                    <div class="review-text">
+                        <p>
+                            Raney and colleagues examine how individual
+                            route choices contribute to congestion across
+                            a large transportation network. Their framework
+                            connects route planning, traffic simulation,
+                            and learning from previous journeys. This
+                            creates a feedback process: travelers choose
+                            routes based on expected travel times, their
+                            combined choices determine where congestion
+                            develops, and the resulting delays influence
+                            their next choices. Each traveler stores
+                            alternative routes and their experienced travel
+                            times. During each simulation cycle, 10% of
+                            travelers receive newly calculated routes based
+                            on updated traffic conditions, while the others
+                            choose among routes they have already tried.
+                            The experiments repeat this process for 50
+                            cycles. This represents adaptation between
+                            journeys, rather than drivers changing direction
+                            during a trip.
+                        </p>
+
+                        <p>
+                            The model represents roads as queues in which
+                            vehicles leave in the order they arrive. Each
+                            road has a minimum travel time and limited
+                            space, so a full road can block traffic entering
+                            from upstream. This captures how congestion
+                            spreads without simulating every lane change
+                            or interaction between neighboring vehicles.
+                            The simplified representation allows the
+                            researchers to simulate approximately one million
+                            morning trips across a Swiss network containing
+                            more than 28,000 road links. However, the tested
+                            model covers car travel using estimated trips
+                            between origins and destinations; it does not
+                            yet include the broader activity planning and
+                            transportation choices discussed in the
+                            framework. Its computational results also show
+                            that simplifying vehicle movement addresses
+                            only part of the efficiency problem. On the
+                            reported hardware, traffic simulation takes
+                            about four minutes per cycle, while routing,
+                            feedback, and database operations take about
+                            45 minutes.
+                        </p>
+
+                        <p>
+                            The experiments examine both the effects of
+                            route adaptation and agreement with observed
+                            traffic. In the Gotthard scenario, 50,000
+                            vehicles travel toward a common destination.
+                            As travelers gain experience, they spread
+                            across more routes, queues become shorter
+                            overall, and arrivals occur earlier than in
+                            the initial simulation. This illustrates how
+                            individual learning can change congestion
+                            patterns without directly coordinating every
+                            traveler. In the Switzerland experiment, the
+                            authors compare simulated traffic volumes with
+                            observed counts and results from VISUM, a
+                            transportation modeling system. The agent-based
+                            model achieves a mean relative error of 25.38%,
+                            compared with 30.42% for VISUM. This supports
+                            its ability to reproduce traffic volumes in
+                            that comparison, although it does not establish
+                            the accuracy of every modeled behavior.
+                        </p>
+
+                        <p>
+                            Several limitations affect how these results
+                            should be interpreted. The demand estimates
+                            had already been adjusted using traffic-count
+                            information, so the comparison does not clearly
+                            establish performance against independent
+                            observations. Matching road traffic volumes
+                            also does not necessarily mean that individual
+                            travel times or route preferences are accurate.
+                            Gridlock around Zurich exposes another
+                            difficulty: unrealistic congestion may arise
+                            from the estimated demand, road capacities,
+                            or the simulation rules, and the authors could
+                            not fully separate these explanations. They
+                            adjusted network capacities but acknowledged
+                            uncertainty about the underlying problem.
+                            Similarly, the selected replanning rate and
+                            number of cycles provide a practical
+                            experimental procedure without guaranteeing
+                            that route choices have stabilized.
+                        </p>
+
+                        <p>
+                            For our survey, this paper establishes a useful
+                            foundation for studying congestion through the
+                            interaction of individual travel decisions.
+                            Its experiments show how learning can
+                            redistribute traffic, while also demonstrating
+                            why improvements in simulated congestion must
+                            be assessed alongside data quality and modeling
+                            assumptions. The framework could support
+                            investigations of how travelers respond to
+                            changes in capacity or route guidance, but the
+                            reported results do not establish a universally
+                            effective congestion strategy. Its separation
+                            of route planning, road simulation, and
+                            behavioral feedback also offers a useful
+                            conceptual reference for future DEVSJAVA work,
+                            although DEVSJAVA is not used in the paper.
+                        </p>
+                    </div>
+
+                    <section
+                        class="review-classification"
+                        aria-labelledby="raney-classification-heading"
+                    >
+                        <h4 id="raney-classification-heading">
+                            Paper Classification
+                        </h4>
+
+                        <p class="review-classification-note">
+                            This classification is provisional and may
+                            be refined as the remaining papers are reviewed.
+                        </p>
+
+                        <table
+                            class="review-classification-table"
+                            aria-labelledby="raney-classification-heading"
+                        >
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Selection group</th>
+                                    <td>Foundational paper</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Primary category</th>
+                                    <td>
+                                        Travel behavior and route choice
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Secondary category</th>
+                                    <td>
+                                        Simulation frameworks and
+                                        computational efficiency
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Agents and decisions</th>
+                                    <td>
+                                        Individual travelers selecting
+                                        among alternative routes using
+                                        experience from previous journeys
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        Traffic representation and scale
+                                    </th>
+                                    <td>
+                                        Queue-based road model with limited
+                                        storage and upstream blocking;
+                                        approximately one million morning
+                                        trips across a large Swiss network
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Data requirements</th>
+                                    <td>
+                                        Road network characteristics and
+                                        origin–destination demand estimates;
+                                        traffic counts used to assess
+                                        simulated volumes
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        Connection to congestion
+                                    </th>
+                                    <td>
+                                        Repeated route adaptation
+                                        redistributes traffic and changes
+                                        queue formation and travel delays
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Evaluation evidence</th>
+                                    <td>
+                                        Controlled Gotthard scenario and
+                                        comparison of Swiss traffic volumes
+                                        with observed counts and VISUM results
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Main limitations</th>
+                                    <td>
+                                        Simplified car-only behavior,
+                                        uncertainty about independent
+                                        validation, and no guarantee that
+                                        the repeated route choices have
+                                        stabilized
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </article>
+            </section>
+
+            <section
+                class="review-category"
+                id="traffic-control"
+                aria-labelledby="traffic-control-heading"
+            >
+                <h2 id="traffic-control-heading">
+                    Traffic Control and Coordination
+                </h2>
+
+                <p class="review-category-description">
+                    Studies in this category examine how traffic signals,
+                    intersection controllers, and other decision-making
+                    agents coordinate to manage traffic flow and reduce
+                    congestion.
+                </p>
+
+                <article
+                    class="detailed-review"
+                    id="review-bazzan"
+                    aria-labelledby="review-bazzan-heading"
+                >
+                    <header class="review-paper-heading">
+                        <h3 id="review-bazzan-heading">
+                            A Distributed Approach for Coordination
+                            of Traffic Signal Agents
+                        </h3>
+
+                        <p class="review-citation">
+                            Bazzan, A. L. C. 2005.
+                            A Distributed Approach for Coordination
+                            of Traffic Signal Agents.
+                            <em>Autonomous Agents and Multi-Agent Systems</em>
+                            10, 2 (2005), 131–164.
+                        </p>
+
+                        <p>
+                            <a href="annotations.html#paper-6">
+                                View the abstract summary and brief comment
+                            </a>
+                        </p>
+                    </header>
+
+                    <div class="review-text">
+                        <p>
+                            Bazzan investigates how traffic signals can coordinate
+                            through local decisions while responding to changing
+                            traffic conditions. Each intersection is represented
+                            by an agent responsible for selecting a signal plan.
+                            The central difficulty is that a plan benefiting one
+                            intersection may disrupt coordination along the road,
+                            while maintaining coordination may prevent that
+                            intersection from addressing its own congestion.
+                            The proposed approach uses evolutionary game theory
+                            and reinforcement learning to explore how compatible
+                            choices can emerge through repeated interactions.
+                            Agents adjust their behavior according to the rewards
+                            received from previous choices, allowing signal
+                            coordination to develop without requiring continuous
+                            negotiation between neighboring controllers. The
+                            traffic manager remains responsible for broader
+                            policy decisions while agents handle operational
+                            choices.
+                        </p>
+
+                        <p>
+                            The main example is an arterial road with ten
+                            signalized intersections, with additional coordination
+                            experiments using 35 agents. Each intersection chooses
+                            between two previously designed signal plans that
+                            favor travel in opposite directions. When neighboring
+                            intersections select compatible plans, vehicles can
+                            progress along the road with fewer interruptions.
+                            Local detectors provide information about traffic
+                            conditions, and each agent updates the probability
+                            of selecting a plan using traffic changes and
+                            accumulated rewards. A memory parameter controls
+                            how strongly previous experience influences these
+                            updates. The experiments examine both rewards that
+                            encourage a shared corridor objective and rewards
+                            reflecting individual intersections’ conditions.
+                            Traffic movement is evaluated using a macroscopic
+                            simulator that represents flow through density ranges,
+                            rather than tracking the detailed behavior of
+                            individual drivers.
+                        </p>
+
+                        <p>
+                            The results show that the benefits of decentralized
+                            control depend on the traffic scenario. When demand
+                            is stable and clearly heavier in one direction,
+                            centralized signal synchronization performs better
+                            because there is little reason to interrupt that
+                            coordinated flow. When both directions place competing
+                            demands on the signals, the agent-based approach
+                            generally produces equal or lower traffic-density
+                            ranges on the evaluated lanes. Its flexibility allows
+                            intersections to temporarily depart from the
+                            coordinated plan when local conditions require
+                            attention. Under lighter traffic, the improvement
+                            is smaller. These findings support adaptive
+                            coordination in situations where local needs
+                            conflict, while also showing that it does not
+                            automatically improve on centralized control
+                            in every setting.
+                        </p>
+
+                        <p>
+                            The learning experiments help explain these
+                            differences. Coordination becomes harder when traffic
+                            changes frequently, when local rewards conflict with
+                            the shared objective, or when agents give too much
+                            weight to older experience. Updating too frequently
+                            can also cause agents to learn an unsuitable pattern
+                            before gathering enough information. In a separate
+                            experiment, notifying neighbors about intended
+                            strategy changes generally slows coordination because
+                            those messages can trigger further changes nearby.
+                            This result concerns the particular communication
+                            rule tested; it does not show that communication is
+                            inherently harmful. The evaluation also has practical
+                            limits: it uses a simplified arterial, two available
+                            plans, and simulated traffic-density measures.
+                            It therefore provides evidence about coordination
+                            behavior and relative traffic performance, rather
+                            than establishing precise travel-time savings or
+                            effectiveness across a deployed citywide network.
+                        </p>
+
+                        <p>
+                            For the survey, this paper shows how congestion
+                            management can be studied through the decisions
+                            of traffic infrastructure agents. Its main contribution
+                            is explaining the tension between serving an
+                            individual intersection and maintaining coordinated
+                            movement along a corridor. The findings suggest
+                            that adaptive signal control is most useful when
+                            changing local demands justify departing from a
+                            shared plan, provided the agents can learn quickly
+                            enough to respond. Together with Raney’s study,
+                            it also establishes an important distinction for
+                            our classification: congestion can be influenced
+                            through travelers adapting their routes or through
+                            controllers adapting how road capacity is allocated.
+                            For the future DEVSJAVA work, the intersection agents,
+                            detector inputs, and signal-plan changes offer a
+                            conceptual basis for interacting components, although
+                            the paper does not implement its approach in DEVSJAVA.
+                        </p>
+                    </div>
+
+                    <section
+                        class="review-classification"
+                        aria-labelledby="bazzan-classification-heading"
+                    >
+                        <h4 id="bazzan-classification-heading">
+                            Paper Classification
+                        </h4>
+
+                        <p class="review-classification-note">
+                            This classification is provisional and may
+                            be refined as the remaining papers are reviewed.
+                        </p>
+
+                        <table
+                            class="review-classification-table"
+                            aria-labelledby="bazzan-classification-heading"
+                        >
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Selection group</th>
+                                    <td>Foundational paper</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Primary category</th>
+                                    <td>
+                                        Traffic control and coordination
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Agents and decisions</th>
+                                    <td>
+                                        Intersection controllers selecting between
+                                        signal plans that favor opposing travel
+                                        directions
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Traffic representation and scale
+                                    </th>
+                                    <td>
+                                        Macroscopic traffic-density model of an
+                                        arterial with ten intersections; additional
+                                        coordination experiments with 35 agents
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Data requirements</th>
+                                    <td>
+                                        Local detector measurements, arterial
+                                        layout, predefined signal plans, reward
+                                        settings, and learning parameters
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Connection to congestion
+                                    </th>
+                                    <td>
+                                        Balances coordinated movement along an
+                                        arterial with responses to congestion
+                                        at individual intersections
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Evaluation evidence</th>
+                                    <td>
+                                        Repeated coordination experiments varying
+                                        learning, memory, traffic changes, and
+                                        communication; comparison with centralized
+                                        synchronization in three traffic scenarios
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Main limitations</th>
+                                    <td>
+                                        Simplified arterial and two-plan choice;
+                                        sensitivity to learning and reward settings;
+                                        simulated density results do not establish
+                                        citywide effectiveness or precise travel-time
+                                        savings
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </article>
+            </section>
+        </div>
     </main>
+
     <footer class="site-footer">
         <div class="shell footer-inner">
             <div>
                 <strong>CSC754 | Urban Traffic Survey</strong>
                 <p>Richard Belitski &amp; Mohammad Jehangir</p>
             </div>
+
             <a class="back-to-top" href="#top">
                 Back to top
                 <span aria-hidden="true">↑</span>
