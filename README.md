@@ -2,84 +2,66 @@
 
 A literature survey for CSC754 by Richard Belitski and Mohammad Jehangir.
 
-**Project website:** [View the website](richbelcsi.github.io)
+**Project website:** [View the website](https://richbelcsi.github.io/)
 
 ## Overview
 
-This project surveys how agent-based models represent vehicles, travelers,
-and traffic-control agents to investigate urban traffic congestion and
-evaluate strategies for reducing it.
+This project surveys how agent-based models represent vehicles, travelers, and traffic-control agents to investigate urban traffic congestion and evaluate strategies for reducing it.
 
-New York City serves as the motivating case study, while research from
-other cities provides relevant methods and comparisons. The survey
-examines route choice, driver behavior, signal coordination, lane
-management, and travel incentives.
+New York City serves as the motivating case study, while research from other cities provides relevant methods and comparisons. The survey examines route choice, driver behavior, signal coordination, lane management, and travel incentives.
 
-Our guiding question is how these models evaluate congestion-reduction
-strategies while balancing behavioral realism, computational efficiency,
-and agreement with observed traffic data.
+Our guiding question is how these models evaluate congestion-reduction strategies while balancing behavioral realism, computational efficiency, and agreement with observed traffic data.
 
-The review also considers how the surveyed approaches could inform a
-future implementation in DEVSJAVA.
+The review also considers how the surveyed approaches could inform a future implementation in DEVSJAVA.
 
 ## Current Progress
 
-- Collected 60 publications with links to their publication records.
-- Selected 20 papers for detailed reading:
-  - 4 foundational papers
-  - 8 recent journal papers
-  - 6 conference papers
-  - 2 technical reports
-- Prepared preliminary summaries and comments explaining each selected
-  paper’s contribution, limitations, and relevance to traffic congestion.
-- Detailed reading and research classification are in progress.
-- Presentation materials and the final survey paper are planned.
+- Collected 60 publications with links to publication records or available full text.
+- Prepared brief comments for all 60 bibliography papers, explaining their contributions and relevance to the survey.
+- Selected 20 papers for thorough reading: 4 foundational papers, 8 recent journal papers, 6 conference papers, and 2 technical reports.
+- Added paraphrased abstract summaries and more developed brief comments for the 20-paper shortlist.
+- Added detailed reviews and classifications for the papers by Raney and Bazzan.
+- Continued detailed reading and development of the research classification scheme.
+- Planned presentation materials and the final survey paper.
 
-The summaries are paraphrased. Annotations will be refined as the
-selected papers are reviewed in greater detail.
+The annotations cover the full bibliography. The detailed reviews focus on the 20-paper shortlist and examine methods, findings, supporting evidence, limitations, and relevance to congestion management.
+
+Abstract summaries are paraphrased rather than reproduced from the original publications. Reviews and classifications will be refined as the project develops.
+
+## Website Features
+
+- Shared navigation across the description, bibliography, project materials, annotations, and detailed-review pages.
+- Bibliography search, publication-year filtering, author/title/year sorting, and a filter for the 20 shortlisted papers.
+- Search and group filtering across all 60 annotations.
+- Separate annotation groups for the shortlisted foundational papers, journal papers, conference papers and reports, and the 40 additional bibliography papers.
+- Result counts, empty-result messages, and controls for clearing filters.
+- Links from shortlisted bibliography entries to their annotations and from available annotations to detailed reviews.
+- Print controls on the bibliography and annotations pages, including the browser’s Save as PDF option.
+- Responsive layouts, keyboard-accessible controls, skip links, and back-to-top navigation.
+
+Printing the bibliography or annotations uses the currently visible results. Clear the filters before printing the complete collection.
+
+Publication links lead to publisher pages, repositories, or available PDFs. Access requirements vary by publication.
 
 ## Website Files
 
 | File | Purpose |
-|---|---|
+| --- | --- |
 | `index.html` | Project description, research question, and overview |
-| `bibliography.html` | Full bibliography with search, filtering, and sorting |
-| `annotations.html` | Summaries and comments for the 20 selected papers |
+| `bibliography.html` | Bibliography of 60 publications with search, filtering, sorting, and print controls |
+| `annotations.html` | Brief comments for all 60 papers, plus abstract summaries for the 20-paper shortlist |
+| `review.html` | Detailed reviews, individual paper classifications, and a growing comparison of research approaches |
 | `materials.html` | Research materials, progress, and course milestones |
-| `styles.css` | Shared colors, typography, layouts, and responsive styles |
-| `script.js` | Bibliography search, filtering, sorting, and print controls |
+| `styles.css` | Shared colors, typography, responsive layouts, controls, and print styles |
+| `script.js` | Bibliography and annotation search, filtering, result counts, printing, and annotation-link handling |
 | `logo.svg` | Website logo and browser-tab icon |
 | `README.md` | Repository overview and development instructions |
 
-## Local Preview
+Some page-specific layout rules are included in the corresponding HTML files.
 
-The website uses HTML, CSS, JavaScript, and SVG. No installation or build
-step is required.
+## Research Scope and Classification
 
-1. Clone or download the repository.
-2. Keep the website files together in the same directory.
-3. Open `index.html` in a web browser.
-4. Use the navigation links to visit the other pages.
-
-After changing styles or scripts, refresh the browser. Use `Ctrl + F5`
-if cached files prevent the latest changes from appearing.
-
-## Development Workflow
-
-1. Make changes on the `dev` branch.
-2. Preview the website locally.
-3. Check navigation, desktop and mobile layouts, bibliography controls,
-   and links to the selected-paper annotations.
-4. Commit and push the changes to `dev`.
-5. Open a pull request from `dev` into `main`.
-6. Review and merge the changes when they are ready.
-
-The live website is hosted through GitHub Pages. Deployment follows the
-repository’s configured publishing branch or GitHub Actions workflow.
-
-## Research Scope
-
-The comparison of selected papers focuses on:
+The comparison of shortlisted papers focuses on:
 
 - Agent representations and behavioral assumptions
 - Interactions between travelers, vehicles, and traffic controls
@@ -88,5 +70,64 @@ The comparison of selected papers focuses on:
 - Data requirements, calibration, and validation
 - Findings, limitations, and opportunities for further research
 
-DEVSJAVA is a possible future implementation platform; this repository
-currently contains the survey website rather than a traffic simulator.
+The developing classification scheme groups research by its main contribution:
+
+- Travel behavior and route choice
+- Traffic control and coordination
+- Simulation frameworks and computational efficiency
+- Calibration and validation methods
+
+These research categories describe what each paper contributes. The foundational, journal, conference, and technical-report labels describe the composition of the reading shortlist.
+
+Classifications remain provisional and may overlap as additional papers are reviewed.
+
+## Course Milestones
+
+| Date | Task |
+| --- | --- |
+| September 17 | Topic selection, group information, and project description |
+| October 1 | Bibliography containing at least 50 publications with links |
+| October 15 | Brief bibliography annotations and identification of 20–25 papers for thorough reading |
+| October 29 | Detailed comments on thoroughly read papers and a research classification scheme |
+| November 12 and November 19 | Class presentations |
+| December 10 | Final survey paper submission |
+
+## Local Preview
+
+The website uses HTML, CSS, JavaScript, and SVG. No installation or build step is required.
+
+1. Clone or download the repository.
+2. Keep the website files together in the same directory.
+3. Open `index.html` in a web browser.
+4. Use the navigation links to visit the other pages.
+
+A local preview server, such as the VS Code Live Server extension, may also be used.
+
+After changing styles or scripts, refresh the browser. Use `Ctrl + F5` if cached files prevent the latest changes from appearing.
+
+## Development Workflow
+
+1. Make changes on the `dev` branch.
+2. Preview the website locally.
+3. Check navigation and desktop and mobile layouts.
+4. Check bibliography search, year filtering, sorting, and the selected-paper filter.
+5. Check annotation search, group filtering, direct links, and print previews.
+6. Update relevant progress descriptions and content-updated dates.
+7. Commit and push the changes to `dev`.
+8. Open a pull request from `dev` into `main`.
+9. Review and merge the changes when they are ready.
+10. Confirm that the published website reflects the merged changes.
+
+The live website is hosted through GitHub Pages. Deployment follows the repository’s configured publishing branch or GitHub Actions workflow.
+
+## Maintaining Paper Links
+
+Keep existing paper IDs stable so that links between pages continue to work.
+
+The 20 shortlisted annotations use IDs such as `paper-45`. Additional bibliography annotations use IDs such as `annotation-ref-03`.
+
+The bibliography script currently identifies shortlisted papers through links beginning with `annotations.html#paper-`. Use the `annotation-ref-XX` format when linking to additional annotations so that the selected-paper filter continues to identify only the 20-paper shortlist.
+
+## Implementation Scope
+
+DEVSJAVA is a possible future implementation platform. This repository currently contains the literature-survey website; it does not yet include a traffic simulator.
