@@ -243,7 +243,7 @@
             });
 
             count.textContent =
-                `Showing ${shown} of ${entries.length} selected papers`;
+                `Showing ${shown} of ${entries.length} papers`;
 
             empty.hidden = shown !== 0;
         }
