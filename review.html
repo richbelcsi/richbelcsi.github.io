@@ -114,6 +114,10 @@
             overflow-wrap: anywhere;
         }
 
+        .detailed-review + .detailed-review {
+            margin-top: 2rem;
+        }
+
         .detailed-review:target {
             outline: 2px solid var(--teal);
             outline-offset: 4px;
@@ -392,12 +396,12 @@
                 </p>
 
                 <p class="review-progress">
-                    2 of 20 selected papers reviewed.
+                    4 of 20 selected papers reviewed.
                 </p>
 
                 <p>
                     <a href="annotations.html">
-                        View all selected papers and annotations
+                        View all annotations and the 20-paper shortlist
                     </a>
                 </p>
             </section>
@@ -445,6 +449,7 @@
                                     comparison with VISUM
                                 </td>
                             </tr>
+
                             <tr>
                                 <th scope="row">
                                     <a href="#review-bazzan">
@@ -466,6 +471,47 @@
                                     three traffic scenarios
                                 </td>
                             </tr>
+
+                            <tr>
+                                <th scope="row">
+                                    <a href="#review-charypar">
+                                        Charypar, D. and Nagel, K. (2005):
+                                        Generating complete all-day activity plans
+                                        with genetic algorithms
+                                    </a>
+                                </th>
+                                <td>
+                                    Travel behavior and route choice
+                                </td>
+                                <td>
+                                    Genetic algorithm for selecting activities,
+                                    locations, and timing within daily travel plans
+                                </td>
+                                <td>
+                                    Illustrative scheduling experiments comparing
+                                    plan quality, consistency, and computation time
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">
+                                    <a href="#review-sewall">
+                                        Sewall, J. et al. (2011):
+                                        Interactive hybrid simulation of large-scale traffic
+                                    </a>
+                                </th>
+                                <td>
+                                    Simulation frameworks and computational efficiency
+                                </td>
+                                <td>
+                                    Dynamic coupling of individual vehicle simulation
+                                    and aggregate traffic-flow modeling
+                                </td>
+                                <td>
+                                    Runtime benchmarks and comparison with
+                                    observed NGSIM freeway traffic
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -481,9 +527,9 @@
                 </h2>
 
                 <p class="review-category-description">
-                    Studies in this category examine how travelers
-                    select routes, respond to traffic conditions,
-                    and collectively influence congestion.
+                    Studies in this category examine how travelers organize
+                    daily activities, select destinations and routes, respond
+                    to traffic conditions, and collectively influence congestion.
                 </p>
 
                 <article
@@ -716,6 +762,217 @@
                                         validation, and no guarantee that
                                         the repeated route choices have
                                         stabilized
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </article>
+
+                <article
+                    class="detailed-review"
+                    id="review-charypar"
+                    aria-labelledby="review-charypar-heading"
+                >
+                    <header class="review-paper-heading">
+                        <h3 id="review-charypar-heading">
+                            Generating complete all-day activity plans
+                            with genetic algorithms
+                        </h3>
+
+                        <p class="review-citation">
+                            Charypar, D. and Nagel, K. 2005.
+                            Generating complete all-day activity plans
+                            with genetic algorithms.
+                            <em>Transportation</em>
+                            32, 4 (2005), 369–397.
+                            <a href="https://doi.org/10.1007/s11116-004-8287-y">
+                                https://doi.org/10.1007/s11116-004-8287-y
+                            </a>.
+                        </p>
+
+                        <p>
+                            <a href="annotations.html#paper-10">
+                                View the abstract summary and brief comment
+                            </a>
+                        </p>
+                    </header>
+
+                    <div class="review-text">
+                        <p>
+                            Traffic demand begins with the activities people need or want
+                            to complete throughout the day. Charypar and Nagel address
+                            this part of transportation modeling by developing a genetic
+                            algorithm that generates complete daily activity plans for
+                            individual travelers. Rather than starting with a fixed
+                            collection of trips, their approach selects activities,
+                            arranges their order, chooses locations, and allocates time.
+                            Travel then connects activities performed at different places.
+                            This provides a foundation for studying how work schedules,
+                            shopping, childcare, and leisure collectively create demand
+                            on a transportation network.
+                        </p>
+
+                        <p>
+                            The algorithm maintains several competing plans for each
+                            traveler and gradually improves them through crossover,
+                            mutation, and selection. Crossover combines parts of two
+                            existing plans, while mutation changes elements such as
+                            activity order, location, or duration. A utility function
+                            scores each plan by balancing the benefits of performing
+                            activities against travel time, waiting, and scheduling
+                            penalties. Opening hours and other timing restrictions
+                            influence which arrangements are worthwhile. An important
+                            modeling detail is that travel consumes time that could
+                            otherwise be spent on activities, so its effective cost
+                            includes both the direct travel penalty and the lost
+                            opportunity to do something else.
+                        </p>
+
+                        <p>
+                            The experiments examine three illustrative activity sets
+                            representing a busy working day, a nonworking day with
+                            household responsibilities, and a more flexible retirement
+                            schedule. Longer runs generally produce consistent activity
+                            patterns and location choices, while shorter runs test
+                            whether useful plans can be generated with less computation.
+                            On the reported hardware, the longer configuration takes
+                            approximately 140–230 seconds per planning run, compared
+                            with 3–5 seconds for the shorter configuration. In the
+                            busy-day example, three of five shorter runs recover the
+                            same activity pattern and locations as the longer runs,
+                            although their timing is less refined. These results
+                            demonstrate the method’s flexibility, but also show that
+                            reducing computation can make the resulting schedules
+                            less consistent.
+                        </p>
+
+                        <p>
+                            The evaluation primarily establishes that the algorithm can
+                            find high-scoring plans under its specified assumptions; it
+                            does not establish that those plans reproduce observed human
+                            schedules. The authors acknowledge that the utility parameters
+                            require further development and that different travelers are
+                            unlikely to share one set of preferences. Some generated plans
+                            also expose missing behavioral constraints, including an
+                            example that schedules collecting children without first
+                            taking them to kindergarten. Travel times are simplified
+                            estimates based on distance rather than outcomes from a
+                            congested network, and coordinated planning across households
+                            or multiple days remains outside the reported tests. These
+                            limitations distinguish successful optimization from
+                            convincing behavioral validation.
+                        </p>
+
+                        <p>
+                            The paper strengthens the demand-generation side of congestion
+                            research by explaining how trips emerge from connected daily
+                            decisions. Changes in travel conditions could affect not only
+                            route choice, but also activity locations, departure times,
+                            and the time available for other commitments. This complements
+                            Raney’s route-adaptation framework by introducing decisions
+                            that occur before a route is selected. However, congestion
+                            avoidance through feedback from a traffic simulation is
+                            proposed as a future extension rather than demonstrated in
+                            these experiments. The method is therefore best understood
+                            as a flexible planning component that could support the
+                            evaluation of congestion policies once connected to a traffic
+                            model and calibrated against travel behavior.
+                        </p>
+                    </div>
+
+                    <section
+                        class="review-classification"
+                        aria-labelledby="charypar-classification-heading"
+                    >
+                        <h4 id="charypar-classification-heading">
+                            Paper Classification
+                        </h4>
+
+                        <p class="review-classification-note">
+                            This classification is provisional and may be refined
+                            as the remaining papers are reviewed.
+                        </p>
+
+                        <table
+                            class="review-classification-table"
+                            aria-labelledby="charypar-classification-heading"
+                        >
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Selection group</th>
+                                    <td>Foundational paper</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Primary category</th>
+                                    <td>
+                                        Travel behavior and route choice
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Specific focus</th>
+                                    <td>
+                                        Activity scheduling and travel-demand generation
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Agents and decisions</th>
+                                    <td>
+                                        Individual travelers with alternative daily plans;
+                                        decisions concern activity participation, order,
+                                        locations, and time allocation
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Traffic representation and scale
+                                    </th>
+                                    <td>
+                                        Illustrative individual daily schedules with
+                                        simplified travel-time estimates; intended as
+                                        a planning component for larger transportation
+                                        simulations
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Data requirements</th>
+                                    <td>
+                                        Possible activities and locations, timing
+                                        constraints, travel-time estimates, and
+                                        parameters for scoring activity plans
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Connection to congestion</th>
+                                    <td>
+                                        Explains how daily activities generate travel
+                                        demand and provides a basis for modeling
+                                        responses to changing travel conditions
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Evaluation evidence</th>
+                                    <td>
+                                        Scheduling examples comparing plan plausibility,
+                                        utility values, consistency across runs, and
+                                        computation time
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Main limitations</th>
+                                    <td>
+                                        Simplified travel times, limited behavioral
+                                        validation, incomplete scheduling constraints,
+                                        and no demonstrated feedback from network
+                                        congestion
                                     </td>
                                 </tr>
                             </tbody>
@@ -962,6 +1219,241 @@
                                         simulated density results do not establish
                                         citywide effectiveness or precise travel-time
                                         savings
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </article>
+            </section>
+
+            <section
+                class="review-category"
+                id="simulation-frameworks"
+                aria-labelledby="simulation-frameworks-heading"
+            >
+                <h2 id="simulation-frameworks-heading">
+                    Simulation Frameworks and Computational Efficiency
+                </h2>
+
+                <p class="review-category-description">
+                    Studies in this category examine how simulation design,
+                    levels of detail, and computing methods affect the ability
+                    to model large traffic networks efficiently.
+                </p>
+
+                <article
+                    class="detailed-review"
+                    id="review-sewall"
+                    aria-labelledby="review-sewall-heading"
+                >
+                    <header class="review-paper-heading">
+                        <h3 id="review-sewall-heading">
+                            Interactive hybrid simulation of large-scale traffic
+                        </h3>
+
+                        <p class="review-citation">
+                            Sewall, J. et al. 2011.
+                            Interactive hybrid simulation of large-scale traffic.
+                            <em>ACM Transactions on Graphics</em>
+                            30, 6, Article 135 (2011), 12 pages.
+                            <a href="https://doi.org/10.1145/2070781.2024169">
+                                https://doi.org/10.1145/2070781.2024169
+                            </a>.
+                        </p>
+
+                        <p>
+                            <a href="annotations.html#paper-48">
+                                View the abstract summary and brief comment
+                            </a>
+                        </p>
+                    </header>
+
+                    <div class="review-text">
+                        <p>
+                            Representing every vehicle individually can become
+                            expensive when a simulation covers an extensive road
+                            network. Sewall and colleagues address this problem
+                            through a hybrid framework that combines agent-based
+                            vehicle simulation with a continuum model of traffic
+                            flow. Individual vehicles are simulated in regions where
+                            detailed behavior is needed, while the remaining roads
+                            use an aggregate representation based on traffic density
+                            and movement. Regions can change their simulation method
+                            during execution in response to the area being viewed,
+                            performance requirements, or features that need closer
+                            examination. The central contribution is a way to connect
+                            these representations while maintaining traffic movement
+                            between them.
+                        </p>
+
+                        <p>
+                            Within agent-based regions, vehicles adjust their
+                            acceleration according to the vehicle ahead, with
+                            extensions for lane changing, differences among drivers,
+                            and responses to signals and speed limits. The continuum
+                            model represents traffic collectively within road cells
+                            instead of tracking each vehicle separately. Moving
+                            between these representations requires more than simply
+                            changing the level of detail: individual vehicle states
+                            must be converted into aggregate quantities, and aggregate
+                            traffic must be converted back into plausible vehicles.
+                            The authors use averaging and a probabilistic
+                            vehicle-generation method to perform these conversions.
+                            At region boundaries, accumulated traffic flow determines
+                            when a vehicle should enter the agent-based model,
+                            allowing both simulation methods to contribute to one
+                            connected network.
+                        </p>
+
+                        <p>
+                            The performance experiments show substantial computational
+                            benefits on a large road network under several traffic
+                            densities. In the reported single-threaded benchmarks,
+                            the hybrid configurations run approximately 9–17 times
+                            faster than the fully agent-based simulation, while the
+                            entirely continuum-based model runs approximately 10–20
+                            times faster. These results illustrate how retaining
+                            individual vehicles in only part of a network can recover
+                            much of the efficiency of aggregate modeling. However,
+                            the speed advantage depends on the amount of road
+                            represented by each method and the particular models and
+                            hardware used. It should therefore be interpreted as
+                            evidence for the approach’s potential rather than a
+                            guaranteed improvement for every traffic simulator.
+                        </p>
+
+                        <p>
+                            The authors also compare simulated traffic with NGSIM
+                            observations from the US Highway 101 freeway. They examine
+                            vehicle counts, average velocities, and flow patterns,
+                            using sequence-comparison measures that accommodate some
+                            noise and shifts in timing. The hybrid model preserves
+                            important features of the observed traffic, although
+                            differences in magnitude and timing remain and its
+                            final-detector comparison scores are below those of the
+                            fully agent-based model. Observed traffic also supplies
+                            boundary conditions, which helps explain agreement near
+                            the ends of the simulated segment. This provides useful
+                            evidence about the coupling method, but does not establish
+                            equivalent accuracy across a complete urban network or
+                            for every individual vehicle trajectory.
+                        </p>
+
+                        <p>
+                            A significant limitation is that aggregation loses
+                            information about individual vehicles. When a region
+                            returns to agent-based simulation, its vehicles are
+                            reconstructed statistically, so repeated switching can
+                            preserve overall traffic distributions without preserving
+                            exact positions or identities. The framework therefore
+                            needs to retain agent-based regions when particular
+                            vehicles or behavioral differences must be tracked.
+                            For congestion analysis, this suggests a practical way
+                            to examine a local bottleneck while keeping the
+                            surrounding network affordable to simulate, provided
+                            the conversion boundaries do not remove information
+                            essential to the question being studied. The paper
+                            primarily demonstrates a simulation and visualization
+                            method; improved routing and congestion management are
+                            potential applications, rather than policies whose
+                            benefits are established by its experiments.
+                        </p>
+                    </div>
+
+                    <section
+                        class="review-classification"
+                        aria-labelledby="sewall-classification-heading"
+                    >
+                        <h4 id="sewall-classification-heading">
+                            Paper Classification
+                        </h4>
+
+                        <p class="review-classification-note">
+                            This classification is provisional and may be refined
+                            as the remaining papers are reviewed.
+                        </p>
+
+                        <table
+                            class="review-classification-table"
+                            aria-labelledby="sewall-classification-heading"
+                        >
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Selection group</th>
+                                    <td>Foundational paper</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Primary category</th>
+                                    <td>
+                                        Simulation frameworks and computational efficiency
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Specific focus</th>
+                                    <td>
+                                        Hybrid microscopic and aggregate traffic simulation
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Agents and decisions</th>
+                                    <td>
+                                        Individual vehicles following local driving
+                                        rules in detailed regions; collective traffic
+                                        flow represented in continuum regions
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Traffic representation and scale
+                                    </th>
+                                    <td>
+                                        Large road networks combining vehicle-level
+                                        simulation with aggregate traffic dynamics;
+                                        regions can change representation during
+                                        execution
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Data requirements</th>
+                                    <td>
+                                        Road geometry, initial traffic states,
+                                        boundary conditions, and parameters for
+                                        the vehicle and continuum models
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Connection to congestion</th>
+                                    <td>
+                                        Supports detailed investigation of selected
+                                        locations while reducing the computational
+                                        cost of simulating the surrounding network
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Evaluation evidence</th>
+                                    <td>
+                                        Runtime comparisons across traffic densities
+                                        and comparison with observed NGSIM freeway
+                                        traffic using counts, velocities, and flow
+                                        patterns
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Main limitations</th>
+                                    <td>
+                                        Loss of individual vehicle information during
+                                        aggregation, variability introduced by
+                                        reconstruction, and limited validation beyond
+                                        the tested freeway setting
                                     </td>
                                 </tr>
                             </tbody>
