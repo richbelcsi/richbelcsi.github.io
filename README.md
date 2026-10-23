@@ -20,7 +20,7 @@ The review also considers how the surveyed approaches could inform a future impl
 - Prepared brief comments for all 60 bibliography papers, explaining their contributions and relevance to the survey.
 - Selected 20 papers for thorough reading: 4 foundational papers, 8 recent journal papers, 6 conference papers, and 2 technical reports.
 - Added paraphrased abstract summaries and more developed brief comments for the 20-paper shortlist.
-- Added detailed reviews and classifications for 4 of the 20 shortlisted papers: Raney, Bazzan, Charypar and Nagel, and Sewall.
+- Completed detailed reviews and provisional classifications for 8 of the 20 shortlisted papers, including model structure, configuration choices, findings, and limitations.
 - Continued detailed reading and development of the research classification scheme.
 - Planned presentation materials and the final survey paper.
 
