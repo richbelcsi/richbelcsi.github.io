@@ -379,24 +379,30 @@
                 <h2 id="review-overview-heading">Review progress</h2>
 
                 <p>
-                    Detailed reviews are being added as the selected
-                    papers are read thoroughly. Each review examines
-                    the modeling approach, supporting evidence,
-                    limitations, and relevance to urban traffic
-                    congestion.
+                    Detailed reviews are being added as the selected papers are
+                    read thoroughly. Each review examines the modeling approach,
+                    system components, important configuration choices, supporting
+                    evidence, limitations, and relevance to urban traffic congestion.
                 </p>
 
                 <p>
-                    The provisional classification organizes papers by
-                    their main contribution: travel behavior and route
-                    choice, traffic control and coordination, simulation
-                    frameworks and computational efficiency, or
-                    calibration and validation methods. These categories
-                    will be refined as comparisons between studies develop.
+                    The provisional classification organizes papers by their main
+                    contribution: travel behavior and route choice, traffic control
+                    and coordination, travel-demand management, simulation frameworks
+                    and computational efficiency, or calibration and validation
+                    methods. These categories will be refined as comparisons between
+                    studies develop.
+                </p>
+
+                <p>
+                    Reported parameter values describe the authors’ experiments.
+                    They provide context for understanding and reproducing each
+                    approach, rather than universal settings for other cities or
+                    traffic conditions.
                 </p>
 
                 <p class="review-progress">
-                    4 of 20 selected papers reviewed.
+                    8 of 20 selected papers reviewed.
                 </p>
 
                 <p>
@@ -512,6 +518,80 @@
                                     observed NGSIM freeway traffic
                                 </td>
                             </tr>
+
+                            <tr>
+                                <th scope="row">
+                                    <a href="#review-abidi">
+                                        Abidi, S. et al. (2025):
+                                        Analyzing communication policies in cooperative
+                                        multi-agent reinforcement learning for traffic signal control
+                                    </a>
+                                </th>
+                                <td>Traffic control and coordination</td>
+                                <td>
+                                    Cooperative deep reinforcement learning with alternative
+                                    information-sharing policies between signal agents
+                                </td>
+                                <td>
+                                    SUMO grid experiments comparing delay and fairness
+                                    across balanced, unbalanced, and mixed traffic patterns
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">
+                                    <a href="#review-akman">
+                                        Akman, A. O. et al. (2025):
+                                        RouteRL
+                                    </a>
+                                </th>
+                                <td>Travel behavior and route choice</td>
+                                <td>
+                                    Human behavioral learning and autonomous routing agents
+                                    coupled to microscopic traffic simulation
+                                </td>
+                                <td>
+                                    Illustrative experiments on Cologne, Ingolstadt, and
+                                    Manhattan networks comparing routing objectives and algorithms
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">
+                                    <a href="#review-chen">
+                                        Chen, H. et al. (2025):
+                                        Enhancing Travel Reservation Benefits Through Incentive
+                                        and Penalty Mechanisms in Urban Congested Roads
+                                    </a>
+                                </th>
+                                <td>Travel-demand management</td>
+                                <td>
+                                    Incentive and penalty optimization connected to
+                                    agent-based multimodal travel decisions
+                                </td>
+                                <td>
+                                    Extended Sioux Falls experiments comparing reservations,
+                                    incentives, traveler costs, revenue, and traffic performance
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">
+                                    <a href="#review-dubey">
+                                        Dubey, R. K. et al. (2025):
+                                        FAIRLANE
+                                    </a>
+                                </th>
+                                <td>Traffic control and coordination</td>
+                                <td>
+                                    Multi-agent reinforcement learning for priority-lane
+                                    access in mixed-autonomy traffic
+                                </td>
+                                <td>
+                                    Synthetic-grid training and evaluation on an adapted
+                                    Barcelona network across different vehicle compositions
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -610,6 +690,23 @@
                         </p>
 
                         <p>
+                            Configuring the system requires an origin, destination, and departure
+                            time for each traveler, together with road-link lengths, free-flow
+                            speeds, and capacities. The agent database connects route planning
+                            with traffic simulation by retaining alternative routes and their
+                            experienced travel times. Simulated link travel times are returned
+                            to the router in 15-minute intervals, allowing route costs to vary
+                            across the day. The 10% replanning fraction and 50 simulation cycles
+                            describe adaptation between journeys, while road capacities and
+                            storage limits govern movement within each journey. Route-choice
+                            sensitivity is another behavioral setting because it determines
+                            how strongly travelers favor previously faster routes. Reproducing
+                            this approach therefore requires configuring both the transportation
+                            network and the feedback process, rather than representing vehicle
+                            movement alone.
+                        </p>
+
+                        <p>
                             The experiments examine both the effects of
                             route adaptation and agreement with observed
                             traffic. In the Gotthard scenario, 50,000
@@ -695,12 +792,14 @@
                                     <th scope="row">Selection group</th>
                                     <td>Foundational paper</td>
                                 </tr>
+
                                 <tr>
                                     <th scope="row">Primary category</th>
                                     <td>
                                         Travel behavior and route choice
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <th scope="row">Secondary category</th>
                                     <td>
@@ -708,6 +807,7 @@
                                         computational efficiency
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <th scope="row">Agents and decisions</th>
                                     <td>
@@ -716,6 +816,7 @@
                                         experience from previous journeys
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <th scope="row">
                                         Traffic representation and scale
@@ -727,6 +828,7 @@
                                         trips across a large Swiss network
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <th scope="row">Data requirements</th>
                                     <td>
@@ -736,6 +838,24 @@
                                         simulated volumes
                                     </td>
                                 </tr>
+
+                                <tr>
+                                    <th scope="row">Model structure</th>
+                                    <td>
+                                        Route planner, agent database, queue-based traffic simulation,
+                                        and feedback between simulated journeys
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Key configuration</th>
+                                    <td>
+                                        Origins, destinations, departure times, road capacities and
+                                        storage limits; travel-time feedback in 15-minute intervals;
+                                        10% replanning and 50 simulation cycles
+                                    </td>
+                                </tr>
+
                                 <tr>
                                     <th scope="row">
                                         Connection to congestion
@@ -746,6 +866,7 @@
                                         queue formation and travel delays
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <th scope="row">Evaluation evidence</th>
                                     <td>
@@ -754,6 +875,7 @@
                                         with observed counts and VISUM results
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <th scope="row">Main limitations</th>
                                     <td>
@@ -827,6 +949,24 @@
                             otherwise be spent on activities, so its effective cost
                             includes both the direct travel penalty and the lost
                             opportunity to do something else.
+                        </p>
+
+                        <p>
+                            Setting up the model requires the activities available to an
+                            individual, possible activity locations, opening hours, preferred
+                            durations, and scheduling constraints. A candidate plan records
+                            activity participation, order, location, and timing. The genetic
+                            algorithm’s population consists of alternative schedules for one
+                            traveler, rather than a population of different travelers. Important
+                            configuration choices include the utility coefficients, mutation
+                            settings, number of candidate plans, and search duration. The longer
+                            experiments use 300 candidate plans and 10 million generations,
+                            while the faster experiments use 50 plans and 200,000 generations.
+                            These configurations illustrate the trade-off between computation
+                            time and consistency of the resulting schedules. Connecting the
+                            method to congestion analysis would require an additional feedback
+                            process that replaces distance-based travel-time estimates with
+                            updated costs from a traffic simulation.
                         </p>
 
                         <p>
@@ -949,6 +1089,24 @@
                                 </tr>
 
                                 <tr>
+                                    <th scope="row">Model structure</th>
+                                    <td>
+                                        Individual activity inputs, candidate daily plans,
+                                        utility evaluation, and genetic search through
+                                        crossover, mutation, and selection
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Key configuration</th>
+                                    <td>
+                                        Activity locations and timing constraints, utility and mutation
+                                        settings; longer runs with 300 plans and 10 million generations,
+                                        and shorter runs with 50 plans and 200,000 generations
+                                    </td>
+                                </tr>
+
+                                <tr>
                                     <th scope="row">Connection to congestion</th>
                                     <td>
                                         Explains how daily activities generate travel
@@ -979,6 +1137,224 @@
                         </table>
                     </section>
                 </article>
+
+                <article
+                    class="detailed-review"
+                    id="review-akman"
+                    aria-labelledby="review-akman-heading"
+                >
+                    <header class="review-paper-heading">
+                        <h3 id="review-akman-heading">
+                            RouteRL: Multi-agent reinforcement learning framework
+                            for urban route choice with autonomous vehicles
+                        </h3>
+
+                        <p class="review-citation">
+                            Akman, A. O. et al. 2025.
+                            RouteRL: Multi-agent reinforcement learning framework
+                            for urban route choice with autonomous vehicles.
+                            <em>SoftwareX</em> 31, Article 102279 (Sep. 2025).
+                            <a href="https://doi.org/10.1016/j.softx.2025.102279">
+                                https://doi.org/10.1016/j.softx.2025.102279
+                            </a>.
+                        </p>
+
+                        <p>
+                            <a href="annotations.html#paper-2">
+                                View the abstract summary and brief comment
+                            </a>
+                        </p>
+                    </header>
+
+                    <div class="review-text">
+                        <p>
+                            Akman and colleagues introduce RouteRL as a framework for
+                            studying route choices when human drivers and autonomous
+                            vehicles share the same road network. Human travelers follow
+                            behavioral learning models, while autonomous vehicles use
+                            multi-agent reinforcement learning to pursue specified
+                            objectives. These objectives can favor individual travel
+                            time, cooperation within a group, or wider system performance.
+                            The framework makes it possible to examine an important
+                            congestion problem: an automated routing strategy can benefit
+                            its own users while increasing delays for other travelers.
+                        </p>
+
+                        <p>
+                            The model separates route decisions from the simulation of
+                            vehicle movement. Each traveler receives an origin,
+                            destination, departure time, and a discrete set of candidate
+                            routes generated through JanuX. Agents choose routes before
+                            departure, and SUMO simulates the resulting traffic using
+                            microscopic vehicle interactions. An agent receives its reward
+                            after reaching its destination, with travel-time information
+                            subsequently used to update its behavior. The software
+                            organizes this process into environment management, human
+                            learning, and supporting services for recording and
+                            visualization. Human behavior can be represented using the
+                            Gawron, CULO, or WeightedAverage models, allowing the same
+                            traffic environment to be examined under different
+                            assumptions about adaptation.
+                        </p>
+
+                        <p>
+                            Setting up an experiment requires selecting the road network,
+                            travel demand, available routes, human learning model,
+                            autonomous-vehicle share, and reward objective. The illustrative
+                            experiments begin with 100 simulated days of human learning,
+                            introduce autonomous agents, train their policies, and
+                            evaluate them over 100 testing episodes. Neural-network and
+                            training settings vary by algorithm and scenario. For example,
+                            the Cologne experiment using Value Decomposition Networks
+                            reports a policy-network depth of two with 256 units per
+                            layer, two candidate routes, a learning rate of 0.003, a
+                            discount factor of 0.99, and a replay memory of 1,000
+                            experiences. These values belong to that particular
+                            experiment and should not be treated as a universal
+                            RouteRL configuration.
+                        </p>
+
+                        <p>
+                            Experiments on Cologne, Ingolstadt, and Manhattan networks
+                            demonstrate how the framework can compare objectives and
+                            learning algorithms. In one Cologne example, 40 of 100 human
+                            drivers become autonomous agents with an objective that
+                            disadvantages the other group. The resulting route choices
+                            allow autonomous agents to travel faster while human travel
+                            times increase. This is useful evidence that improved
+                            performance for a fleet does not necessarily imply less
+                            congestion for everyone. It also shows why an evaluation
+                            should report outcomes separately for different traveler
+                            groups alongside network-wide measures.
+                        </p>
+
+                        <p>
+                            RouteRL provides a practical setting for investigating how
+                            congestion emerges from repeated interactions between routing
+                            strategies. However, each agent repeats a single
+                            origin–destination trip, and routes remain fixed during each
+                            journey. The experiments therefore do not represent complete
+                            daily activity schedules or adaptation while traveling.
+                            Human behavioral models also approximate decisions rather
+                            than reproduce every source of variation in real travelers.
+                            The framework’s main contribution is a configurable
+                            environment for controlled comparisons, with the effectiveness
+                            of a congestion-reduction strategy depending on its reward
+                            design, behavioral assumptions, and effects on users outside
+                            the optimized group.
+                        </p>
+                    </div>
+
+                    <section
+                        class="review-classification"
+                        aria-labelledby="akman-classification-heading"
+                    >
+                        <h4 id="akman-classification-heading">
+                            Paper Classification
+                        </h4>
+
+                        <p class="review-classification-note">
+                            This classification is provisional and may be refined
+                            as the remaining papers are reviewed.
+                        </p>
+
+                        <table
+                            class="review-classification-table"
+                            aria-labelledby="akman-classification-heading"
+                        >
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Selection group</th>
+                                    <td>Recent journal paper</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Primary category</th>
+                                    <td>Travel behavior and route choice</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Secondary category</th>
+                                    <td>Simulation frameworks and experimental tools</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Agents and decisions</th>
+                                    <td>
+                                        Human travelers adapting through behavioral
+                                        models and autonomous agents learning
+                                        pre-trip route choices
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Traffic representation and scale</th>
+                                    <td>
+                                        SUMO microscopic traffic simulation; illustrative
+                                        experiments on Cologne, Ingolstadt, and Manhattan
+                                        networks
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Data requirements</th>
+                                    <td>
+                                        Road network, origins and destinations,
+                                        departure times, candidate routes, traveler
+                                        groups, and behavioral objectives
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Model structure</th>
+                                    <td>
+                                        Environment management, human learning,
+                                        autonomous-agent training, traffic simulation,
+                                        and recording and visualization services
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Key configuration</th>
+                                    <td>
+                                        Human learning model, autonomous share, route
+                                        alternatives, reward objective, random seed,
+                                        and algorithm-specific training settings;
+                                        examples use 100 human-learning days and
+                                        100 testing episodes
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Connection to congestion</th>
+                                    <td>
+                                        Examines how routing objectives redistribute
+                                        traffic and whether benefits for autonomous
+                                        users create additional delays for other groups
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Evaluation evidence</th>
+                                    <td>
+                                        Illustrative comparisons of learning algorithms,
+                                        routing objectives, and travel times for
+                                        different traveler groups
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Main limitations</th>
+                                    <td>
+                                        Repeated single trips, fixed routes during
+                                        journeys, approximate human behavior, and
+                                        computational demands of microscopic simulation
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </article>
             </section>
 
             <section
@@ -991,10 +1367,9 @@
                 </h2>
 
                 <p class="review-category-description">
-                    Studies in this category examine how traffic signals,
-                    intersection controllers, and other decision-making
-                    agents coordinate to manage traffic flow and reduce
-                    congestion.
+                    Studies in this category examine how traffic signals and vehicle
+                    agents coordinate decisions, allocate road capacity, and respond
+                    to changing conditions through signal control or lane access.
                 </p>
 
                 <article
@@ -1065,6 +1440,24 @@
                             simulator that represents flow through density ranges,
                             rather than tracking the detailed behavior of
                             individual drivers.
+                        </p>
+
+                        <p>
+                            The model separates traffic movement, local observation, and signal-plan
+                            learning. Its interaction range is set to one, so agents coordinate
+                            with immediately neighboring intersections. Signal plans must already
+                            satisfy timing and safety constraints; learning selects among these
+                            plans rather than generating unrestricted signal timings. Three
+                            important settings govern adaptation: the frequency of learning, the
+                            frequency of local traffic changes, and the memory factor. The
+                            experiments identify learning-frequency settings of 5 and 10 as
+                            useful choices, corresponding to a learning probability of one-fifth
+                            or one-tenth per decision period. Tested memory factors include 0.80,
+                            0.95, and 1.00. In this formulation, smaller values retain more
+                            influence from earlier payoffs and can slow adjustment. These
+                            settings need to be considered together because frequent learning
+                            can respond to insufficient information, while excessive reliance
+                            on previous conditions can delay coordination after demand changes.
                         </p>
 
                         <p>
@@ -1191,6 +1584,23 @@
                                 </tr>
 
                                 <tr>
+                                    <th scope="row">Model structure</th>
+                                    <td>
+                                        Macroscopic traffic simulation, local detector observations,
+                                        neighboring intersection interactions, and signal-plan learning
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Key configuration</th>
+                                    <td>
+                                        Two predefined signal plans, interaction range of one,
+                                        learning and traffic-change frequencies, payoff settings,
+                                        and memory factors including 0.80, 0.95, and 1.00
+                                    </td>
+                                </tr>
+
+                                <tr>
                                     <th scope="row">
                                         Connection to congestion
                                     </th>
@@ -1219,6 +1629,697 @@
                                         simulated density results do not establish
                                         citywide effectiveness or precise travel-time
                                         savings
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </article>
+
+                <article
+                    class="detailed-review"
+                    id="review-abidi"
+                    aria-labelledby="review-abidi-heading"
+                >
+                    <header class="review-paper-heading">
+                        <h3 id="review-abidi-heading">
+                            Analyzing communication policies in cooperative multi-agent
+                            reinforcement learning for traffic signal control:
+                            A simulation-based study
+                        </h3>
+
+                        <p class="review-citation">
+                            Abidi, S. et al. 2025.
+                            Analyzing communication policies in cooperative multi-agent
+                            reinforcement learning for traffic signal control:
+                            A simulation-based study.
+                            <em>Simulation Modelling Practice and Theory</em>
+                            141, Article 103100 (May 2025).
+                            <a href="https://doi.org/10.1016/j.simpat.2025.103100">
+                                https://doi.org/10.1016/j.simpat.2025.103100
+                            </a>.
+                        </p>
+
+                        <p>
+                            <a href="annotations.html#paper-1">
+                                View the abstract summary and brief comment
+                            </a>
+                        </p>
+                    </header>
+
+                    <div class="review-text">
+                        <p>
+                            Abidi and colleagues investigate what neighboring
+                            traffic-signal agents should communicate to coordinate their
+                            decisions effectively. Their Cooperative Deep Q-Network
+                            approach compares several information-sharing policies,
+                            including complete observations, pressure and signal phases,
+                            reward and phases, and reward and pressure. The central issue
+                            is that an intersection cannot understand surrounding
+                            congestion from local measurements alone, but receiving more
+                            information does not necessarily improve its decisions.
+                            The study therefore examines how the content of communication
+                            affects learning and traffic performance.
+                        </p>
+
+                        <p>
+                            The system connects microscopic traffic movement in SUMO,
+                            a reinforcement-learning environment provided through
+                            SUMO-RL, and agent training through RLlib. Each signal agent
+                            observes its current phase, elapsed phase duration,
+                            incoming-lane densities and queues, and the information
+                            supplied by neighboring intersections. Intersections count
+                            as neighbors when they are directly connected by a lane.
+                            Agents choose signal-phase actions subject to timing
+                            restrictions: the minimum green time is 5 seconds, the
+                            maximum is 50 seconds, and a phase change includes a
+                            3-second yellow interval. Local rewards measure the reduction
+                            in cumulative waiting time, while the cooperative formulation
+                            also incorporates shared experiences and a global reward
+                            based on the agents’ individual rewards.
+                        </p>
+
+                        <p>
+                            The experiments use a 4 × 4 grid with 16 signalized
+                            intersections and 150-meter links containing two lanes.
+                            Demand alternates between balanced directional flows and
+                            a pattern with heavier west–east traffic. Each agent’s
+                            neural network has two hidden layers of 250 neurons with
+                            ReLU activation. Other reported settings include a discount
+                            factor of 0.99, a training batch size of 512, a replay buffer
+                            holding 10,000 experiences, and a learning start threshold
+                            of 1,000 collected experiences. These settings describe the
+                            learning process, while network geometry, vehicle arrival
+                            rates, and signal timings define the traffic environment.
+                            Keeping those categories separate makes it easier to
+                            determine whether performance changes originate in the
+                            controller or the scenario.
+                        </p>
+
+                        <p>
+                            Sharing rewards and phases produces the lowest reported
+                            average delay among the compared communication policies in
+                            all three evaluated traffic scenarios. For example, the
+                            reported delay in the unbalanced-demand scenario is
+                            195 seconds for reward-and-phase sharing, compared with
+                            845 seconds for complete sharing. This supports the idea
+                            that concise information about neighboring actions and
+                            outcomes can be more useful than a larger observation
+                            containing less relevant detail. Results aggregated across
+                            five simulation runs provide evidence of performance
+                            variability, although the regular grid remains a limited
+                            representation of urban street networks.
+                        </p>
+
+                        <p>
+                            This study connects congestion reduction to the design of
+                            agent communication rather than simply the choice of a
+                            learning algorithm. It also extends the coordination question
+                            raised by Bazzan: agents need information that helps them
+                            coordinate without making their responses unstable or
+                            unnecessarily complicated. However, performance on a
+                            simulated grid does not establish that the same communication
+                            policy will remain best on irregular networks or with
+                            unreliable measurements and communication delays. Applying
+                            the approach elsewhere would require testing the observation
+                            design, demand patterns, and learning settings together,
+                            rather than transferring the reported configuration unchanged.
+                        </p>
+                    </div>
+
+                    <section
+                        class="review-classification"
+                        aria-labelledby="abidi-classification-heading"
+                    >
+                        <h4 id="abidi-classification-heading">
+                            Paper Classification
+                        </h4>
+
+                        <p class="review-classification-note">
+                            This classification is provisional and may be refined
+                            as the remaining papers are reviewed.
+                        </p>
+
+                        <table
+                            class="review-classification-table"
+                            aria-labelledby="abidi-classification-heading"
+                        >
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Selection group</th>
+                                    <td>Recent journal paper</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Primary category</th>
+                                    <td>Traffic control and coordination</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Specific focus</th>
+                                    <td>
+                                        Communication policies for cooperative
+                                        reinforcement-learning signal controllers
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Agents and decisions</th>
+                                    <td>
+                                        Intersection agents selecting signal-phase
+                                        actions using local observations and
+                                        information from neighboring intersections
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Traffic representation and scale</th>
+                                    <td>
+                                        SUMO microscopic simulation of a 4 × 4 grid
+                                        with 16 signalized intersections and
+                                        150-meter, two-lane links
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Data requirements</th>
+                                    <td>
+                                        Lane densities, queues, phase states and
+                                        durations, network connections, vehicle arrivals,
+                                        and neighboring-agent information
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Model structure</th>
+                                    <td>
+                                        Traffic simulation, reinforcement-learning
+                                        environment, inter-agent communication,
+                                        and cooperative deep Q-learning
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Key configuration</th>
+                                    <td>
+                                        Green times of 5–50 seconds and 3-second
+                                        yellow intervals; two hidden layers of
+                                        250 neurons; discount factor 0.99,
+                                        batch size 512, and replay capacity 10,000
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Connection to congestion</th>
+                                    <td>
+                                        Coordinates signal decisions to reduce waiting
+                                        and examines which shared information best
+                                        supports adaptation to changing demand
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Evaluation evidence</th>
+                                    <td>
+                                        Communication-policy and algorithm comparisons
+                                        across balanced, unbalanced, and mixed traffic
+                                        scenarios, including delay and fairness measures
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Main limitations</th>
+                                    <td>
+                                        Regular simulated grid, limited network diversity,
+                                        and no demonstrated field deployment under
+                                        unreliable observations or communication
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </article>
+
+                <article
+                    class="detailed-review"
+                    id="review-dubey"
+                    aria-labelledby="review-dubey-heading"
+                >
+                    <header class="review-paper-heading">
+                        <h3 id="review-dubey-heading">
+                            FAIRLANE: A multi-agent approach to priority lane
+                            management in diverse traffic composition
+                        </h3>
+
+                        <p class="review-citation">
+                            Dubey, R. K. et al. 2025.
+                            FAIRLANE: A multi-agent approach to priority lane
+                            management in diverse traffic composition.
+                            <em>Transportation Research Part C: Emerging Technologies</em>
+                            171, Article 104919 (Feb. 2025).
+                            <a href="https://doi.org/10.1016/j.trc.2024.104919">
+                                https://doi.org/10.1016/j.trc.2024.104919
+                            </a>.
+                        </p>
+
+                        <p>
+                            <a href="annotations.html#paper-13">
+                                View the abstract summary and brief comment
+                            </a>
+                        </p>
+                    </header>
+
+                    <div class="review-text">
+                        <p>
+                            Dubey and colleagues investigate how priority lanes can be
+                            used effectively when connected autonomous vehicles,
+                            semi-autonomous vehicles, and human-driven vehicles share
+                            the road. Reserving a lane exclusively for connected
+                            autonomous vehicles can leave capacity underused when their
+                            numbers are low. FAIRLANE addresses this problem by allowing
+                            semi-autonomous vehicles to enter the priority lane when
+                            they can do so without obstructing its intended users.
+                            Congestion reduction therefore depends on coordinating
+                            access to existing road space rather than adding capacity.
+                        </p>
+
+                        <p>
+                            Semi-autonomous vehicles serve as the learning agents. Each
+                            observes information about its lane, speed, nearby vehicles,
+                            and the approaching traffic signal, then chooses between
+                            priority and non-priority modes. Priority mode permits access
+                            to the priority lane, while non-priority mode requires the
+                            vehicle to leave it. The reward combines changes in the
+                            agent’s speed, effects on connected autonomous vehicles,
+                            nearby vehicle conditions, lane-change safety, and proximity
+                            to intersections. Vehicle-to-everything communication supplies
+                            information used in these decisions. The model thus connects
+                            microscopic traffic movement, communication and observation,
+                            and learned lane-access behavior.
+                        </p>
+
+                        <p>
+                            Training uses a synthetic 5 × 3 grid containing 24 streets,
+                            each with three lanes, a length of 200 meters, and a lane
+                            width of 3.2 meters. Agents can change priority mode every
+                            3 seconds. The initial training population contains
+                            50 connected autonomous vehicles, 50 semi-autonomous
+                            vehicles, and 80 human-driven vehicles, supplemented by
+                            background human-driven traffic. The study compares MADDPG
+                            and MAPPO, with both configurations reporting hidden
+                            dimensions of 64 and 64. The MADDPG configuration uses a
+                            learning rate of 0.01, batch size of 1,024, discount factor
+                            of 0.95, and soft-update coefficient of 0.01. These learning
+                            settings must be distinguished from physical settings such
+                            as traffic demand, vehicle composition, and the distances
+                            used to decide whether lane access is appropriate.
+                        </p>
+
+                        <p>
+                            Evaluation transfers the trained approach to an adapted
+                            Barcelona network derived from a calibrated traffic digital
+                            twin. The experiments vary connected and semi-autonomous
+                            vehicle shares and compare FAIRLANE with alternative
+                            lane-management strategies. Benefits are particularly evident
+                            at lower connected-autonomous-vehicle shares, when exclusive
+                            lanes are more likely to be underused. At higher shares,
+                            exclusive access becomes more competitive and can perform
+                            better. The findings therefore support conditional
+                            lane-management decisions: the usefulness of shared priority
+                            access depends on traffic composition rather than one
+                            strategy being best in every scenario.
+                        </p>
+
+                        <p>
+                            FAIRLANE contributes a vehicle-level example of agents
+                            coordinating access to a limited transportation resource.
+                            Its results also show why speed, waiting time, throughput,
+                            and lane-changing behavior should be considered together.
+                            Safety conclusions remain limited because SUMO uses
+                            collision-avoidance behavior, so the study evaluates
+                            approximate safety indicators rather than observed crash
+                            outcomes. Reproduction also requires care: the training
+                            description reports 5,000 episodes, whereas the
+                            hyperparameter table lists 1,500, and the distance settings
+                            contain an ambiguous repeated symbol. These discrepancies
+                            should remain identified until resolved through the
+                            implementation or author clarification. The paper provides
+                            evidence for adaptive lane access under its tested
+                            conditions, while leaving questions about reliable deployment
+                            and sensitivity to driver behavior open.
+                        </p>
+                    </div>
+
+                    <section
+                        class="review-classification"
+                        aria-labelledby="dubey-classification-heading"
+                    >
+                        <h4 id="dubey-classification-heading">
+                            Paper Classification
+                        </h4>
+
+                        <p class="review-classification-note">
+                            This classification is provisional and may be refined
+                            as the remaining papers are reviewed.
+                        </p>
+
+                        <table
+                            class="review-classification-table"
+                            aria-labelledby="dubey-classification-heading"
+                        >
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Selection group</th>
+                                    <td>Recent journal paper</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Primary category</th>
+                                    <td>Traffic control and coordination</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Specific focus</th>
+                                    <td>
+                                        Adaptive priority-lane access in
+                                        mixed-autonomy traffic
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Agents and decisions</th>
+                                    <td>
+                                        Semi-autonomous vehicles selecting priority
+                                        or non-priority mode using local traffic
+                                        observations and communicated information
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Traffic representation and scale</th>
+                                    <td>
+                                        Microscopic SUMO traffic; synthetic 5 × 3
+                                        training grid and an adapted Barcelona
+                                        network for evaluation
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Data requirements</th>
+                                    <td>
+                                        Lane geometry, vehicle types and demand,
+                                        nearby vehicle positions and speeds,
+                                        signal states, and communication inputs
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Model structure</th>
+                                    <td>
+                                        Microscopic traffic movement, vehicle
+                                        communication and observation, reward
+                                        calculation, and multi-agent policy learning
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Key configuration</th>
+                                    <td>
+                                        Vehicle composition, clearance distances,
+                                        3-second action interval, and reward components;
+                                        MADDPG settings include hidden dimensions
+                                        [64, 64], batch size 1,024, and discount
+                                        factor 0.95
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Connection to congestion</th>
+                                    <td>
+                                        Allows conditional sharing of priority lanes
+                                        to reduce unused capacity while limiting
+                                        interference with connected autonomous vehicles
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Evaluation evidence</th>
+                                    <td>
+                                        Comparisons with alternative lane strategies
+                                        across vehicle compositions using waiting time,
+                                        speed, throughput, and lane-changing measures
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Main limitations</th>
+                                    <td>
+                                        Approximate safety measures, simulator-dependent
+                                        behavior, composition-sensitive benefits, and
+                                        inconsistent reporting of some training and
+                                        distance settings
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </article>
+            </section>
+
+            <section
+                class="review-category"
+                id="travel-demand-management"
+                aria-labelledby="travel-demand-management-heading"
+            >
+                <h2 id="travel-demand-management-heading">
+                    Travel-Demand Management
+                </h2>
+
+                <p class="review-category-description">
+                    Studies in this category examine how reservations, incentives,
+                    penalties, and changes in travel choices redistribute demand
+                    across departure times, routes, and transportation modes.
+                </p>
+
+                <article
+                    class="detailed-review"
+                    id="review-chen"
+                    aria-labelledby="review-chen-heading"
+                >
+                    <header class="review-paper-heading">
+                        <h3 id="review-chen-heading">
+                            Enhancing Travel Reservation Benefits Through Incentive
+                            and Penalty Mechanisms in Urban Congested Roads
+                        </h3>
+
+                        <p class="review-citation">
+                            Chen, H. et al. 2025.
+                            Enhancing Travel Reservation Benefits Through Incentive
+                            and Penalty Mechanisms in Urban Congested Roads.
+                            <em>Applied Sciences</em>
+                            15, 3, Article 1393 (Jan. 2025).
+                            <a href="https://doi.org/10.3390/app15031393">
+                                https://doi.org/10.3390/app15031393
+                            </a>.
+                        </p>
+
+                        <p>
+                            <a href="annotations.html#paper-11">
+                                View the abstract summary and brief comment
+                            </a>
+                        </p>
+                    </header>
+
+                    <div class="review-text">
+                        <p>
+                            Chen and colleagues examine whether incentives and
+                            penalties can make a road-travel reservation system more
+                            effective. Travelers can respond by changing departure
+                            times, transportation modes, or routes, with different
+                            responses arising from their valuation of travel time
+                            and scheduling inconvenience. The study connects these
+                            individual choices to traffic conditions and
+                            transportation-system revenue. Its contribution is to
+                            evaluate reservation policies through interacting
+                            traveler behavior rather than assume that everyone
+                            responds to a subsidy or restriction in the same way.
+                        </p>
+
+                        <p>
+                            The system combines an upper-level policy optimization
+                            model with a lower-level agent-based traffic simulation.
+                            The optimization component selects incentives and
+                            penalties while balancing system revenue against
+                            travelers’ costs. The simulation evaluates each proposed
+                            policy through decisions before and during travel.
+                            Before departure, travelers compare alternatives involving
+                            private cars, public transportation, and park-and-ride.
+                            During a trip, vehicle movement follows a car-following
+                            model, while route decisions can be reconsidered at
+                            intersections using current travel conditions. Simulation
+                            results then provide the revenue and cost values needed
+                            to assess the policy.
+                        </p>
+
+                        <p>
+                            The experiments use an extended Sioux Falls network
+                            with 24 nodes and 76 directed road links, supplemented
+                            with public transportation and transfer opportunities.
+                            Reservations use 10-minute windows, and travelers can
+                            move their departure by up to 30 minutes in either
+                            direction. The choice-model coefficients are set to 0.8,
+                            while the objective weights are 0.6 for system revenue
+                            and 0.4 for traveler costs. Road traffic uses a General
+                            Motors car-following model and simplified signal
+                            settings, including 60-second straight-ahead green
+                            times, 45-second left-turn green times, and 3-second
+                            yellow intervals. Simulated annealing searches for the
+                            incentive and penalty combination, using an initial
+                            temperature of 100 and a cooling factor of 0.985.
+                            The resulting subsidies and penalty are optimization
+                            outputs rather than fixed behavioral parameters.
+                        </p>
+
+                        <p>
+                            The comparison includes an initial network without
+                            reservations, a reservation scheme, and reservations
+                            combined with optimized incentives and penalties.
+                            Relative to the initial scenario, the combined scheme
+                            increases reported system revenue by 17.26% and reduces
+                            traveler costs by 2.67%. However, the additional
+                            incentives do not improve every traffic measure compared
+                            with reservations alone. Average network speed is
+                            33.96 km/h under the combined scheme, slightly below
+                            the 34.22 km/h obtained with reservations alone,
+                            although both exceed the initial 31.83 km/h.
+                            This distinction matters because the policy is balancing
+                            participation, resource use, and financial outcomes
+                            rather than maximizing speed alone.
+                        </p>
+
+                        <p>
+                            The paper demonstrates how agent-based simulation can
+                            evaluate congestion policies that operate through changes
+                            in demand. Its conclusions nevertheless depend on
+                            assumptions about compliance, time valuation, and
+                            sensitivity to travel costs. Travelers with successful
+                            reservations are assumed to follow their scheduled
+                            departure times, and time valuations are assigned through
+                            age-based categories. The network is an adapted test
+                            environment, so the results should not be interpreted
+                            as observed effects of a deployed reservation system.
+                            A stronger assessment would test how the policy performs
+                            when compliance varies and when the behavioral
+                            coefficients and objective weights change.
+                        </p>
+                    </div>
+
+                    <section
+                        class="review-classification"
+                        aria-labelledby="chen-classification-heading"
+                    >
+                        <h4 id="chen-classification-heading">
+                            Paper Classification
+                        </h4>
+
+                        <p class="review-classification-note">
+                            This classification is provisional and may be refined
+                            as the remaining papers are reviewed.
+                        </p>
+
+                        <table
+                            class="review-classification-table"
+                            aria-labelledby="chen-classification-heading"
+                        >
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Selection group</th>
+                                    <td>Recent journal paper</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Primary category</th>
+                                    <td>Travel-demand management</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Secondary category</th>
+                                    <td>Travel behavior and route choice</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Agents and decisions</th>
+                                    <td>
+                                        Travelers choosing departure times, modes,
+                                        and routes in response to travel costs,
+                                        reservations, incentives, and penalties
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Traffic representation and scale</th>
+                                    <td>
+                                        Agent-based multimodal simulation on an
+                                        extended Sioux Falls network with 24 nodes
+                                        and 76 directed road links
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Data requirements</th>
+                                    <td>
+                                        Road and transit networks, travel demand,
+                                        schedules, time valuations, fares,
+                                        reservation capacity, and vehicle
+                                        movement parameters
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Model structure</th>
+                                    <td>
+                                        Policy optimization connected to pre-trip
+                                        choice, during-trip vehicle movement,
+                                        intersection route decisions, and
+                                        simulation-based policy evaluation
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Key configuration</th>
+                                    <td>
+                                        10-minute reservation windows, departure
+                                        shifts up to 30 minutes, choice coefficients
+                                        of 0.8, objective weights of 0.6 and 0.4,
+                                        and simulated-annealing settings
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Connection to congestion</th>
+                                    <td>
+                                        Redistributes travel demand across times,
+                                        routes, and modes while balancing traveler
+                                        costs, participation, and system revenue
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Evaluation evidence</th>
+                                    <td>
+                                        Comparison of no reservations, reservations
+                                        alone, and reservations with optimized
+                                        incentives and penalties
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Main limitations</th>
+                                    <td>
+                                        Assumed reservation compliance, age-based
+                                        time valuations, simplified traffic settings,
+                                        and results dependent on behavioral
+                                        coefficients and policy objective weights
                                     </td>
                                 </tr>
                             </tbody>
@@ -1304,6 +2405,23 @@
                             when a vehicle should enter the agent-based model,
                             allowing both simulation methods to contribute to one
                             connected network.
+                        </p>
+
+                        <p>
+                            Model setup requires road geometry, initial traffic conditions,
+                            boundary flows, and a division of the network into agent-based and
+                            continuum regions. Important settings include the car-following and
+                            lane-changing parameters, continuum cell size, initial vehicle
+                            distribution, and criteria for choosing which regions receive
+                            detailed simulation. The simulator calculates a stable time step
+                            from the continuum dynamics and advances the agent-based regions
+                            using that same interval. Performance experiments include
+                            configurations with approximately 1% and 10% of vehicles simulated
+                            individually. Increasing the detailed portion raises computational
+                            cost but preserves more individual behavior. The configuration
+                            must therefore reflect the research question: a vehicle whose
+                            identity needs to remain traceable must stay within an agent-based
+                            region because aggregation removes that identity.
                         </p>
 
                         <p>
@@ -1425,6 +2543,23 @@
                                         Road geometry, initial traffic states,
                                         boundary conditions, and parameters for
                                         the vehicle and continuum models
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Model structure</th>
+                                    <td>
+                                        Individual vehicle simulation, continuum traffic cells,
+                                        and conversion mechanisms connecting the two representations
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Key configuration</th>
+                                    <td>
+                                        Initial and boundary traffic conditions, driving-model
+                                        parameters, cell size, region-selection criteria,
+                                        and a shared time step determined by continuum stability
                                     </td>
                                 </tr>
 
