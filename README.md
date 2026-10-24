@@ -20,7 +20,7 @@ The review also considers how the surveyed approaches could inform a future impl
 - Prepared brief comments for all 60 bibliography papers, explaining their contributions and relevance to the survey.
 - Selected 20 papers for thorough reading: 4 foundational papers, 8 recent journal papers, 6 conference papers, and 2 technical reports.
 - Added paraphrased abstract summaries and more developed brief comments for the 20-paper shortlist.
-- Completed detailed reviews and provisional classifications for 8 of the 20 shortlisted papers, including model structure, configuration choices, findings, and limitations.
+- Completed detailed reviews and provisional classifications for 14 of the 20 shortlisted papers, including model structure, configuration choices, findings, and limitations.
 - Continued detailed reading and development of the research classification scheme.
 - Planned presentation materials and the final survey paper.
 
@@ -53,7 +53,7 @@ Publication links lead to publisher pages, repositories, or available PDFs. Acce
 | `review.html` | Detailed reviews, individual paper classifications, and a growing comparison of research approaches |
 | `materials.html` | Research materials, progress, and course milestones |
 | `styles.css` | Shared colors, typography, responsive layouts, controls, and print styles |
-| `script.js` | Bibliography and annotation search, filtering, result counts, printing, and annotation-link handling |
+| `script.js` | Bibliography and annotation search/filter controls, bibliography sorting, and print controls for the bibliography, annotations, and detailed reviews |
 | `logo.svg` | Website logo and browser-tab icon |
 | `README.md` | Repository overview and development instructions |
 
