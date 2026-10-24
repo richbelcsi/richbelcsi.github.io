@@ -319,6 +319,21 @@
         revealLinkedContent();
     }
     
+    function setupReviewPrint() {
+        const button = document.querySelector("#print-reviews");
+
+        if (!button) {
+            return;
+        }
+
+        button.addEventListener("click", () => {
+            window.print();
+        });
+
+        button.hidden = false;
+    }
+
     setupBibliography();
     setupAnnotations();
+    setupReviewPrint();
 })();
