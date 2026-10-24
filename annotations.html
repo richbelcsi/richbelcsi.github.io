@@ -624,6 +624,11 @@
                             <strong>Comments:</strong>
                             Jamróz and colleagues use a two-route agent-based model to examine how coordinated autonomous vehicles interact with human drivers who learn from past journeys. Their results show that fleet objectives, market share, and human preferences can determine whether coordination improves overall travel times or benefits the fleet at other drivers’ expense. This is important for our survey because a congestion strategy should be judged by its effects across the network, including who gains and who experiences additional delay. The simplified network and analytical travel-time functions make these mechanisms easier to identify, but limit direct predictions for a complex city such as New York.
                         </p>
+                        <p>
+                            <a href="review.html#review-jamroz">
+                                Read the detailed review and classification
+                            </a>
+                        </p>
                     </article>
 
                     <article class="paper-annotation" id="paper-26">
@@ -651,6 +656,11 @@
                         <p class="brief-comments">
                             <strong>Comments:</strong>
                             Khan and colleagues compare a simple GraphHopper routing approach with MATSim to determine how much traffic information can be reproduced with less computational effort. For more than three million car trips, GraphHopper produces broadly similar aggregate travel measures and traffic patterns, although differences remain in individual routes and congested areas. The study helps our survey assess when a fast approximation may be useful for preliminary analysis and when interactions among travelers justify a more detailed agent-based model. Since the tested routing approach does not dynamically account for congestion, similarity in average results alone does not establish that it can predict the effects of congestion interventions.
+                        </p>
+                        <p>
+                            <a href="review.html#review-khan">
+                                Read the detailed review and classification
+                            </a>
                         </p>
                     </article>
 
@@ -681,6 +691,11 @@
                             <strong>Comments:</strong>
                             Natterer and colleagues train machine-learning surrogates on Paris MATSim simulations to predict how road-capacity reductions redistribute traffic across street segments. Their best model reproduces simulated daily traffic-volume changes with an R² of 0.91 while evaluating scenarios far faster than the underlying simulation. This supports our survey by making it more practical to screen many policy options before examining promising congestion interventions in detail. However, daily volumes can conceal peak-hour delays, and the surrogate inherits the source simulation’s limitations while requiring new training data for different cities or policy types.
                         </p>
+                        <p>
+                            <a href="review.html#review-natterer">
+                                Read the detailed review and classification
+                            </a>
+                        </p>
                     </article>
 
                     <article class="paper-annotation" id="paper-50">
@@ -707,6 +722,11 @@
                         <p class="brief-comments">
                             <strong>Comments:</strong>
                             Smilovitskiy and colleagues use GPU parallelism to accelerate simulations of individual vehicles on the Isle of Wight road network and synthetic grids. Their benchmarks show substantial runtime improvements over SUMO as vehicle populations increase, demonstrating how computing architecture can expand the scale of agent-based traffic experiments. For our survey, this offers a practical way to investigate more demand conditions and congestion scenarios within a limited computing budget. However, the framework lacks some SUMO features, including adaptive traffic lights, so faster execution should not be treated as evidence of equivalent behavioral realism or control capabilities.
+                        </p>
+                        <p>
+                            <a href="review.html#review-smilovitskiy">
+                                Read the detailed review and classification
+                            </a>
                         </p>
                     </article>
                 </section>
@@ -747,6 +767,11 @@
                             <strong>Comments:</strong>
                             Alnajjar and colleagues use MATSim to examine how a hypothetical automated-vehicle corridor would affect travel across New York City. Their scenarios produce benefits on some roads, including the Lincoln Tunnel, while increasing delays elsewhere, showing that corridor improvements can redistribute congestion across the network. This directly supports our survey’s NYC focus by demonstrating why a proposed intervention must be assessed beyond the roads it is designed to improve. Automated-vehicle effects are represented through capacity assumptions rather than detailed driving behavior, so the findings should be interpreted as scenario-dependent network responses.
                         </p>
+                        <p>
+                            <a href="review.html#review-alnajjar">
+                                Read the detailed review and classification
+                            </a>
+                        </p>
                     </article>
 
                     <article class="paper-annotation" id="paper-23">
@@ -774,6 +799,11 @@
                         <p class="brief-comments">
                             <strong>Comments:</strong>
                             Kappenberger and Stuckenschmidt combine GPS-derived routes with an evolutionary optimization method to calibrate SUMO demand against limited traffic counts in Mannheim. Their approach improves agreement between simulated and observed counts, providing a practical starting point when detailed origin–destination data are unavailable. This matters for our survey because misleading demand estimates can produce unrealistic bottlenecks and distort the predicted benefits of congestion interventions. However, matching counts at observed locations does not establish that the inferred routes are correct, and calibration on a single date leaves performance on other days uncertain.
+                        </p>
+                        <p>
+                            <a href="review.html#review-kappenberger">
+                                Read the detailed review and classification
+                            </a>
                         </p>
                     </article>
 

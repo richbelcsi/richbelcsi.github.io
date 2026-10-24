@@ -204,6 +204,23 @@
             border-bottom: 0;
         }
 
+        .review-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin: 1.25rem 0;
+        }
+
+        .review-toolbar .review-progress {
+            margin: 0;
+        }
+
+        .review-toolbar [hidden] {
+            display: none !important;
+        }
+
         @media (max-width: 760px) {
             .review-content {
                 padding-bottom: 2.5rem;
@@ -324,6 +341,10 @@
             .review-classification-table tr {
                 break-inside: avoid;
             }
+
+            .review-toolbar {
+                display: none !important;
+            }
         }
     </style>
 </head>
@@ -401,9 +422,20 @@
                     traffic conditions.
                 </p>
 
-                <p class="review-progress">
-                    8 of 20 selected papers reviewed.
-                </p>
+                <div class="review-toolbar">
+                    <p class="review-progress">
+                        14 of 20 selected papers reviewed.
+                    </p>
+
+                    <button
+                        id="print-reviews"
+                        type="button"
+                        class="utility-button"
+                        hidden
+                    >
+                        Print / Save as PDF
+                    </button>
+                </div>
 
                 <p>
                     <a href="annotations.html">
@@ -590,6 +622,118 @@
                                 <td>
                                     Synthetic-grid training and evaluation on an adapted
                                     Barcelona network across different vehicle compositions
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">
+                                    <a href="#review-jamroz">
+                                        Jamróz, G. et al. (2025):
+                                        Social implications of coexistence of CAVs and
+                                        human drivers in the context of route choice
+                                    </a>
+                                </th>
+                                <td>Travel behavior and route choice</td>
+                                <td>
+                                    Human route learning combined with centrally coordinated
+                                    autonomous-fleet routing on two alternative routes
+                                </td>
+                                <td>
+                                    Simulation experiments varying fleet objectives, market share,
+                                    demand, and human route preferences
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">
+                                    <a href="#review-khan">
+                                        Khan, T. S. et al. (2024):
+                                        Simplifying traffic simulation
+                                    </a>
+                                </th>
+                                <td>Simulation frameworks and computational efficiency</td>
+                                <td>
+                                    Comparison of straight-line estimates, static network routing,
+                                    and agent-based traffic simulation
+                                </td>
+                                <td>
+                                    Washington-region comparisons of matched trips, road volumes,
+                                    travel measures, runtime, and memory requirements
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">
+                                    <a href="#review-natterer">
+                                        Natterer, E. S. et al. (2025):
+                                        Machine learning surrogates for agent-based models
+                                        in transportation policy analysis
+                                    </a>
+                                </th>
+                                <td>Simulation frameworks and computational efficiency</td>
+                                <td>
+                                    Graph neural networks and Transformer attention predicting
+                                    traffic-volume changes produced by MATSim
+                                </td>
+                                <td>
+                                    Held-out Paris capacity-reduction scenarios, architecture
+                                    comparisons, prediction errors, and computational timings
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">
+                                    <a href="#review-smilovitskiy">
+                                        Smilovitskiy, M. et al. (2025):
+                                        FLAME-GPU for Traffic Systems
+                                    </a>
+                                </th>
+                                <td>Simulation frameworks and computational efficiency</td>
+                                <td>
+                                    GPU-parallel vehicle agents with car-following,
+                                    lane-changing, and junction behavior
+                                </td>
+                                <td>
+                                    Runtime and vehicle-processing benchmarks against SUMO
+                                    on the Isle of Wight and synthetic grids
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">
+                                    <a href="#review-alnajjar">
+                                        Alnajjar, H. et al. (2024):
+                                        An agent-based urban simulation of an automated
+                                        vehicle corridor in New York City
+                                    </a>
+                                </th>
+                                <td>Traffic control and coordination</td>
+                                <td>
+                                    MATSim-NYC scenarios representing automated-vehicle
+                                    effects through corridor capacity changes
+                                </td>
+                                <td>
+                                    Corridor, borough, and individual-road comparisons
+                                    of travel times, volumes, and mode shares
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">
+                                    <a href="#review-kappenberger">
+                                        Kappenberger, J. and Stuckenschmidt, H. (2025):
+                                        Overcoming Data Scarcity in Calibrating SUMO
+                                        Scenarios With Evolutionary Algorithms
+                                    </a>
+                                </th>
+                                <td>Calibration and validation methods</td>
+                                <td>
+                                    GPS-derived routes and evolutionary optimization
+                                    of route-sampling probabilities
+                                </td>
+                                <td>
+                                    Comparison of simulated and observed Mannheim traffic
+                                    counts across three-hour and full-day scenarios
                                 </td>
                             </tr>
                         </tbody>
@@ -1355,6 +1499,206 @@
                         </table>
                     </section>
                 </article>
+
+                <article
+                    class="detailed-review"
+                    id="review-jamroz"
+                    aria-labelledby="review-jamroz-heading"
+                >
+                    <header class="review-paper-heading">
+                        <h3 id="review-jamroz-heading">
+                            Social implications of coexistence of CAVs and human
+                            drivers in the context of route choice
+                        </h3>
+
+                        <p class="review-citation">
+                            Jamróz, G. et al. 2025.
+                            Social implications of coexistence of CAVs and human
+                            drivers in the context of route choice.
+                            <em>Scientific Reports</em> 15, Article 6768 (Feb. 2025).
+                            <a href="https://doi.org/10.1038/s41598-025-90783-w">
+                                https://doi.org/10.1038/s41598-025-90783-w
+                            </a>.
+                        </p>
+
+                        <p>
+                            <a href="annotations.html#paper-20">
+                                View the abstract summary and brief comment
+                            </a>
+                        </p>
+                    </header>
+
+                    <div class="review-text">
+                        <p>
+                            Jamróz and colleagues examine how coordinated routing by
+                            connected and autonomous vehicles affects human drivers
+                            sharing the same roads. Their central concern is the
+                            distribution of benefits: a fleet may reduce its own travel
+                            time without improving conditions for everyone. The model
+                            compares fleet objectives that prioritize its users, favor
+                            human drivers, pursue overall efficiency, or deliberately
+                            disadvantage other travelers. This makes the study useful
+                            for examining whose interests a congestion-management
+                            strategy serves.
+                        </p>
+
+                        <p>
+                            The system contains one origin–destination pair connected
+                            by two independent routes. Human agents maintain travel-time
+                            estimates and update only the route they experienced that
+                            day. Their decisions combine these estimates with individual
+                            route preferences and occasional exploration. A central
+                            fleet operator then allocates autonomous vehicles between
+                            the routes according to its objective, assuming perfect
+                            prediction of the human drivers’ route totals. Once all
+                            choices are made, congestion-dependent travel-time functions
+                            determine the outcomes, which feed into the next day’s
+                            decisions. Vehicle movement is therefore represented through
+                            aggregate route costs rather than individual car-following
+                            or lane-changing behavior.
+                        </p>
+
+                        <p>
+                            The default configuration has 1,000 travelers. Route A has
+                            a free-flow travel time of 5 minutes and capacity of 500
+                            vehicles per modeled interval, while Route B has a
+                            free-flow time of 15 minutes and capacity of 800.
+                            The travel-time function uses an exponent of two. Human
+                            learning uses a rate of 0.2, an exploration probability
+                            of 0.1, and a default preference-spread parameter of 5.
+                            The main comparison allows the human-only system to
+                            stabilize during days 1–100, measures its behavior during
+                            days 101–200, introduces the fleet at day 200, and evaluates
+                            the adapted mixed system during days 301–400. Fleet share,
+                            objectives, demand, and human preferences are varied to
+                            examine the sensitivity of the results.
+                        </p>
+
+                        <p>
+                            The experiments show that autonomous coordination can
+                            benefit or disadvantage human drivers depending on the
+                            fleet’s objective and size. At modest fleet shares,
+                            self-interested strategies can improve fleet travel times
+                            while making conditions worse for the remaining human
+                            drivers. A socially oriented objective can improve overall
+                            efficiency, but its benefits need not be distributed equally.
+                            Larger fleet shares also change the effectiveness of
+                            strategies that disadvantage other users, and some settings
+                            produce oscillating outcomes. These findings demonstrate why
+                            aggregate travel-time savings should be examined alongside
+                            results for individual traveler groups.
+                        </p>
+
+                        <p>
+                            The simplified network makes the interaction between
+                            objectives, preferences, and congestion easier to identify,
+                            but limits direct predictions for a complex city. The
+                            assumption that the operator perfectly anticipates human
+                            choices gives the fleet an informational advantage that may
+                            be difficult to achieve in practice. Static route-cost
+                            functions also omit queue spillback and detailed driving
+                            interactions. The contribution to this survey is therefore
+                            an explanation of possible social consequences of routing
+                            coordination. It complements RouteRL by showing why the
+                            objective assigned to automated travelers matters before
+                            a particular learning algorithm or large network is chosen.
+                        </p>
+                    </div>
+
+                    <section
+                        class="review-classification"
+                        aria-labelledby="jamroz-classification-heading"
+                    >
+                        <h4 id="jamroz-classification-heading">Paper Classification</h4>
+
+                        <p class="review-classification-note">
+                            This classification is provisional and may be refined
+                            as the remaining papers are reviewed.
+                        </p>
+
+                        <table
+                            class="review-classification-table"
+                            aria-labelledby="jamroz-classification-heading"
+                        >
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Selection group</th>
+                                    <td>Recent journal paper</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Primary category</th>
+                                    <td>Travel behavior and route choice</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Specific focus</th>
+                                    <td>Fleet objectives, efficiency, and distribution of travel benefits</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Agents and decisions</th>
+                                    <td>
+                                        Human drivers learning route costs and autonomous
+                                        vehicles assigned routes by a central fleet operator
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Traffic representation and scale</th>
+                                    <td>
+                                        Two alternative routes with aggregate
+                                        congestion-dependent travel times; 1,000
+                                        travelers in the default configuration
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Data requirements</th>
+                                    <td>
+                                        Route capacities and free-flow times, traveler
+                                        preferences, learning settings, demand,
+                                        and fleet objectives
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Model structure</th>
+                                    <td>
+                                        Human learning and choice, centralized fleet
+                                        allocation, route-cost calculation, and
+                                        repeated daily feedback
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Key configuration</th>
+                                    <td>
+                                        Human learning rate 0.2, exploration probability
+                                        0.1, preference spread 5, route-cost exponent
+                                        two, fleet share, and a 400-day comparison
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Connection to congestion</th>
+                                    <td>
+                                        Tests whether coordinated routing reduces
+                                        system costs or transfers delay between
+                                        autonomous and human travelers
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Evaluation evidence</th>
+                                    <td>
+                                        Simulation comparisons across fleet objectives,
+                                        market shares, demand levels, and human preferences
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Main limitations</th>
+                                    <td>
+                                        Two-route abstraction, static travel-time
+                                        functions, perfect prediction of human route
+                                        totals, and no detailed vehicle interactions
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </article>
             </section>
 
             <section
@@ -1367,9 +1711,9 @@
                 </h2>
 
                 <p class="review-category-description">
-                    Studies in this category examine how traffic signals and vehicle
-                    agents coordinate decisions, allocate road capacity, and respond
-                    to changing conditions through signal control or lane access.
+                    Studies in this category examine how signal control, lane access,
+                    and corridor capacity influence traffic movement and congestion
+                    through interactions among vehicles, travelers, and infrastructure.
                 </p>
 
                 <article
@@ -2084,6 +2428,207 @@
                         </table>
                     </section>
                 </article>
+
+                <article
+                    class="detailed-review"
+                    id="review-alnajjar"
+                    aria-labelledby="review-alnajjar-heading"
+                >
+                    <header class="review-paper-heading">
+                        <h3 id="review-alnajjar-heading">
+                            An agent-based urban simulation to assess the system-wide,
+                            spatial, and modal impacts of the deployment of an automated
+                            vehicle corridor with mixed traffic: a case study in New York City
+                        </h3>
+
+                        <p class="review-citation">
+                            Alnajjar, H. et al. 2024.
+                            An agent-based urban simulation to assess the system-wide,
+                            spatial, and modal impacts of the deployment of an automated
+                            vehicle corridor with mixed traffic: a case study in New York City.
+                            <em>Procedia Computer Science</em> 238 (2024), 706–713.
+                            <a href="https://doi.org/10.1016/j.procs.2024.06.081">
+                                https://doi.org/10.1016/j.procs.2024.06.081
+                            </a>.
+                        </p>
+
+                        <p>
+                            <a href="annotations.html#paper-3">
+                                View the abstract summary and brief comment
+                            </a>
+                        </p>
+                    </header>
+
+                    <div class="review-text">
+                        <p>
+                            Alnajjar and colleagues investigate how an automated-vehicle
+                            corridor could affect traffic beyond the roads receiving
+                            the intervention. Their hypothetical New York City corridor
+                            connects the Staten Island Expressway, Verrazzano-Narrows
+                            Bridge, Gowanus Expressway, and Brooklyn–Battery Tunnel.
+                            The study examines changes in corridor performance, nearby
+                            roads, borough-level travel measures, and mode choice.
+                            Its value is the network-wide perspective: increasing
+                            capacity on one facility can change where travelers go
+                            and where congestion develops elsewhere.
+                        </p>
+
+                        <p>
+                            The model uses the MATSim-NYC testbed, which combines
+                            individual travelers and daily plans with queue-based
+                            traffic movement. The existing network contains approximately
+                            436,000 links and includes road and transit information.
+                            A synthetic population supplies travel behavior, while
+                            transit schedules and stop locations support multimodal
+                            choices. Automation is represented by increasing the
+                            capacities of selected corridor links to reflect assumed
+                            reductions in vehicle headways. The study therefore models
+                            the network consequences of a capacity change rather than
+                            detailed sensing, control, or car-following decisions
+                            within automated vehicles.
+                        </p>
+
+                        <p>
+                            The intervention modifies 69 corridor links. Scenario A
+                            associates an assumed automated-vehicle headway of
+                            0.85 seconds with a 70% capacity increase, while Scenario B
+                            uses 1.1 seconds and a 44% increase. These relationships
+                            depend on the paper’s mixed-traffic assumptions and should
+                            not be treated as universal headway-to-capacity conversions.
+                            The baseline and both intervention scenarios cover
+                            24 hours, use a 4% synthetic population sample, and run
+                            for 100 MATSim iterations. Reproducing the experiment
+                            requires selecting the same links, preserving lane and
+                            network attributes, applying the scenario-specific capacity
+                            changes, and retaining comparable demand and mode-choice
+                            settings across runs.
+                        </p>
+
+                        <p>
+                            Aggregate borough-level changes are generally small, but
+                            selected roads experience more noticeable effects. During
+                            the morning period from 5 to 7 a.m., the reported
+                            Lincoln Tunnel inbound travel time falls by approximately
+                            15% in both scenarios while volume increases. In contrast,
+                            some connecting links on Victory Boulevard experience
+                            higher travel times under Scenario A. Corridor improvements
+                            therefore do not translate into uniform benefits throughout
+                            the network. The relatively limited mode-share changes also
+                            suggest that the tested intervention primarily redistributes
+                            traffic within the existing travel system.
+                        </p>
+
+                        <p>
+                            This paper directly supports the survey’s New York City
+                            focus by demonstrating why congestion interventions need
+                            spatial and temporal evaluation beyond the improved
+                            corridor. However, the results depend on assumed capacity
+                            benefits and a sampled population, and baseline calibration
+                            cannot validate the behavior of a hypothetical deployment.
+                            Mesoscopic traffic representation also limits interpretation
+                            of short-lived local queues and detailed vehicle interactions.
+                            The study offers a useful scenario-analysis method for
+                            locating possible benefits and displaced congestion, while
+                            the numerical outcomes remain conditional on the selected
+                            headways, demand, and network configuration.
+                        </p>
+                    </div>
+
+                    <section
+                        class="review-classification"
+                        aria-labelledby="alnajjar-classification-heading"
+                    >
+                        <h4 id="alnajjar-classification-heading">Paper Classification</h4>
+
+                        <p class="review-classification-note">
+                            This classification is provisional and may be refined
+                            as the remaining papers are reviewed.
+                        </p>
+
+                        <table
+                            class="review-classification-table"
+                            aria-labelledby="alnajjar-classification-heading"
+                        >
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Selection group</th>
+                                    <td>Recent conference paper</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Primary category</th>
+                                    <td>Traffic control and coordination</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Specific focus</th>
+                                    <td>Automated-vehicle corridor capacity and network-wide effects</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Agents and decisions</th>
+                                    <td>
+                                        MATSim travelers executing and adapting travel
+                                        plans and mode choices; automation represented
+                                        through road-capacity assumptions
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Traffic representation and scale</th>
+                                    <td>
+                                        Queue-based MATSim-NYC network of approximately
+                                        436,000 links, with 69 corridor links modified
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Data requirements</th>
+                                    <td>
+                                        Calibrated NYC network, synthetic travel demand,
+                                        transit schedules, mode-choice settings,
+                                        lane counts, and corridor-link selection
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Model structure</th>
+                                    <td>
+                                        Traveler plans and mode choice, mesoscopic
+                                        traffic simulation, corridor-capacity intervention,
+                                        and spatial and temporal outcome analysis
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Key configuration</th>
+                                    <td>
+                                        4% population sample, 100 iterations,
+                                        24-hour scenarios, and corridor capacity
+                                        increases of 70% or 44% under the tested assumptions
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Connection to congestion</th>
+                                    <td>
+                                        Examines whether a corridor improvement reduces
+                                        delay or redistributes congestion to connecting
+                                        roads and other boroughs
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Evaluation evidence</th>
+                                    <td>
+                                        Baseline traffic-volume comparisons and
+                                        intervention comparisons of link travel times,
+                                        volumes, trip measures, and mode shares
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Main limitations</th>
+                                    <td>
+                                        Hypothetical capacity benefits, sampled demand,
+                                        mesoscopic detail, and no field validation
+                                        of automated-corridor effects
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </article>
             </section>
 
             <section
@@ -2589,6 +3134,834 @@
                                         aggregation, variability introduced by
                                         reconstruction, and limited validation beyond
                                         the tested freeway setting
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </article>
+
+                <article
+                    class="detailed-review"
+                    id="review-khan"
+                    aria-labelledby="review-khan-heading"
+                >
+                    <header class="review-paper-heading">
+                        <h3 id="review-khan-heading">
+                            Simplifying traffic simulation - from Euclidean
+                            distances to agent-based models
+                        </h3>
+
+                        <p class="review-citation">
+                            Khan, T. S. et al. 2024.
+                            Simplifying traffic simulation - from Euclidean
+                            distances to agent-based models.
+                            <em>Computational Urban Science</em>
+                            4, Article 32 (Nov. 2024).
+                            <a href="https://doi.org/10.1007/s43762-024-00145-x">
+                                https://doi.org/10.1007/s43762-024-00145-x
+                            </a>.
+                        </p>
+
+                        <p>
+                            <a href="annotations.html#paper-26">
+                                View the abstract summary and brief comment
+                            </a>
+                        </p>
+                    </header>
+
+                    <div class="review-text">
+                        <p>
+                            Khan and colleagues investigate how much detail is necessary
+                            to estimate urban travel patterns. They compare straight-line
+                            distance calculations, GraphHopper network routing, and
+                            MATSim agent-based simulation using travel demand from the
+                            Washington region. The study asks whether a simpler and
+                            faster method can reproduce useful traffic measures without
+                            the computational demands of a full behavioral simulation.
+                            Its relevance lies in identifying what is gained and lost
+                            when individual interactions are simplified.
+                        </p>
+
+                        <p>
+                            The comparison starts from a synthetic population with
+                            daily activities and associated trips. MATSim executes those
+                            plans, scores their outcomes, and allows replanning across
+                            repeated iterations. GraphHopper receives the same trip
+                            origins and destinations but calculates routes using a static
+                            road network and edge-based contraction hierarchies.
+                            Departure times are retained for matching and analysis,
+                            although they do not affect GraphHopper’s route calculation.
+                            The Euclidean baseline estimates distance directly between
+                            endpoints and converts it to time using a constant speed
+                            of 40 miles per hour.
+                        </p>
+
+                        <p>
+                            A meaningful setup requires consistent demand and comparable
+                            network inputs. Both routing systems use OpenStreetMap data,
+                            and road speeds are aligned before the comparison. Original
+                            map identifiers connect road segments across the differently
+                            processed networks. MATSim is run for 10 iterations, while
+                            GraphHopper largely retains its default routing configuration.
+                            Trips using restricted roads, trips not completed in MATSim,
+                            and trips without a corresponding usable route are excluded
+                            as appropriate. The resulting matched comparison contains
+                            2,985,391 trips. Network filtering, speed assumptions, and
+                            trip matching are therefore important configuration steps,
+                            not merely preparation details.
+                        </p>
+
+                        <p>
+                            GraphHopper reproduces several aggregate MATSim measures
+                            reasonably closely. Average trip times are 12.3 minutes
+                            with GraphHopper and 13 minutes with MATSim, while average
+                            trip lengths are 13 and 13.3 kilometers respectively.
+                            However, individual routes and traffic volumes differ,
+                            particularly in complex parts of the network. On the
+                            reported hardware, the GraphHopper process takes about
+                            27 minutes, compared with 18 hours and 30 minutes for
+                            the complete 10-iteration MATSim run. This is a comparison
+                            of different workflows, so the timing advantage should be
+                            understood alongside the additional behavior and feedback
+                            represented by MATSim.
+                        </p>
+
+                        <p>
+                            The findings support using simpler routing for preliminary
+                            estimates when aggregate distance and travel patterns are
+                            sufficient. They do not establish that static routing can
+                            predict the effects of congestion interventions equally
+                            well. MATSim serves as the reference in the comparison,
+                            and agreement with it is not independent validation against
+                            observed traffic. GraphHopper’s tested configuration does
+                            not update route costs as simulated queues develop or
+                            travelers adapt, and the limited MATSim iteration count
+                            also qualifies the benchmark. For this survey, the paper
+                            helps connect model selection to the question being asked:
+                            policies that alter congestion and behavior require closer
+                            attention to the feedback omitted by a fast approximation.
+                        </p>
+                    </div>
+
+                    <section
+                        class="review-classification"
+                        aria-labelledby="khan-classification-heading"
+                    >
+                        <h4 id="khan-classification-heading">Paper Classification</h4>
+
+                        <p class="review-classification-note">
+                            This classification is provisional and may be refined
+                            as the remaining papers are reviewed.
+                        </p>
+
+                        <table
+                            class="review-classification-table"
+                            aria-labelledby="khan-classification-heading"
+                        >
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Selection group</th>
+                                    <td>Recent journal paper</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Primary category</th>
+                                    <td>Simulation frameworks and computational efficiency</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Specific focus</th>
+                                    <td>Trade-offs between static routing and behavioral simulation</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Agents and decisions</th>
+                                    <td>
+                                        MATSim travelers executing and revising plans;
+                                        comparison methods estimate trips without
+                                        equivalent behavioral interaction
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Traffic representation and scale</th>
+                                    <td>
+                                        Washington-region travel demand, with
+                                        2,985,391 matched trips in the final comparison
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Data requirements</th>
+                                    <td>
+                                        Synthetic population, daily activities, trip
+                                        endpoints and schedules, and road-network
+                                        geometry and attributes
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Model structure</th>
+                                    <td>
+                                        Shared demand preparation followed by Euclidean
+                                        estimation, GraphHopper routing, or MATSim
+                                        simulation, scoring, and replanning
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Key configuration</th>
+                                    <td>
+                                        Aligned road speeds, network-access filtering,
+                                        trip matching, 10 MATSim iterations, and
+                                        predominantly default GraphHopper routing
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Connection to congestion</th>
+                                    <td>
+                                        Identifies when rapid travel estimates may be
+                                        useful and when congestion feedback requires
+                                        a more detailed simulation
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Evaluation evidence</th>
+                                    <td>
+                                        Route, volume, distance, travel-time, runtime,
+                                        and memory comparisons using MATSim as reference
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Main limitations</th>
+                                    <td>
+                                        Static routing omits congestion feedback;
+                                        excluded trips and limited MATSim iterations
+                                        affect the comparison; no equivalent independent
+                                        validation of the simplified approach
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </article>
+
+                <article
+                    class="detailed-review"
+                    id="review-natterer"
+                    aria-labelledby="review-natterer-heading"
+                >
+                    <header class="review-paper-heading">
+                        <h3 id="review-natterer-heading">
+                            Machine learning surrogates for agent-based models
+                            in transportation policy analysis
+                        </h3>
+
+                        <p class="review-citation">
+                            Natterer, E. S. et al. 2025.
+                            Machine learning surrogates for agent-based models
+                            in transportation policy analysis.
+                            <em>Transportation Research Part C: Emerging Technologies</em>
+                            180, Article 105360 (Nov. 2025).
+                            <a href="https://doi.org/10.1016/j.trc.2025.105360">
+                                https://doi.org/10.1016/j.trc.2025.105360
+                            </a>.
+                        </p>
+
+                        <p>
+                            <a href="annotations.html#paper-39">
+                                View the abstract summary and brief comment
+                            </a>
+                        </p>
+                    </header>
+
+                    <div class="review-text">
+                        <p>
+                            Natterer and colleagues address the computational cost of
+                            evaluating many transportation policies with an agent-based
+                            model. They train a machine-learning surrogate to predict
+                            changes in daily road traffic volumes that would otherwise
+                            require another MATSim simulation. Their Paris case study
+                            examines reductions in road capacity across different
+                            combinations of districts. The surrogate provides a way to
+                            explore many policy configurations quickly after the more
+                            expensive simulation data have been generated.
+                        </p>
+
+                        <p>
+                            The approach connects simulation-based data generation with
+                            graph-based prediction. MATSim represents travelers and their
+                            responses to the policy, while the surrogate learns the
+                            resulting changes in road volumes. For the learning model,
+                            the road network is converted into a dual graph: each
+                            directed road segment becomes a node, and connections
+                            represent relationships between segments at intersections.
+                            Inputs include baseline volume, capacity, speed limit,
+                            length, positional coordinates, and the imposed capacity
+                            reduction. The output is the change in daily volume relative
+                            to the baseline, rather than a sequence of individual
+                            vehicle movements.
+                        </p>
+
+                        <p>
+                            The study generates 10,000 policy scenarios, of which 8,308
+                            complete successfully. The processed graph contains
+                            31,635 directed road segments. Each policy reduces capacity
+                            by 50% on primary, secondary, and tertiary roads in selected
+                            districts, and the baseline averages 50 simulation runs.
+                            The source MATSim model uses a 1% household sample.
+                            The proposed neural architecture applies two TransformerConv
+                            layers for local network relationships, followed by three
+                            Transformer Encoder layers for wider interactions. It uses
+                            four attention heads, an embedding dimension of 192, and
+                            a feedforward dimension of 768. Training uses standardized
+                            inputs, mean squared error, AdamW optimization, a batch
+                            size of eight, and early stopping after 25 epochs without
+                            validation improvement.
+                        </p>
+
+                        <p>
+                            The reported test performance reaches an R² of 0.91 for
+                            simulated daily traffic-volume changes. Combining local
+                            graph structure with broader attention performs better than
+                            approaches that lack comparable spatial information. A
+                            dedicated timing comparison reports approximately
+                            38 minutes per MATSim run and about 0.46 seconds for
+                            surrogate prediction on the respective computing systems.
+                            This makes repeated policy screening much more practical,
+                            although the initial simulations and model training remain
+                            substantial costs. Prediction quality also varies across
+                            road types and between directly modified roads and roads
+                            affected indirectly.
+                        </p>
+
+                        <p>
+                            The surrogate reproduces a simulation’s outputs, so its
+                            accuracy does not independently establish that a policy
+                            will produce the same effects in real traffic. It inherits
+                            the source model’s assumptions, and daily volumes can
+                            conceal peak-hour delays or local queue formation.
+                            Population sampling and stochastic simulation outcomes
+                            introduce additional uncertainty. New cities or different
+                            intervention types would require appropriate training data
+                            and further evaluation. Within the survey, the paper
+                            supports a workflow in which a surrogate screens many
+                            capacity policies and the underlying traffic model examines
+                            promising options more closely.
+                        </p>
+                    </div>
+
+                    <section
+                        class="review-classification"
+                        aria-labelledby="natterer-classification-heading"
+                    >
+                        <h4 id="natterer-classification-heading">Paper Classification</h4>
+
+                        <p class="review-classification-note">
+                            This classification is provisional and may be refined
+                            as the remaining papers are reviewed.
+                        </p>
+
+                        <table
+                            class="review-classification-table"
+                            aria-labelledby="natterer-classification-heading"
+                        >
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Selection group</th>
+                                    <td>Recent journal paper</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Primary category</th>
+                                    <td>Simulation frameworks and computational efficiency</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Specific focus</th>
+                                    <td>Machine-learning approximation of transportation policy outcomes</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Agents and decisions</th>
+                                    <td>
+                                        Travelers in the source MATSim model;
+                                        the surrogate predicts aggregate road outcomes
+                                        without directly simulating those agents
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Traffic representation and scale</th>
+                                    <td>
+                                        Paris network with 31,635 processed directed
+                                        segments and 8,308 completed policy scenarios
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Data requirements</th>
+                                    <td>
+                                        Baseline and intervention simulations, network
+                                        connectivity, road attributes, coordinates,
+                                        and daily traffic volumes
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Model structure</th>
+                                    <td>
+                                        MATSim data generation, dual-graph preparation,
+                                        local graph attention, global Transformer
+                                        attention, and segment-level prediction
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Key configuration</th>
+                                    <td>
+                                        50% capacity reductions; two graph layers and
+                                        three Transformer Encoder layers; four attention
+                                        heads, embedding dimension 192, batch size eight,
+                                        and validation-based early stopping
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Connection to congestion</th>
+                                    <td>
+                                        Accelerates investigation of how capacity policies
+                                        redistribute traffic across a large network
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Evaluation evidence</th>
+                                    <td>
+                                        Held-out simulated scenarios, architecture
+                                        comparisons, road-level errors, and runtime
+                                        measurements; reported test R² of 0.91
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Main limitations</th>
+                                    <td>
+                                        Inherits simulation assumptions; daily aggregation,
+                                        sampled population, costly training data, and
+                                        limited transfer beyond the modeled policy domain
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </article>
+
+                <article
+                    class="detailed-review"
+                    id="review-smilovitskiy"
+                    aria-labelledby="review-smilovitskiy-heading"
+                >
+                    <header class="review-paper-heading">
+                        <h3 id="review-smilovitskiy-heading">
+                            FLAME-GPU for Traffic Systems:
+                            A Scalable Agent-Based Simulation Framework
+                        </h3>
+
+                        <p class="review-citation">
+                            Smilovitskiy, M. et al. 2025.
+                            FLAME-GPU for Traffic Systems:
+                            A Scalable Agent-Based Simulation Framework.
+                            <em>Systems</em> 13, 5, Article 376 (May 2025).
+                            <a href="https://doi.org/10.3390/systems13050376">
+                                https://doi.org/10.3390/systems13050376
+                            </a>.
+                        </p>
+
+                        <p>
+                            <a href="annotations.html#paper-50">
+                                View the abstract summary and brief comment
+                            </a>
+                        </p>
+                    </header>
+
+                    <div class="review-text">
+                        <p>
+                            Smilovitskiy and colleagues investigate how GPU parallelism
+                            can make large vehicle populations affordable to simulate.
+                            Their framework implements microscopic traffic behavior
+                            through FLAME-GPU and compares its performance with SUMO.
+                            Unlike approaches that gain speed by aggregating vehicles,
+                            this method retains individual vehicle agents and changes
+                            how their calculations are executed. The main contribution
+                            concerns simulation capacity and runtime rather than a
+                            particular congestion-control policy.
+                        </p>
+
+                        <p>
+                            Vehicle agents maintain movement information such as
+                            position and speed and follow a modified Krauss
+                            car-following model. Lane-changing and junction rules
+                            determine how they interact with nearby traffic. Agents
+                            move through pre-insertion, driving, and pre-removal
+                            states, allowing safe entry, movement, and final data
+                            collection to be handled separately. Network-based messaging
+                            supplies information about vehicles on the same or adjacent
+                            road segments. Road-section agents support data collection,
+                            and traffic-light agents follow fixed signal patterns.
+                            GPU kernels execute agent functions in parallel while
+                            shared network data support upstream and downstream queries.
+                        </p>
+
+                        <p>
+                            Setup begins with a road network and demand files prepared
+                            using SUMO tools. The Isle of Wight network is derived
+                            from OpenStreetMap, cleaned, and converted into SUMO’s
+                            network format. Random trips and precomputed routes supply
+                            vehicle demand, while vehicles choose lanes during
+                            simulation. Important behavioral inputs include desired
+                            speed, acceleration, braking, reaction time, gap acceptance,
+                            and random driving variation. Benchmark configurations vary
+                            insertion density from 60 to 600 vehicles per hour per
+                            kilometer of network length and include synthetic grids
+                            ranging from 5 × 5 to 100 × 100. The experiments run
+                            one-hour simulations three times on a workstation with
+                            an NVIDIA GeForce RTX 3090 GPU.
+                        </p>
+
+                        <p>
+                            The reported benchmarks show substantial speed advantages
+                            as vehicle populations grow. For approximately 95,000
+                            vehicles in the Isle of Wight experiment, FLAME-GPU takes
+                            roughly 36 seconds compared with 2,481 seconds for SUMO,
+                            corresponding to the reported improvement of about
+                            68 times. However, SUMO performs better at inserting
+                            vehicles into the network. Differences in how congestion
+                            clears can affect the space available for later vehicles,
+                            so loaded demand and vehicles actually inserted need to
+                            be considered alongside runtime. These results demonstrate
+                            computational potential without establishing identical
+                            traffic trajectories between the implementations.
+                        </p>
+
+                        <p>
+                            The framework does not yet include all the capabilities
+                            available in SUMO, including adaptive traffic lights and
+                            vehicle teleportation. The authors also identify roundabout
+                            behavior and speed-limit transitions as areas needing
+                            improvement. Consequently, the speed results should not be
+                            interpreted as proof of equivalent behavioral realism or
+                            readiness for every traffic-control application. For
+                            congestion research, the approach offers more room to test
+                            large populations and multiple demand conditions, provided
+                            the implemented driving and control rules are adequate for
+                            the study. Together with Sewall’s hybrid method, it
+                            illustrates two different ways to manage simulation cost:
+                            distributing individual calculations or changing the level
+                            of traffic detail.
+                        </p>
+                    </div>
+
+                    <section
+                        class="review-classification"
+                        aria-labelledby="smilovitskiy-classification-heading"
+                    >
+                        <h4 id="smilovitskiy-classification-heading">
+                            Paper Classification
+                        </h4>
+
+                        <p class="review-classification-note">
+                            This classification is provisional and may be refined
+                            as the remaining papers are reviewed.
+                        </p>
+
+                        <table
+                            class="review-classification-table"
+                            aria-labelledby="smilovitskiy-classification-heading"
+                        >
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Selection group</th>
+                                    <td>Recent journal paper</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Primary category</th>
+                                    <td>Simulation frameworks and computational efficiency</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Specific focus</th>
+                                    <td>GPU-parallel microscopic traffic simulation</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Agents and decisions</th>
+                                    <td>
+                                        Vehicles following, changing lanes, and crossing
+                                        junctions; road-section and fixed-pattern
+                                        traffic-light agents
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Traffic representation and scale</th>
+                                    <td>
+                                        Individual vehicles on the Isle of Wight
+                                        network and synthetic grids up to 100 × 100
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Data requirements</th>
+                                    <td>
+                                        Road and lane connectivity, routes, vehicle
+                                        demand, driving parameters, and signal programs
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Model structure</th>
+                                    <td>
+                                        Vehicle-state transitions, network-based messaging,
+                                        parallel agent functions, and traffic-data collection
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Key configuration</th>
+                                    <td>
+                                        Modified Krauss behavior, lane and junction rules,
+                                        vehicle insertion density, network size,
+                                        fixed signals, and GPU execution environment
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Connection to congestion</th>
+                                    <td>
+                                        Expands the scale and number of traffic scenarios
+                                        that can be examined within a computing budget
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Evaluation evidence</th>
+                                    <td>
+                                        Repeated SUMO comparisons of runtime, state
+                                        updates, and vehicle insertion across three
+                                        network configurations
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Main limitations</th>
+                                    <td>
+                                        Feature differences from SUMO, unequal insertion
+                                        behavior, hardware-dependent speed, and limited
+                                        evidence of equivalent behavioral accuracy
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </article>
+            </section>
+
+            <section
+                class="review-category"
+                id="calibration-validation"
+                aria-labelledby="calibration-validation-heading"
+            >
+                <h2 id="calibration-validation-heading">
+                    Calibration and Validation Methods
+                </h2>
+
+                <p class="review-category-description">
+                    Studies in this category examine how simulation inputs are
+                    estimated, how model outputs are compared with observations,
+                    and what evidence supports the credibility of traffic predictions.
+                </p>
+
+                <article
+                    class="detailed-review"
+                    id="review-kappenberger"
+                    aria-labelledby="review-kappenberger-heading"
+                >
+                    <header class="review-paper-heading">
+                        <h3 id="review-kappenberger-heading">
+                            Overcoming Data Scarcity in Calibrating SUMO
+                            Scenarios With Evolutionary Algorithms
+                        </h3>
+
+                        <p class="review-citation">
+                            Kappenberger, J. and Stuckenschmidt, H. 2025.
+                            Overcoming Data Scarcity in Calibrating SUMO
+                            Scenarios With Evolutionary Algorithms.
+                            In <em>SUMO Conference Proceedings</em>
+                            6 (Jul. 2025), 133–148.
+                            <a href="https://doi.org/10.52825/scp.v6i.2590">
+                                https://doi.org/10.52825/scp.v6i.2590
+                            </a>.
+                        </p>
+
+                        <p>
+                            <a href="annotations.html#paper-23">
+                                View the abstract summary and brief comment
+                            </a>
+                        </p>
+                    </header>
+
+                    <div class="review-text">
+                        <p>
+                            Kappenberger and Stuckenschmidt address a practical
+                            difficulty in building credible traffic simulations:
+                            detailed demand information is often unavailable even
+                            when some traffic counts exist. Their Mannheim scenario
+                            combines GPS-derived routes with induction-loop and
+                            camera observations, then adjusts route probabilities
+                            through evolutionary optimization. The objective is
+                            to generate demand that produces the observed counts
+                            after traffic is actually simulated. This matters
+                            because a route set that appears compatible with
+                            counts may still create bottlenecks that prevent the
+                            expected vehicles from reaching the sensors.
+                        </p>
+
+                        <p>
+                            The method connects data preparation, route sampling,
+                            microscopic simulation, and optimization. GPS traces
+                            are matched to the road network using a Hidden
+                            Markov Model, and disconnected or implausible routes
+                            are checked before calibration. The processed data
+                            provide 6,617 unique routes and their observed
+                            frequencies. SUMO’s routeSampler uses these routes
+                            and traffic counts to construct demand. A simulation
+                            then measures the difference between generated and
+                            observed induction-loop counts. CMA-ES adjusts weights
+                            applied to the initial route frequencies and repeats
+                            this process, learning which demand distributions
+                            better reproduce the observations.
+                        </p>
+
+                        <p>
+                            The experiments cover a morning period from 6 to
+                            9 a.m. and a full 24-hour day. The three-hour
+                            optimization uses 100 generations with 120 candidate
+                            solutions per generation. Its result initializes the
+                            full-day optimization, which uses 50 generations
+                            with the same population size. These candidates are
+                            alternative route-weight configurations, not individual
+                            vehicle agents. The initial weights are all one, so
+                            the search starts from the GPS-derived frequencies.
+                            In a separate final full-day experiment, the authors
+                            additionally set rerouting probability to 0.2,
+                            simulation step length to 0.25 seconds, and maximum
+                            departure delay to 100 seconds. Vehicles unable to
+                            enter within that delay are discarded, which is an
+                            important demand-handling assumption.
+                        </p>
+
+                        <p>
+                            The results show improvements at several stages.
+                            For the three-hour scenario, weighting the GPS-derived
+                            routes produces an absolute relative error of 0.19,
+                            which falls to 0.04 after optimization. The optimized
+                            full-day scenario reaches 0.14, and the final
+                            rerouting and simulation-setting variant reduces it
+                            to 0.07. The last improvement cannot be attributed
+                            to rerouting alone because several settings change
+                            together. Computational cost is also substantial:
+                            the reported optimization takes approximately
+                            15 hours for the shorter scenario and 148 hours
+                            for the full-day scenario, using parallel execution.
+                        </p>
+
+                        <p>
+                            Close agreement with counts does not uniquely identify
+                            the routes that real travelers used. The study
+                            calibrates and evaluates against observations from
+                            one date, while the commercial GPS data come from
+                            another period and may not represent all travelers.
+                            The authors therefore describe a plausible demand
+                            configuration rather than a reconstruction proven
+                            correct throughout the network. Its contribution to
+                            congestion research is the connection between input
+                            quality and trustworthy policy evaluation: unrealistic
+                            demand can create misleading queues or apparent
+                            intervention benefits. Testing other dates and
+                            independent observations would strengthen confidence
+                            before applying the calibrated scenario to new policies.
+                        </p>
+                    </div>
+
+                    <section
+                        class="review-classification"
+                        aria-labelledby="kappenberger-classification-heading"
+                    >
+                        <h4 id="kappenberger-classification-heading">
+                            Paper Classification
+                        </h4>
+
+                        <p class="review-classification-note">
+                            This classification is provisional and may be refined
+                            as the remaining papers are reviewed.
+                        </p>
+
+                        <table
+                            class="review-classification-table"
+                            aria-labelledby="kappenberger-classification-heading"
+                        >
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Selection group</th>
+                                    <td>Recent conference paper</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Primary category</th>
+                                    <td>Calibration and validation methods</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Specific focus</th>
+                                    <td>Demand calibration under limited traffic observations</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Agents and decisions</th>
+                                    <td>
+                                        Vehicles following sampled routes in SUMO;
+                                        an external optimizer adjusts route weights
+                                        rather than driver behavior parameters
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Traffic representation and scale</th>
+                                    <td>
+                                        Microscopic Mannheim scenario covering
+                                        11.33 square kilometers, evaluated over
+                                        three-hour and 24-hour periods
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Data requirements</th>
+                                    <td>
+                                        Road network, signal programs, GPS traces,
+                                        induction-loop counts, and camera turn counts
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Model structure</th>
+                                    <td>
+                                        GPS map matching, route checking,
+                                        routeSampler demand generation, SUMO
+                                        evaluation, and CMA-ES optimization
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Key configuration</th>
+                                    <td>
+                                        6,617 route dimensions, 120 candidates
+                                        per generation, 100 generations for
+                                        three hours, and 50 for the full day;
+                                        additional rerouting settings tested separately
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Connection to congestion</th>
+                                    <td>
+                                        Improves demand inputs so bottlenecks and
+                                        policy effects are less likely to arise
+                                        from poorly specified traffic flows
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Evaluation evidence</th>
+                                    <td>
+                                        Comparisons with random and GPS-derived
+                                        baselines using errors between simulated
+                                        and observed induction-loop counts
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Main limitations</th>
+                                    <td>
+                                        Non-unique demand estimates, calibration
+                                        and evaluation on one date, potentially
+                                        unrepresentative GPS routes, and high
+                                        optimization cost
                                     </td>
                                 </tr>
                             </tbody>
