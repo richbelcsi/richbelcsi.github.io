@@ -829,11 +829,16 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            This paper presents DEvCF, a microscopic car-following simulator that updates vehicle states through discrete events rather than at fixed time intervals. Implemented with fwkDEVSJava, the model uses interacting components to generate vehicles, represent road traffic, and collect simulation outputs. Experiments on a 20-kilometer road compare its performance with SUMO’s Intelligent Driver Model under the same demand inputs, including tests involving up to one million vehicles. DEvCF runs faster on average and produces fewer output records in these benchmarks, although its simplified treatment of acceleration and deceleration limits direct comparisons of behavioral detail.
+                            This paper presents DEv-CF, a microscopic car-following model that updates vehicle states through discrete events rather than at fixed time intervals. Implemented in fwkDEVS, the model connects components for vehicle generation, road movement, and output collection, with vehicle objects managed within those components. Experiments compare its behavior and runtime with SUMO’s Intelligent Driver Model, including tests involving up to one million vehicle departures on a 20-kilometer road. DEv-CF runs faster on average and produces fewer output records in these benchmarks, although simplified acceleration and deceleration limit comparisons of behavioral detail.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
                             Kieu and colleagues introduce DEv-CF, a car-following model that updates vehicle dynamics at relevant events rather than at every fixed time step. Implemented in fwkDEVS, it runs about 2.9 times faster than SUMO in the reported large-scale tests, but simplifies acceleration and deceleration and is evaluated on a single-road setting. The paper supports our survey by explaining how computational savings can be balanced against the detail needed to represent vehicle interactions underlying congestion. Its DEVS structure also provides a useful reference for a future DEVSJAVA implementation, although agreement with SUMO does not by itself validate the model against observed traffic.
+                        </p>
+                        <p>
+                            <a href="review.html#review-kieu">
+                                Read the detailed review and classification
+                            </a>
                         </p>
                     </article>
 
@@ -860,6 +865,11 @@
                         <p class="brief-comments">
                             <strong>Comments:</strong>
                             Pradhananga and colleagues combine vehicle detections from traffic videos with a SUMO digital twin that compares alternative signal settings for the next control interval. Their evaluation uses recordings from a Bellevue intersection and shows that selected adaptive settings can improve throughput and travel time relative to fixed timing. This connects directly to our survey by demonstrating how observed traffic can inform simulation-based decisions intended to relieve congestion as conditions change. However, the reported evaluation is limited to short recordings from one intersection, so it does not establish the benefits of continuous deployment across an urban network.
+                        </p>
+                        <p>
+                            <a href="review.html#review-pradhananga">
+                                Read the detailed review and classification
+                            </a>
                         </p>
                     </article>
 
@@ -890,6 +900,11 @@
                             <strong>Comments:</strong>
                             Rakow and colleagues improve the Open Berlin MATSim scenario through updated demand generation and automated calibration of transport-mode choices. The revised model closely matches survey mode shares and improves trip-distance distributions, but still underestimates traffic volumes, particularly on motorways, where some travel demand is incompletely represented. This is useful for our survey because reliable congestion analysis requires a credible baseline before changes to infrastructure or travel policy can be evaluated. The study also shows why calibration should use several kinds of evidence: matching mode shares does not necessarily mean that road volumes and travel times are equally accurate.
                         </p>
+                        <p>
+                            <a href="review.html#review-rakow">
+                                Read the detailed review and classification
+                            </a>
+                        </p>
                     </article>
 
                     <article class="paper-annotation" id="paper-49">
@@ -914,11 +929,16 @@
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
-                            This paper investigates how a distributed microscopic traffic simulation can adjust its computing resources as traffic volumes and spatial patterns change. The proposed CityMoS extension monitors simulation progress and uses cost models to decide when to change the number of computing nodes. A partition-aware model additionally considers vehicle distribution, communication, and the cost of moving work between nodes, with experiments on grid and non-grid networks. The results show that accounting for these factors can improve resource decisions under changing demand, while the benefits depend on the overhead of reconfiguration and the required simulation pace.
+                            This paper investigates how a distributed microscopic traffic simulation can adjust its computing resources as traffic volumes and spatial patterns change. The proposed CityMoS extension monitors workload and uses predictive cost models to select an allocation intended to maintain a target simulation pace. Its partition-aware model considers workload imbalance and vehicle migrations between computing partitions, with experiments on grid and non-grid networks. Resource savings depend on traffic patterns and adaptation overhead; snapshot and restart costs are measured in the evaluation but are not explicitly included in the adaptation policy.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
                             Siguenza-Torres and colleagues extend CityMoS so that a distributed traffic simulation can adjust its computing resources as traffic volumes and movement patterns change. Their partition-aware cost model accounts for vehicles moving between computing partitions and responds more effectively to changing workloads than a simpler model based on vehicle and node counts. This supports our survey by addressing the practical computing demands of large congestion experiments with uneven traffic activity across a network. The benefits are constrained by the cost of saving and redistributing simulation state, so resource adaptation does not always reduce total computing effort.
+                        </p>
+                        <p>
+                            <a href="review.html#review-siguenza-torres">
+                                Read the detailed review and classification
+                            </a>
                         </p>
                     </article>
 
@@ -949,6 +969,11 @@
                         <p class="brief-comments">
                             <strong>Comments:</strong>
                             Liu investigates reinforcement-learning approaches to traffic management, including a Deep Q-Network signal controller paired with an autoencoder that compresses traffic-state information. In the reported single-intersection experiment, this combination reduces average waiting time from 340 seconds for the baseline to 212 seconds, providing a concrete example of the benefits of learned control in simulation. The report supports our survey by connecting the controller’s representation of traffic conditions with measurable congestion outcomes and offering a comparison with approaches that emphasize communication among signal agents. Its results still require testing with more varied traffic, pedestrians, and real-world observations before similar improvements can be expected in deployment.
+                        </p>
+                        <p>
+                            <a href="review.html#review-liu">
+                                Read the detailed review and classification
+                            </a>
                         </p>
                     </article>
 
@@ -982,6 +1007,11 @@
                         <p class="brief-comments">
                             <strong>Comments:</strong>
                             Medina and colleagues use naturalistic driving data to establish reference distributions for vehicle spacing, acceleration, and changes in acceleration. Their comparison tool checks simulated trajectories against these observations, supplementing calibration based only on aggregate travel times, delays, and queues without automatically selecting model parameters. This strengthens our survey by providing a way to assess whether predicted congestion improvements depend on realistic vehicle interactions or on poorly calibrated driving behavior. The reference data cover passenger cars on freeways in daytime and good weather, so their application to urban intersections or other conditions requires further validation.
+                        </p>
+                        <p>
+                            <a href="review.html#review-medina">
+                                Read the detailed review and classification
+                            </a>
                         </p>
                     </article>
                 </section>
