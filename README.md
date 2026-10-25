@@ -20,8 +20,9 @@ The review also considers how the surveyed approaches could inform a future impl
 - Prepared brief comments for all 60 bibliography papers, explaining their contributions and relevance to the survey.
 - Selected 20 papers for thorough reading: 4 foundational papers, 8 recent journal papers, 6 conference papers, and 2 technical reports.
 - Added paraphrased abstract summaries and more developed brief comments for the 20-paper shortlist.
-- Completed detailed reviews and provisional classifications for 14 of the 20 shortlisted papers, including model structure, configuration choices, findings, and limitations.
-- Continued detailed reading and development of the research classification scheme.
+- Completed detailed reading and individual reviews for all 20 shortlisted papers.
+- Added classifications covering modeling approaches, system structure, configuration choices, evaluation evidence, limitations, and relevance to congestion.
+- Cross-paper comparisons and refinement of the classification scheme are ongoing.
 - Planned presentation materials and the final survey paper.
 
 The annotations cover the full bibliography. The detailed reviews focus on the 20-paper shortlist and examine methods, findings, supporting evidence, limitations, and relevance to congestion management.
