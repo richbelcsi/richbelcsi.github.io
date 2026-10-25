@@ -221,6 +221,120 @@
             display: none !important;
         }
 
+        /* These are for navigating within the detailed review page. */
+        .review-page-navigation {
+            margin-top: 1.75rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .review-page-navigation > p {
+            margin: 0 0 0.75rem;
+        }
+
+        .review-jump-links {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            justify-content: flex-start;
+            gap: 0.65rem;
+            width: 100%;
+        }
+
+        .review-jump-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex: 0 1 auto;
+            min-height: 44px;
+            max-width: 100%;
+            padding: 0.55rem 0.8rem;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            background: var(--paper);
+            color: var(--ink);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            text-align: left;
+            text-decoration: none;
+            white-space: normal;
+            overflow-wrap: anywhere;
+        }
+
+        .review-jump-links a:hover {
+            background: var(--wash);
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        .review-jump-links a:focus-visible {
+            outline: 3px solid var(--teal);
+            outline-offset: 3px;
+        }
+
+        /* These are for the comparisons across the reviewed papers. */
+        .review-findings {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--line);
+            scroll-margin-top: 1.5rem;
+        }
+
+        .review-findings-intro {
+            max-width: 78ch;
+            margin-bottom: 1.5rem;
+            color: var(--muted);
+        }
+
+        .review-findings-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .review-finding {
+            min-width: 0;
+            padding: clamp(1rem, 2.5vw, 1.75rem);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: #fff;
+            overflow-wrap: anywhere;
+        }
+
+        .review-finding h3 {
+            margin: 0 0 1.25rem;
+            padding-bottom: 0.85rem;
+            border-bottom: 1px solid var(--line);
+            font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+            line-height: 1.4;
+            scroll-margin-top: 1.5rem;
+        }
+
+        .review-finding p {
+            margin: 0 0 1.25rem;
+            line-height: 1.8;
+        }
+
+        .review-finding > :last-child {
+            margin-bottom: 0;
+        }
+
+        .review-finding a {
+            color: var(--teal);
+            text-decoration: underline;
+            text-underline-offset: 0.18em;
+        }
+
+        .review-finding a:hover {
+            color: var(--ink);
+        }
+
+        .review-finding a:focus-visible {
+            outline: 2px solid var(--teal);
+            outline-offset: 3px;
+        }
+
         @media (max-width: 760px) {
             .review-content {
                 padding-bottom: 2.5rem;
@@ -245,7 +359,7 @@
             }
         }
         
-        /* These are for placing the classification beside the review on wide screens. */
+        /* These are for placing classifications beside each review on wide screens. */
         @media screen and (min-width: 1100px) {
             .detailed-review {
                 display: grid;
@@ -280,6 +394,18 @@
             .review-classification-table th,
             .review-classification-table td {
                 padding: 0.65rem;
+            }
+
+            .review-findings-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .review-finding-wide {
+                grid-column: 1 / -1;
+            }
+
+            .review-finding-wide p {
+                max-width: none;
             }
         }
 
@@ -345,6 +471,46 @@
             .review-toolbar {
                 display: none !important;
             }
+
+            .review-page-navigation {
+                display: none;
+            }
+
+            .review-findings {
+                margin-top: 1.5rem;
+                padding-top: 1rem;
+            }
+
+            .review-findings-intro,
+            .review-finding-wide p {
+                max-width: none;
+            }
+
+            .review-findings-grid {
+                display: block;
+            }
+
+            .review-finding {
+                margin-bottom: 1.5rem;
+                padding: 0;
+                border: 0;
+                border-radius: 0;
+                background: transparent;
+                break-inside: auto;
+            }
+
+            .review-finding h3 {
+                break-after: avoid;
+            }
+
+            .review-finding p {
+                orphans: 3;
+                widows: 3;
+            }
+
+            .review-finding a {
+                color: inherit;
+            }
         }
     </style>
 </head>
@@ -397,29 +563,44 @@
                 class="review-overview"
                 aria-labelledby="review-overview-heading"
             >
-                <h2 id="review-overview-heading">Review progress</h2>
+                <h2 id="review-overview-heading">Review Overview</h2>
 
                 <p>
-                    Detailed reviews are available for all 20 shortlisted papers.
+                    The detailed reviews are available for all 20 shortlisted papers.
                     Each review examines the modeling approach, system components,
                     important configuration choices, supporting evidence, limitations,
-                    and relevance to urban traffic congestion.
+                    and relevance to urban traffic congestion. The cross-paper
+                    comparison brings these findings together to identify shared
+                    challenges and differences between approaches.
                 </p>
 
                 <p>
-                    The provisional classification organizes papers by their main
-                    contribution: travel behavior and route choice, traffic control
-                    and coordination, travel-demand management, simulation frameworks
-                    and computational efficiency, or calibration and validation
-                    methods. These categories will be refined as comparisons between
-                    studies develop.
+                    All papers are classified according to their main research contribution:
+                    travel behavior and route choice, traffic control and coordination,
+                    travel-demand management, simulation frameworks and computational
+                    efficiency, or calibration and validation methods. Each paper has
+                    one primary category and a specific focus. Connections between
+                    categories are discussed within the reviews and comparisons.
                 </p>
 
                 <p>
-                    Reported parameter values describe the authors’ experiments.
-                    They provide context for understanding and reproducing each
-                    approach, rather than universal settings for other cities or
-                    traffic conditions.
+                    These categories describe what a study contributes rather than
+                    simply which software or algorithm it uses. For example, RouteRL
+                    is a framework centered on route-choice behavior, while the
+                    automated-vehicle corridor study examines capacity allocation
+                    rather than an adaptive signal controller. Travel-demand management remains 
+                    as a separate category because it evaluates policies designed to influence 
+                    when, where, or how people travel.
+                </p>
+
+                <p>
+                    The configuration choices are interpreted according to their role:
+                    scenario inputs define the network and demand, behavioral and
+                    control settings govern decisions and interactions, and computational
+                    settings govern simulation or learning. The reported values describe
+                    the authors’ experiments rather than universal settings for other
+                    cities. Any calibrated values and optimization results are distinguished
+                    from initial inputs.
                 </p>
 
                 <div class="review-toolbar">
@@ -442,6 +623,25 @@
                         View all annotations and the 20-paper shortlist
                     </a>
                 </p>
+
+                <div class="review-page-navigation">
+                    <p id="review-navigation-label">
+                        <strong>On this page</strong>
+                    </p>
+
+                    <nav
+                        class="review-jump-links"
+                        aria-labelledby="review-navigation-label"
+                    >
+                        <a href="#review-comparison-heading">Paper comparison</a>
+                        <a href="#travel-behavior">Travel behavior</a>
+                        <a href="#traffic-control">Traffic control</a>
+                        <a href="#travel-demand-management">Demand management</a>
+                        <a href="#simulation-frameworks">Simulation methods</a>
+                        <a href="#calibration-validation">Calibration and validation</a>
+                        <a href="#cross-paper-findings">Cross-paper findings</a>
+                    </nav>
+                </div>
             </section>
 
             <section
@@ -1037,11 +1237,6 @@
                             Paper Classification
                         </h4>
 
-                        <p class="review-classification-note">
-                            This classification identifies the paper’s main contribution
-                            and may be refined through comparison with the other studies.
-                        </p>
-
                         <table
                             class="review-classification-table"
                             aria-labelledby="raney-classification-heading"
@@ -1060,10 +1255,10 @@
                                 </tr>
 
                                 <tr>
-                                    <th scope="row">Secondary category</th>
+                                    <th scope="row">Specific focus</th>
                                     <td>
-                                        Simulation frameworks and
-                                        computational efficiency
+                                        Route adaptation through repeated feedback between
+                                        traveler decisions and simulated congestion
                                     </td>
                                 </tr>
 
@@ -1288,11 +1483,6 @@
                             Paper Classification
                         </h4>
 
-                        <p class="review-classification-note">
-                            This classification identifies the paper’s main contribution
-                            and may be refined through comparison with the other studies.
-                        </p>
-
                         <table
                             class="review-classification-table"
                             aria-labelledby="charypar-classification-heading"
@@ -1512,11 +1702,6 @@
                             Paper Classification
                         </h4>
 
-                        <p class="review-classification-note">
-                            This classification identifies the paper’s main contribution
-                            and may be refined through comparison with the other studies.
-                        </p>
-
                         <table
                             class="review-classification-table"
                             aria-labelledby="akman-classification-heading"
@@ -1533,8 +1718,11 @@
                                 </tr>
 
                                 <tr>
-                                    <th scope="row">Secondary category</th>
-                                    <td>Simulation frameworks and experimental tools</td>
+                                    <th scope="row">Specific focus</th>
+                                    <td>
+                                        Experimental comparison of human route learning
+                                        and autonomous routing objectives
+                                    </td>
                                 </tr>
 
                                 <tr>
@@ -1725,11 +1913,6 @@
                         aria-labelledby="jamroz-classification-heading"
                     >
                         <h4 id="jamroz-classification-heading">Paper Classification</h4>
-
-                        <p class="review-classification-note">
-                            This classification identifies the paper’s main contribution
-                            and may be refined through comparison with the other studies.
-                        </p>
 
                         <table
                             class="review-classification-table"
@@ -2001,11 +2184,6 @@
                             Paper Classification
                         </h4>
 
-                        <p class="review-classification-note">
-                            This classification identifies the paper’s main contribution
-                            and may be refined through comparison with the other studies.
-                        </p>
-
                         <table
                             class="review-classification-table"
                             aria-labelledby="bazzan-classification-heading"
@@ -2020,6 +2198,14 @@
                                     <th scope="row">Primary category</th>
                                     <td>
                                         Traffic control and coordination
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Specific focus</th>
+                                    <td>
+                                        Decentralized selection of compatible signal plans
+                                        under competing local and corridor objectives
                                     </td>
                                 </tr>
 
@@ -2223,11 +2409,6 @@
                         <h4 id="abidi-classification-heading">
                             Paper Classification
                         </h4>
-
-                        <p class="review-classification-note">
-                            This classification identifies the paper’s main contribution
-                            and may be refined through comparison with the other studies.
-                        </p>
 
                         <table
                             class="review-classification-table"
@@ -2447,11 +2628,6 @@
                             Paper Classification
                         </h4>
 
-                        <p class="review-classification-note">
-                            This classification identifies the paper’s main contribution
-                            and may be refined through comparison with the other studies.
-                        </p>
-
                         <table
                             class="review-classification-table"
                             aria-labelledby="dubey-classification-heading"
@@ -2664,11 +2840,6 @@
                         aria-labelledby="alnajjar-classification-heading"
                     >
                         <h4 id="alnajjar-classification-heading">Paper Classification</h4>
-
-                        <p class="review-classification-note">
-                            This classification identifies the paper’s main contribution
-                            and may be refined through comparison with the other studies.
-                        </p>
 
                         <table
                             class="review-classification-table"
@@ -2884,11 +3055,6 @@
                             Paper Classification
                         </h4>
 
-                        <p class="review-classification-note">
-                            This classification identifies the paper’s main contribution
-                            and may be refined through comparison with the other studies.
-                        </p>
-
                         <table
                             class="review-classification-table"
                             aria-labelledby="pradhananga-classification-heading"
@@ -3103,11 +3269,6 @@
                         aria-labelledby="liu-classification-heading"
                     >
                         <h4 id="liu-classification-heading">Paper Classification</h4>
-
-                        <p class="review-classification-note">
-                            This classification identifies the paper’s main contribution
-                            and may be refined through comparison with the other studies.
-                        </p>
 
                         <table
                             class="review-classification-table"
@@ -3341,11 +3502,6 @@
                             Paper Classification
                         </h4>
 
-                        <p class="review-classification-note">
-                            This classification identifies the paper’s main contribution
-                            and may be refined through comparison with the other studies.
-                        </p>
-
                         <table
                             class="review-classification-table"
                             aria-labelledby="chen-classification-heading"
@@ -3362,8 +3518,11 @@
                                 </tr>
 
                                 <tr>
-                                    <th scope="row">Secondary category</th>
-                                    <td>Travel behavior and route choice</td>
+                                    <th scope="row">Specific focus</th>
+                                    <td>
+                                        Travel reservations, incentives, and penalties
+                                        influencing departure times, modes, and routes
+                                    </td>
                                 </tr>
 
                                 <tr>
@@ -3606,11 +3765,6 @@
                             Paper Classification
                         </h4>
 
-                        <p class="review-classification-note">
-                            This classification identifies the paper’s main contribution
-                            and may be refined through comparison with the other studies.
-                        </p>
-
                         <table
                             class="review-classification-table"
                             aria-labelledby="sewall-classification-heading"
@@ -3824,11 +3978,6 @@
                     >
                         <h4 id="khan-classification-heading">Paper Classification</h4>
 
-                        <p class="review-classification-note">
-                            This classification identifies the paper’s main contribution
-                            and may be refined through comparison with the other studies.
-                        </p>
-
                         <table
                             class="review-classification-table"
                             aria-labelledby="khan-classification-heading"
@@ -4034,11 +4183,6 @@
                         aria-labelledby="natterer-classification-heading"
                     >
                         <h4 id="natterer-classification-heading">Paper Classification</h4>
-
-                        <p class="review-classification-note">
-                            This classification identifies the paper’s main contribution
-                            and may be refined through comparison with the other studies.
-                        </p>
 
                         <table
                             class="review-classification-table"
@@ -4247,11 +4391,6 @@
                         <h4 id="smilovitskiy-classification-heading">
                             Paper Classification
                         </h4>
-
-                        <p class="review-classification-note">
-                            This classification identifies the paper’s main contribution
-                            and may be refined through comparison with the other studies.
-                        </p>
 
                         <table
                             class="review-classification-table"
@@ -4462,11 +4601,6 @@
                         aria-labelledby="kieu-classification-heading"
                     >
                         <h4 id="kieu-classification-heading">Paper Classification</h4>
-
-                        <p class="review-classification-note">
-                            This classification identifies the paper’s main contribution
-                            and may be refined through comparison with the other studies.
-                        </p>
 
                         <table
                             class="review-classification-table"
@@ -4686,11 +4820,6 @@
                         <h4 id="siguenza-torres-classification-heading">
                             Paper Classification
                         </h4>
-
-                        <p class="review-classification-note">
-                            This classification identifies the paper’s main contribution
-                            and may be refined through comparison with the other studies.
-                        </p>
 
                         <table
                             class="review-classification-table"
@@ -4919,11 +5048,6 @@
                             Paper Classification
                         </h4>
 
-                        <p class="review-classification-note">
-                            This classification identifies the paper’s main contribution
-                            and may be refined through comparison with the other studies.
-                        </p>
-
                         <table
                             class="review-classification-table"
                             aria-labelledby="kappenberger-classification-heading"
@@ -5134,11 +5258,6 @@
                         aria-labelledby="rakow-classification-heading"
                     >
                         <h4 id="rakow-classification-heading">Paper Classification</h4>
-
-                        <p class="review-classification-note">
-                            This classification identifies the paper’s main contribution
-                            and may be refined through comparison with the other studies.
-                        </p>
 
                         <table
                             class="review-classification-table"
@@ -5375,11 +5494,6 @@
                             Paper Classification
                         </h4>
 
-                        <p class="review-classification-note">
-                            This classification identifies the paper’s main contribution
-                            and may be refined through comparison with the other studies.
-                        </p>
-
                         <table
                             class="review-classification-table"
                             aria-labelledby="medina-classification-heading"
@@ -5474,6 +5588,306 @@
                         </table>
                     </section>
                 </article>
+            </section>
+
+            <section
+                class="review-findings"
+                id="cross-paper-findings"
+                aria-labelledby="cross-paper-findings-heading"
+            >
+                <h2 id="cross-paper-findings-heading">
+                    Cross-Paper Comparison and Findings
+                </h2>
+
+                <p class="review-findings-intro">
+                    The following comparisons connect the findings across the
+                    20 reviewed papers. They distinguish evidence about congestion
+                    interventions from contributions to behavioral modeling,
+                    computational efficiency, and simulation credibility.
+                </p>
+
+                <div class="review-findings-grid">
+                    <section
+                        class="review-finding"
+                        aria-labelledby="finding-travel-decisions"
+                    >
+                        <h3 id="finding-travel-decisions">
+                            Travel decisions connect demand with congestion
+                        </h3>
+
+                        <p>
+                            <a href="#review-charypar">Charypar</a>,
+                            <a href="#review-raney">Raney</a>,
+                            <a href="#review-akman">Akman</a>, and
+                            <a href="#review-jamroz">Jamróz</a>
+                            examine different parts of the relationship between
+                            individual decisions and traffic conditions. Charypar
+                            explains how activities, locations, and schedules
+                            generate trips, while Raney connects route selection
+                            to congestion experienced during previous journeys.
+                            Akman and Jamróz extend the route-choice problem to
+                            interactions between human travelers and coordinated
+                            autonomous vehicles. Together, these studies show why
+                            demand cannot always be treated as a fixed input:
+                            the decisions producing it may change with travel
+                            conditions and the objectives assigned to agents.
+                        </p>
+
+                        <p>
+                            However, the studies represent different levels of
+                            behavioral detail. Charypar’s experiments do not include
+                            congestion feedback, while Akman’s illustrative travelers
+                            repeat individual origin–destination trips rather than
+                            complete daily schedules. Jamróz uses a two-route system
+                            to isolate conflicts between fleet and human interests.
+                            Their contributions are complementary, but no single
+                            study establishes a complete, empirically validated
+                            account of how daily activities, route learning, and
+                            automated coordination interact across a city.
+                        </p>
+                    </section>
+
+                    <section
+                        class="review-finding"
+                        aria-labelledby="finding-control-design"
+                    >
+                        <h3 id="finding-control-design">
+                            Control depends on information and operating conditions
+                        </h3>
+
+                        <p>
+                            <a href="#review-bazzan">Bazzan</a>,
+                            <a href="#review-abidi">Abidi</a>, and
+                            <a href="#review-liu">Liu</a>
+                            show that adaptive signal control involves more than
+                            choosing a learning algorithm. Bazzan emphasizes the
+                            tension between local intersection needs and coordinated
+                            corridor movement. Abidi examines which information
+                            neighboring controllers should exchange, while Liu
+                            investigates how traffic observations are represented
+                            before an action is selected. Observations, rewards,
+                            timing constraints, and adaptation rates therefore
+                            form important parts of the model.
+                        </p>
+
+                        <p>
+                            Greater complexity does not automatically improve
+                            performance. Bazzan identifies conditions in which
+                            centralized synchronization performs better, and
+                            Abidi’s experiments favor a particular concise
+                            information-sharing policy over complete sharing.
+                            <a href="#review-pradhananga">Pradhananga</a>
+                            offers a different approach by repeatedly simulating
+                            candidate signal settings using camera-derived
+                            observations. This creates a comparison between learning
+                            a control policy and evaluating alternatives during
+                            operation. Neither approach is universally preferable;
+                            their usefulness depends on demand changes, observation
+                            quality, available computing time, and the extent of
+                            coordination between intersections.
+                        </p>
+                    </section>
+
+                    <section
+                        class="review-finding"
+                        aria-labelledby="finding-distribution"
+                    >
+                        <h3 id="finding-distribution">
+                            Benefits can be uneven or shift congestion elsewhere
+                        </h3>
+
+                        <p>
+                            <a href="#review-akman">Akman</a> and
+                            <a href="#review-jamroz">Jamróz</a>
+                            show that coordinated vehicles can improve their own
+                            travel times while worsening conditions for human
+                            drivers. <a href="#review-alnajjar">Alnajjar</a>
+                            demonstrates a related spatial issue: increased
+                            corridor capacity produces uneven effects on surrounding
+                            roads. <a href="#review-dubey">Dubey’s FAIRLANE</a>
+                            results further show that shared priority-lane benefits
+                            depend on vehicle composition. A policy that uses spare
+                            capacity effectively at lower autonomous-vehicle shares
+                            may become less advantageous as those shares increase.
+                        </p>
+
+                        <p>
+                            <a href="#review-chen">Chen</a> and
+                            <a href="#review-pradhananga">Pradhananga</a>
+                            also illustrate why the performance measure matters.
+                            Chen balances traveler costs and revenue, so the
+                            preferred policy does not necessarily maximize speed.
+                            In Pradhananga’s experiments, higher throughput can
+                            accompany longer average travel time. Congestion
+                            policies should therefore be evaluated through several
+                            measures, with attention to who benefits, where changes
+                            occur, and whether delays are transferred elsewhere.
+                            A favorable network average can conceal these differences.
+                        </p>
+                    </section>
+
+                    <section
+                        class="review-finding"
+                        aria-labelledby="finding-computation"
+                    >
+                        <h3 id="finding-computation">
+                            Faster methods preserve different information
+                        </h3>
+
+                        <p>
+                            The computational studies address different sources
+                            of simulation cost. <a href="#review-sewall">Sewall</a>
+                            changes the level of detail across the network,
+                            <a href="#review-khan">Khan</a> evaluates simpler
+                            alternatives to behavioral simulation, and
+                            <a href="#review-natterer">Natterer</a> learns an
+                            approximation of simulation outputs.
+                            <a href="#review-smilovitskiy">Smilovitskiy</a>
+                            retains individual vehicles while using GPU parallelism.
+                            <a href="#review-kieu">Kieu</a> updates movement through
+                            discrete events, while
+                            <a href="#review-siguenza-torres">Siguenza-Torres</a>
+                            adjusts the computing resources assigned to a running
+                            simulation.
+                        </p>
+
+                        <p>
+                            These methods should be compared according to the
+                            information needed for the research question. Sewall’s
+                            aggregation can lose vehicle identity, Khan’s static
+                            routing omits congestion-dependent behavioral feedback,
+                            and Natterer’s daily-volume predictions do not directly
+                            describe queues or individual trajectories. Parallel
+                            execution does not by itself establish equivalent
+                            traffic behavior, and Kieu’s results depend on both
+                            event scheduling and a simplified movement model.
+                            Faster execution is valuable when it enables additional
+                            scenarios or repeated runs, but it is not evidence
+                            that a congestion policy is more effective.
+                        </p>
+                    </section>
+
+                    <section
+                        class="review-finding"
+                        aria-labelledby="finding-validation"
+                    >
+                        <h3 id="finding-validation">
+                            Credibility requires more than one matching outcome
+                        </h3>
+
+                        <p>
+                            <a href="#review-kappenberger">Kappenberger</a>,
+                            <a href="#review-rakow">Rakow</a>, and
+                            <a href="#review-medina">Medina</a>
+                            examine credibility at different levels. Kappenberger
+                            adjusts route probabilities to reproduce traffic counts.
+                            Rakow connects population, activity, location, mode-choice,
+                            and network preparation, examining several resulting
+                            travel measures. Medina compares simulated following
+                            behavior with naturalistic observations. Together, these
+                            studies show that demand, travel choices, and vehicle
+                            interactions require different forms of evidence.
+                        </p>
+
+                        <p>
+                            Agreement with one measure does not establish overall
+                            realism. Different demand patterns can reproduce similar
+                            counts, accurate mode shares can coexist with underestimated
+                            road volumes, and acceptable aggregate outcomes can
+                            conceal unrealistic vehicle spacing.
+                            <a href="#review-raney">Raney</a> also raises the question
+                            of whether evaluation observations helped prepare the
+                            model’s demand. Calibration fit, independent observational
+                            evaluation, and agreement with another simulator should
+                            therefore be distinguished.
+                            <a href="#review-khan">Khan</a>,
+                            <a href="#review-kieu">Kieu</a>, and
+                            <a href="#review-natterer">Natterer</a>
+                            provide useful model-to-model evidence, but that answers
+                            a different question from validation against observed traffic.
+                        </p>
+                    </section>
+
+                    <section
+                        class="review-finding"
+                        aria-labelledby="finding-model-setup"
+                    >
+                        <h3 id="finding-model-setup">
+                            Model setup should follow the mechanism being studied
+                        </h3>
+
+                        <p>
+                            Across the papers, system design can be understood through
+                            the transportation environment, agent decisions,
+                            interactions, and evaluation process. These are analytical
+                            distinctions rather than a requirement for four literal
+                            software layers. The environment defines roads, demand,
+                            and capacity. Decision mechanisms select activities,
+                            routes, signal actions, or lane access. Interactions
+                            connect these decisions through vehicle movement,
+                            communication, and feedback. Evaluation measures traffic
+                            outcomes, their credibility, and the computational cost
+                            of producing them.
+                        </p>
+
+                        <p>
+                            This distinction explains why parameters cannot be
+                            transferred unchanged between studies. A route-learning
+                            rate, signal reward, following gap, and neural-network
+                            learning rate control different mechanisms.
+                            <a href="#review-chen">Chen’s</a> policy weights express
+                            a balance between objectives,
+                            <a href="#review-rakow">Rakow’s</a> calibrated mode
+                            constants help match observed behavior, and
+                            <a href="#review-siguenza-torres">Siguenza-Torres’s</a>
+                            target pace specifies a computing requirement.
+                            Comparisons should identify what each setting controls,
+                            how its value was chosen, and whether conclusions remain
+                            stable when important assumptions change.
+                        </p>
+                    </section>
+
+                    <section
+                        class="review-finding review-finding-wide"
+                        aria-labelledby="finding-implications"
+                    >
+                        <h3 id="finding-implications">
+                            Implications for congestion research and future modeling
+                        </h3>
+
+                        <p>
+                            The reviewed papers suggest that a credible congestion
+                            study needs a connected sequence of demand preparation,
+                            behavioral modeling, intervention design, simulation,
+                            and evaluation. An effective controller can produce
+                            misleading results if demand is unrealistic, while a
+                            well-calibrated baseline does not establish that a new
+                            intervention will work. Computational improvements make
+                            broader experimentation possible, but those experiments
+                            still require suitable assumptions and supporting evidence.
+                        </p>
+
+                        <p>
+                            Further work should test interventions across multiple
+                            demand conditions, agent objectives, and plausible
+                            parameter settings, examining both aggregate outcomes
+                            and effects on particular travelers or locations.
+                            Clearer configuration reporting and stronger separation
+                            between calibration and independent evaluation would
+                            make results easier to assess and reproduce.
+                        </p>
+
+                        <p>
+                            For a future DEVSJAVA implementation, these findings
+                            support separating demand generation, road movement,
+                            traveler decisions, controllers, and measurement
+                            components, with explicit feedback between them.
+                            This provides an organized basis for experimentation
+                            without assuming that modular implementation alone
+                            guarantees realistic traffic.
+                        </p>
+                    </section>
+                </div>
             </section>
         </div>
     </main>
