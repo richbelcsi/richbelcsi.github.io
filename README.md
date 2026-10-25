@@ -20,9 +20,7 @@ The review also considers how the surveyed approaches could inform a future impl
 - Prepared brief comments for all 60 bibliography papers, explaining their contributions and relevance to the survey.
 - Selected 20 papers for thorough reading: 4 foundational papers, 8 recent journal papers, 6 conference papers, and 2 technical reports.
 - Added paraphrased abstract summaries and more developed brief comments for the 20-paper shortlist.
-- Completed detailed reading and individual reviews for all 20 shortlisted papers.
-- Added classifications covering modeling approaches, system structure, configuration choices, evaluation evidence, limitations, and relevance to congestion.
-- Cross-paper comparisons and refinement of the classification scheme are ongoing.
+- Completed detailed reviews and classifications for all 20 shortlisted papers, with cross-paper comparisons of modeling choices, congestion outcomes, computational trade-offs, and validation evidence.
 - Planned presentation materials and the final survey paper.
 
 The annotations cover the full bibliography. The detailed reviews focus on the 20-paper shortlist and examine methods, findings, supporting evidence, limitations, and relevance to congestion management.
@@ -36,11 +34,12 @@ Abstract summaries are paraphrased rather than reproduced from the original publ
 - Search and group filtering across all 60 annotations.
 - Separate annotation groups for the shortlisted foundational papers, journal papers, conference papers and reports, and the 40 additional bibliography papers.
 - Result counts, empty-result messages, and controls for clearing filters.
-- Links from shortlisted bibliography entries to their annotations and from available annotations to detailed reviews.
-- Print controls on the bibliography and annotations pages, including the browser’s Save as PDF option.
+- Links from all bibliography entries to their annotations, with links from the 20 shortlisted annotations to their detailed reviews.
+- Navigation within the detailed-review page, including category shortcuts and links from cross-paper findings to supporting reviews.
+- Print controls on the bibliography, annotations, and detailed-review pages, including the browser’s Save as PDF option.
 - Responsive layouts, keyboard-accessible controls, skip links, and back-to-top navigation.
 
-Printing the bibliography or annotations uses the currently visible results. Clear the filters before printing the complete collection.
+Printing the bibliography or annotations uses the currently visible results. Clear the filters before printing the complete collection. Printing the detailed-review page includes all 20 reviews, classifications, and cross-paper comparisons.
 
 Publication links lead to publisher pages, repositories, or available PDFs. Access requirements vary by publication.
 
@@ -51,7 +50,7 @@ Publication links lead to publisher pages, repositories, or available PDFs. Acce
 | `index.html` | Project description, research question, and overview |
 | `bibliography.html` | Bibliography of 60 publications with search, filtering, sorting, and print controls |
 | `annotations.html` | Brief comments for all 60 papers, plus abstract summaries for the 20-paper shortlist |
-| `review.html` | Detailed reviews, individual paper classifications, and a growing comparison of research approaches |
+| `review.html` | Detailed reviews and classifications for 20 papers, a comparison table, and cross-paper findings |
 | `materials.html` | Research materials, progress, and course milestones |
 | `styles.css` | Shared colors, typography, responsive layouts, controls, and print styles |
 | `script.js` | Bibliography and annotation search/filter controls, bibliography sorting, and print controls for the bibliography, annotations, and detailed reviews |
@@ -71,16 +70,19 @@ The comparison of shortlisted papers focuses on:
 - Data requirements, calibration, and validation
 - Findings, limitations, and opportunities for further research
 
-The developing classification scheme groups research by its main contribution:
+The classification scheme groups research into five categories according to its main contribution:
 
 - Travel behavior and route choice
 - Traffic control and coordination
+- Travel-demand management
 - Simulation frameworks and computational efficiency
 - Calibration and validation methods
 
+Each shortlisted paper has one primary category and a specific focus. Connections between categories are discussed in the individual reviews and cross-paper comparisons.
+
 These research categories describe what each paper contributes. The foundational, journal, conference, and technical-report labels describe the composition of the reading shortlist.
 
-Classifications remain provisional and may overlap as additional papers are reviewed.
+The classification scheme may be refined as the comparative analysis and final survey paper develop.
 
 ## Course Milestones
 
@@ -112,7 +114,7 @@ After changing styles or scripts, refresh the browser. Use `Ctrl + F5` if cached
 2. Preview the website locally.
 3. Check navigation and desktop and mobile layouts.
 4. Check bibliography search, year filtering, sorting, and the selected-paper filter.
-5. Check annotation search, group filtering, direct links, and print previews.
+5. Check annotation search, group filtering, links between pages, detailed-review navigation, and print previews on all three printable pages.
 6. Update relevant progress descriptions and content-updated dates.
 7. Commit and push the changes to `dev`.
 8. Open a pull request from `dev` into `main`.
