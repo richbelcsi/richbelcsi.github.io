@@ -21,7 +21,9 @@ The review also considers how the surveyed approaches could inform a future impl
 - Selected 20 papers for thorough reading: 4 foundational papers, 8 recent journal papers, 6 conference papers, and 2 technical reports.
 - Added paraphrased abstract summaries and more developed brief comments for the 20-paper shortlist.
 - Completed detailed reviews and classifications for all 20 shortlisted papers, with cross-paper comparisons of modeling choices, congestion outcomes, computational trade-offs, and validation evidence.
-- Planned presentation materials and the final survey paper.
+- Prepared a 35-slide presentation designed for 30 minutes of speaking followed by 5 minutes of questions.
+- Added dedicated presentation and final-paper pages.
+- Planned the final survey paper, which will reference all 60 publications through relevant discussions, with detailed comparisons centered on the 20-paper shortlist.
 
 The annotations cover the full bibliography. The detailed reviews focus on the 20-paper shortlist and examine methods, findings, supporting evidence, limitations, and relevance to congestion management.
 
@@ -38,8 +40,13 @@ Abstract summaries are paraphrased rather than reproduced from the original publ
 - Navigation within the detailed-review page, including category shortcuts and links from cross-paper findings to supporting reviews.
 - Print controls on the bibliography, annotations, and detailed-review pages, including the browser’s Save as PDF option.
 - Responsive layouts, keyboard-accessible controls, skip links, and back-to-top navigation.
+- A presentation page with an embedded PDF preview and PDF and PowerPoint download links.
+- A final-paper page describing the planned scope, structure, and manuscript availability.
+- Access to the presentation and final-paper pages through Project Materials.
 
 Printing the bibliography or annotations uses the currently visible results. Clear the filters before printing the complete collection. Printing the detailed-review page includes all 20 reviews, classifications, and cross-paper comparisons.
+
+The final-paper page currently describes planned work; the manuscript PDF will be added when a draft is ready to share.
 
 Publication links lead to publisher pages, repositories, or available PDFs. Access requirements vary by publication.
 
@@ -56,6 +63,9 @@ Publication links lead to publisher pages, repositories, or available PDFs. Acce
 | `script.js` | Bibliography and annotation search/filter controls, bibliography sorting, and print controls for the bibliography, annotations, and detailed reviews |
 | `logo.svg` | Website logo and browser-tab icon |
 | `README.md` | Repository overview and development instructions |
+| `presentation.html` | Presentation overview, PDF preview, and PDF and PowerPoint downloads |
+| `paper.html` | Final-paper scope, planned structure, and manuscript availability |
+| `assets/` | Downloadable presentation files and, when available, the survey-paper PDF |
 
 Some page-specific layout rules are included in the corresponding HTML files.
 
@@ -100,9 +110,11 @@ The classification scheme may be refined as the comparative analysis and final s
 The website uses HTML, CSS, JavaScript, and SVG. No installation or build step is required.
 
 1. Clone or download the repository.
-2. Keep the website files together in the same directory.
+2. Keep the HTML pages, `styles.css`, `script.js`, and `logo.svg` in the website’s root directory. Preserve the `assets/` subdirectory for downloadable files.
 3. Open `index.html` in a web browser.
 4. Use the navigation links to visit the other pages.
+
+Open Project Materials to reach the presentation and final-paper pages. Check that the presentation PDF opens, the embedded preview loads where supported, and both download links work.
 
 A local preview server, such as the VS Code Live Server extension, may also be used.
 
@@ -122,6 +134,17 @@ After changing styles or scripts, refresh the browser. Use `Ctrl + F5` if cached
 10. Confirm that the published website reflects the merged changes.
 
 The live website is hosted through GitHub Pages. Deployment follows the repository’s configured publishing branch or GitHub Actions workflow.
+
+## Maintaining Presentation Files
+
+The presentation page uses these files:
+
+- `assets/CSC754_Survey_Paper_Presentation_Slides (Submission).pdf`
+- `assets/CSC754_Survey_Paper_Presentation_Slides (Submission).pptx`
+
+Keep filenames and capitalization consistent with the links in `presentation.html`.
+
+Update the presentation page’s content-updated date when its content or downloadable files change.
 
 ## Maintaining Paper Links
 
