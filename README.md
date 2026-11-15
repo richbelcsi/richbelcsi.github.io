@@ -6,95 +6,96 @@ A literature survey for CSC754 by Richard Belitski and Mohammad Jehangir.
 
 ## Overview
 
-This project surveys how agent-based models represent vehicles, travelers, and traffic-control agents to investigate urban traffic congestion and evaluate strategies for reducing it.
+This project examines how agent-based models represent travelers, vehicles, and traffic-control agents to investigate urban traffic congestion and evaluate strategies for reducing it.
 
-New York City serves as the motivating case study, while research from other cities provides relevant methods and comparisons. The survey examines route choice, driver behavior, signal coordination, lane management, and travel incentives.
+New York City serves as the motivating case study. Research from other locations provides relevant methods, comparisons, and evaluation evidence. Topics include route choice, driver behavior, signal coordination, lane management, and travel-demand management.
 
-Our guiding question is how these models evaluate congestion-reduction strategies while balancing behavioral realism, computational efficiency, and agreement with observed traffic data.
+The guiding question is how these models evaluate congestion-management strategies while balancing behavioral realism, computational efficiency, and agreement with observed traffic data.
 
-The review also considers how the surveyed approaches could inform a future implementation in DEVSJAVA.
+DEVSJAVA is considered as a possible platform for future model implementation. This repository currently contains the survey website, not a traffic simulator.
 
 ## Current Progress
 
 - Collected 60 publications with links to publication records or available full text.
-- Prepared brief comments for all 60 bibliography papers, explaining their contributions and relevance to the survey.
-- Selected 20 papers for thorough reading: 4 foundational papers, 8 recent journal papers, 6 conference papers, and 2 technical reports.
-- Added paraphrased abstract summaries and more developed brief comments for the 20-paper shortlist.
-- Completed detailed reviews and classifications for all 20 shortlisted papers, with cross-paper comparisons of modeling choices, congestion outcomes, computational trade-offs, and validation evidence.
-- Prepared a 35-slide presentation designed for 30 minutes of speaking followed by 5 minutes of questions.
-- Added dedicated presentation and final-paper pages.
-- Planned the final survey paper, which will reference all 60 publications through relevant discussions, with detailed comparisons centered on the 20-paper shortlist.
+- Prepared brief comments for all 60 bibliography papers.
+- Selected 20 papers for thorough reading: 4 foundational papers, 8 journal papers, 6 conference papers, and 2 technical reports.
+- Added paraphrased abstract summaries for the 20-paper shortlist.
+- Completed detailed reviews and classifications for all 20 shortlisted papers, including a comparison table and cross-paper findings.
+- Completed the class presentation and made the 40-slide submission deck available in PDF and PowerPoint formats.
+- Began drafting the final survey paper, starting with the introduction.
 
-The annotations cover the full bibliography. The detailed reviews focus on the 20-paper shortlist and examine methods, findings, supporting evidence, limitations, and relevance to congestion management.
+The final paper will reference all 60 publications in relevant discussions, with detailed technical comparisons centered on the 20-paper shortlist.
 
-Abstract summaries are paraphrased rather than reproduced from the original publications. Reviews and classifications will be refined as the project develops.
+Following presentation feedback, the manuscript will place greater emphasis on specific models, agent behavior, decision mechanisms, parameter settings, computational methods, and figures explaining model structure and results.
 
 ## Website Features
 
-- Shared navigation across the description, bibliography, project materials, annotations, and detailed-review pages.
+- Shared navigation, responsive layouts, skip links, and back-to-top links.
 - Bibliography search, publication-year filtering, author/title/year sorting, and a filter for the 20 shortlisted papers.
-- Search and group filtering across all 60 annotations.
-- Separate annotation groups for the shortlisted foundational papers, journal papers, conference papers and reports, and the 40 additional bibliography papers.
-- Result counts, empty-result messages, and controls for clearing filters.
-- Links from all bibliography entries to their annotations, with links from the 20 shortlisted annotations to their detailed reviews.
-- Navigation within the detailed-review page, including category shortcuts and links from cross-paper findings to supporting reviews.
-- Print controls on the bibliography, annotations, and detailed-review pages, including the browser’s Save as PDF option.
-- Responsive layouts, keyboard-accessible controls, skip links, and back-to-top navigation.
+- Search and group filtering across all 60 annotations, with result counts and empty-result messages.
+- Links between bibliography entries, annotations, and detailed reviews.
+- Detailed-review navigation, individual classifications, a comparison table, and cross-paper findings linked to supporting reviews.
+- Print / Save as PDF controls on the bibliography, annotations, and detailed-review pages.
 - A presentation page with an embedded PDF preview and PDF and PowerPoint download links.
-- A final-paper page describing the planned scope, structure, and manuscript availability.
-- Access to the presentation and final-paper pages through Project Materials.
+- A final-paper page with drafting progress, planned structure, and manuscript availability.
 
-Printing the bibliography or annotations uses the currently visible results. Clear the filters before printing the complete collection. Printing the detailed-review page includes all 20 reviews, classifications, and cross-paper comparisons.
+The presentation and final-paper pages are accessible through Project Materials.
 
-The final-paper page currently describes planned work; the manuscript PDF will be added when a draft is ready to share.
+Printing the bibliography or annotations includes the currently visible results. Clear the filters before printing the complete collection. Printing the detailed-review page includes all 20 reviews, classifications, and cross-paper comparisons.
 
-Publication links lead to publisher pages, repositories, or available PDFs. Access requirements vary by publication.
+Publication access varies by source. Abstract summaries are paraphrased rather than reproduced from the original publications.
 
 ## Website Files
 
-| File | Purpose |
+| File or directory | Purpose |
 | --- | --- |
-| `index.html` | Project description, research question, and overview |
+| `index.html` | Project description, research question, and current progress |
 | `bibliography.html` | Bibliography of 60 publications with search, filtering, sorting, and print controls |
-| `annotations.html` | Brief comments for all 60 papers, plus abstract summaries for the 20-paper shortlist |
-| `review.html` | Detailed reviews and classifications for 20 papers, a comparison table, and cross-paper findings |
-| `materials.html` | Research materials, progress, and course milestones |
-| `styles.css` | Shared colors, typography, responsive layouts, controls, and print styles |
-| `script.js` | Bibliography and annotation search/filter controls, bibliography sorting, and print controls for the bibliography, annotations, and detailed reviews |
+| `annotations.html` | Brief comments for all 60 papers and abstract summaries for the 20-paper shortlist |
+| `review.html` | Detailed reviews, classifications, comparison table, and cross-paper findings |
+| `materials.html` | Research materials, project progress, and course milestones |
+| `presentation.html` | Presentation overview, PDF preview, and submission downloads |
+| `paper.html` | Final-paper progress, planned structure, and manuscript availability |
+| `styles.css` | Shared typography, colors, layouts, controls, responsive rules, and print styles |
+| `script.js` | Search, filtering, sorting, annotation-link handling, and print controls |
 | `logo.svg` | Website logo and browser-tab icon |
-| `README.md` | Repository overview and development instructions |
-| `presentation.html` | Presentation overview, PDF preview, and PDF and PowerPoint downloads |
-| `paper.html` | Final-paper scope, planned structure, and manuscript availability |
-| `assets/` | Downloadable presentation files and, when available, the survey-paper PDF |
+| `assets/` | Presentation files and, when available, the survey-paper PDF |
+| `README.md` | Project overview and website maintenance instructions |
 
 Some page-specific layout rules are included in the corresponding HTML files.
 
-## Research Scope and Classification
+## Research Classification
 
-The comparison of shortlisted papers focuses on:
+The 20 shortlisted papers are grouped by their primary research contribution:
 
-- Agent representations and behavioral assumptions
-- Interactions between travelers, vehicles, and traffic controls
-- Strategies for understanding and reducing congestion
-- Simulation scale and computational requirements
-- Data requirements, calibration, and validation
-- Findings, limitations, and opportunities for further research
+| Category | Papers |
+| --- | ---: |
+| Travel behavior and route choice | 4 |
+| Traffic control and coordination | 6 |
+| Travel-demand management | 1 |
+| Simulation frameworks and computational efficiency | 6 |
+| Calibration and validation methods | 3 |
+| **Total** | **20** |
 
-The classification scheme groups research into five categories according to its main contribution:
+Each paper has one primary category, while connections to other categories are discussed in its review and the cross-paper analysis.
 
-- Travel behavior and route choice
-- Traffic control and coordination
-- Travel-demand management
-- Simulation frameworks and computational efficiency
-- Calibration and validation methods
+These categories describe research contributions. The foundational, journal, conference, and technical-report labels describe the composition of the reading shortlist.
 
-Each shortlisted paper has one primary category and a specific focus. Connections between categories are discussed in the individual reviews and cross-paper comparisons.
+The technical comparison examines:
 
-These research categories describe what each paper contributes. The foundational, journal, conference, and technical-report labels describe the composition of the reading shortlist.
+- Agent types, states, observations, actions, and behavioral assumptions
+- Decision rules, learning mechanisms, and interactions among agents
+- Network representation, travel demand, and environmental constraints
+- Model parameters, configuration choices, and calibration procedures
+- Simulation execution, computational requirements, and scalability
+- Experimental scenarios, baselines, performance measures, and validation evidence
+- Findings, limitations, and relevance to congestion management
 
-The classification scheme may be refined as the comparative analysis and final survey paper develop.
+The final paper will develop these comparisons using technical explanations, figures, and supporting references. The classification and analysis may be refined during drafting.
 
 ## Course Milestones
+
+The following dates are for the 2026 course schedule.
 
 | Date | Task |
 | --- | --- |
@@ -105,46 +106,51 @@ The classification scheme may be refined as the comparative analysis and final s
 | November 12 and November 19 | Class presentations |
 | December 10 | Final survey paper submission |
 
+Our presentation is complete. The current stage is final-paper drafting.
+
 ## Local Preview
 
-The website uses HTML, CSS, JavaScript, and SVG. No installation or build step is required.
+The website uses HTML, CSS, JavaScript, and SVG. No build step is required.
 
 1. Clone or download the repository.
-2. Keep the HTML pages, `styles.css`, `script.js`, and `logo.svg` in the website’s root directory. Preserve the `assets/` subdirectory for downloadable files.
-3. Open `index.html` in a web browser.
-4. Use the navigation links to visit the other pages.
+2. Keep the HTML pages, `styles.css`, `script.js`, and `logo.svg` in the website root.
+3. Preserve the `assets/` subdirectory and its filenames.
+4. Open `index.html` directly in a browser for a basic preview, or use a local server such as VS Code Live Server.
+5. Navigate through the pages and check desktop and mobile layouts.
 
-Open Project Materials to reach the presentation and final-paper pages. Check that the presentation PDF opens, the embedded preview loads where supported, and both download links work.
+Use a local server when testing download buttons. When pages are opened through a `file:///` address, browsers may open a PDF instead of honoring its `download` attribute.
 
-A local preview server, such as the VS Code Live Server extension, may also be used.
+On the presentation page, check that the PDF preview, Open Slides link, and both download buttons use the intended submission files.
 
-After changing styles or scripts, refresh the browser. Use `Ctrl + F5` if cached files prevent the latest changes from appearing.
+After changing styles or scripts, refresh the browser. On Windows, use `Ctrl + F5` if cached files prevent the latest changes from appearing.
 
 ## Development Workflow
 
 1. Make changes on the `dev` branch.
 2. Preview the website locally.
-3. Check navigation and desktop and mobile layouts.
-4. Check bibliography search, year filtering, sorting, and the selected-paper filter.
-5. Check annotation search, group filtering, links between pages, detailed-review navigation, and print previews on all three printable pages.
-6. Update relevant progress descriptions and content-updated dates.
-7. Commit and push the changes to `dev`.
-8. Open a pull request from `dev` into `main`.
-9. Review and merge the changes when they are ready.
-10. Confirm that the published website reflects the merged changes.
+3. Check navigation, responsive layouts, search, filtering, sorting, and links between papers.
+4. Check print previews on the bibliography, annotations, and detailed-review pages.
+5. Check the presentation preview and downloads, along with any newly added manuscript links.
+6. Update progress descriptions and content-updated dates on affected pages.
+7. Commit and push changes to `dev`.
+8. Open and review a pull request from `dev` into `main`.
+9. Merge the changes when ready.
+10. Confirm that the published website reflects the update.
 
-The live website is hosted through GitHub Pages. Deployment follows the repository’s configured publishing branch or GitHub Actions workflow.
+The website is hosted through GitHub Pages. Deployment follows the repository’s configured publishing branch or GitHub Actions workflow.
 
-## Maintaining Presentation Files
+## Maintaining Presentation and Manuscript Files
 
-The presentation page uses these files:
+The presentation page uses:
 
 - `assets/CSC754_Survey_Paper_Presentation_Slides (Submission).pdf`
 - `assets/CSC754_Survey_Paper_Presentation_Slides (Submission).pptx`
 
-Keep filenames and capitalization consistent with the links in `presentation.html`.
+Keep filenames and capitalization consistent with `presentation.html`. Both PDF buttons and the embedded preview should reference the same submission PDF.
 
-Update the presentation page’s content-updated date when its content or downloadable files change.
+Publish the submission versions without speaker notes. Keep presenter copies separate from the public website files.
+
+The manuscript PDF is not yet available. When a draft is ready to share, add it to `assets/`, link it from `paper.html`, and update the relevant progress descriptions and dates.
 
 ## Maintaining Paper Links
 
@@ -152,8 +158,6 @@ Keep existing paper IDs stable so that links between pages continue to work.
 
 The 20 shortlisted annotations use IDs such as `paper-45`. Additional bibliography annotations use IDs such as `annotation-ref-03`.
 
-The bibliography script currently identifies shortlisted papers through links beginning with `annotations.html#paper-`. Use the `annotation-ref-XX` format when linking to additional annotations so that the selected-paper filter continues to identify only the 20-paper shortlist.
+The bibliography script identifies shortlisted papers through links beginning with `annotations.html#paper-`. Continue using the `annotation-ref-XX` format for additional annotations so the shortlist filter includes only the intended 20 papers.
 
-## Implementation Scope
-
-DEVSJAVA is a possible future implementation platform. This repository currently contains the literature-survey website; it does not yet include a traffic simulator.
+Preserve the existing detailed-review IDs when editing reviews, since annotations and cross-paper findings link to them.
