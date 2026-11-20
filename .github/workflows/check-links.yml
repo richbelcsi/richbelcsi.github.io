@@ -1,0 +1,47 @@
+# Checks every link on the website: links between pages, anchors such as
+# annotations.html#paper-45, files in assets/, and external DOI and PDF links.
+#
+# Runs every Monday, after changes to the HTML pages reach main, and on demand
+# (Actions tab > Check links > Run workflow). A failed run means a link needs
+# attention; the run's summary page lists each broken link.
+
+name: Check links
+
+on:
+  schedule:
+    # Mondays at 13:17 UTC (8:17 a.m. New York time in winter, 9:17 a.m. in summer).
+    - cron: "17 13 * * 1"
+  push:
+    branches: [main]
+    paths:
+      - "**.html"
+      - ".github/workflows/check-links.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the website files
+        uses: actions/checkout@v6
+
+      # Publishers often refuse automated checkers with 403 (Forbidden) or
+      # 429 (Too Many Requests), so those responses count as reachable.
+      # Google Fonts addresses are connection hints, not pages, so they are skipped.
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --include-fragments
+            --root-dir "${{ github.workspace }}"
+            --max-retries 3
+            --timeout 30
+            --accept 200,206,403,429
+            --exclude "^https://fonts\.(googleapis|gstatic)\.com"
+            "./*.html"
+          fail: true
+          jobSummary: true
