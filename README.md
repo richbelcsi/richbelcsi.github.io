@@ -34,12 +34,22 @@ Following presentation feedback, the manuscript will place greater emphasis on s
 - Bibliography search, publication-year filtering, author/title/year sorting, and a filter for the 20 shortlisted papers.
 - Search and group filtering across all 60 annotations, with result counts and empty-result messages.
 - Links between bibliography entries, annotations, and detailed reviews.
-- Detailed-review navigation, individual classifications, a comparison table, and cross-paper findings linked to supporting reviews.
+- Reference numbers such as [45] that match across the bibliography, annotations, and detailed reviews, and stay the same when the bibliography is sorted or filtered.
+- Detailed-review navigation (a contents sidebar on wide screens and "Back to contents" links on smaller screens), individual classifications, a comparison table grouped by research category, and cross-paper findings linked to supporting reviews.
 - Print / Save as PDF controls on the bibliography, annotations, and detailed-review pages.
+- A Copy citation button on each bibliography entry, and a Copy Shown Citations button that copies every citation currently listed, in the current order. Copied citations include their reference numbers.
+- Search and filter choices saved in the page address, so a filtered view can be shared and survives a refresh. For example, `bibliography.html?q=calibration&shortlist=1` or `annotations.html?group=journal`.
+- Highlighted search matches in the bibliography and annotations.
+- Keyboard shortcuts on the bibliography and annotations pages: press `/` to jump to the search box and `Esc` to clear it.
+- A Copy link button beside each annotation and detailed-review heading.
+- A note at the end of each detailed review linking to the cross-paper findings that discuss it.
+- A floating Top link on the annotations and detailed-review pages for smaller screens.
+- Section-by-section progress on the final-paper page.
+- A custom page for addresses that do not exist.
 - A presentation page with an embedded PDF preview and PDF and PowerPoint download links.
 - A final-paper page with drafting progress, planned structure, and manuscript availability.
 
-The presentation and final-paper pages are accessible through Project Materials.
+The presentation and final-paper pages are accessible through Project Materials. When either page is open, Project Materials is highlighted in the navigation.
 
 Printing the bibliography or annotations includes the currently visible results. Clear the filters before printing the complete collection. Printing the detailed-review page includes all 20 reviews, classifications, and cross-paper comparisons.
 
@@ -56,13 +66,15 @@ Publication access varies by source. Abstract summaries are paraphrased rather t
 | `materials.html` | Research materials, project progress, and course milestones |
 | `presentation.html` | Presentation overview, PDF preview, and submission downloads |
 | `paper.html` | Final-paper progress, planned structure, and manuscript availability |
-| `styles.css` | Shared typography, colors, layouts, controls, responsive rules, and print styles |
-| `script.js` | Search, filtering, sorting, annotation-link handling, and print controls |
+| `styles.css` | Shared typography, colors, layouts, page-specific layouts, controls, responsive rules, and print styles |
+| `script.js` | Search, filtering, sorting, annotation-link handling, print controls, copy buttons, shareable filter addresses, search highlighting, keyboard shortcuts, links to cross-paper findings, and the floating Top link |
 | `logo.svg` | Website logo and browser-tab icon |
+| `404.html` | Page GitHub Pages shows for addresses that do not exist |
+| `.github/workflows/check-links.yml` | Weekly and on-update check of every internal and external link |
 | `assets/` | Presentation files and, when available, the survey-paper PDF |
 | `README.md` | Project overview and website maintenance instructions |
 
-Some page-specific layout rules are included in the corresponding HTML files.
+All styles, including page-specific layout rules, are in `styles.css`.
 
 ## Research Classification
 
@@ -122,6 +134,10 @@ Use a local server when testing download buttons. When pages are opened through 
 
 On the presentation page, check that the PDF preview, Open Slides link, and both download buttons use the intended submission files.
 
+Copy buttons and shareable filter addresses work best through a local server, because some browsers block clipboard access and address changes for pages opened as files.
+
+`404.html` uses addresses that begin with `/` so that it works at any depth on GitHub Pages. It only displays correctly on GitHub Pages or through a local server started in the website folder.
+
 After changing styles or scripts, refresh the browser. On Windows, use `Ctrl + F5` if cached files prevent the latest changes from appearing.
 
 ## Development Workflow
@@ -136,6 +152,7 @@ After changing styles or scripts, refresh the browser. On Windows, use `Ctrl + F
 8. Open and review a pull request from `dev` into `main`.
 9. Merge the changes when ready.
 10. Confirm that the published website reflects the update.
+11. Check the Actions tab for the result of the link check.
 
 The website is hosted through GitHub Pages. Deployment follows the repository’s configured publishing branch or GitHub Actions workflow.
 
@@ -160,4 +177,32 @@ The 20 shortlisted annotations use IDs such as `paper-45`. Additional bibliograp
 
 The bibliography script identifies shortlisted papers through links beginning with `annotations.html#paper-`. Continue using the `annotation-ref-XX` format for additional annotations so the shortlist filter includes only the intended 20 papers.
 
-Preserve the existing detailed-review IDs when editing reviews, since annotations and cross-paper findings link to them.
+Preserve the existing detailed-review IDs, such as `review-raney`, when editing reviews, since annotations and cross-paper findings link to them.
+
+The numbers inside paper IDs are fixed labels, not reference numbers. For most shortlisted papers the number in `paper-N` equals the reference number, but Khan is `paper-26` with reference [25] and Kieu is `paper-25` with reference [26]. Copy an ID from the annotation you are linking to rather than working it out.
+
+The note at the end of each detailed review that lists its cross-paper findings is built by `script.js` from the review links inside the Cross-Paper Comparison and Findings section, so it updates automatically when those links change.
+
+## Maintaining Citations
+
+The bibliography, annotations, and detailed-review pages use the same text for each citation. The bibliography entry is the reference version: when correcting a citation, update it there first, then copy the same text to the paper's annotation and, for shortlisted papers, its detailed review.
+
+Page ranges use an en dash (–), months are written in full, proceedings venues begin with "In", and the DOI or URL is shown as the link text.
+
+## Maintaining Reference Numbers
+
+Reference numbers such as [45] follow the alphabetical order of the bibliography. They are written into each bibliography entry, each annotation heading, and each detailed-review heading, comparison-table row, and contents-sidebar link. If a paper is added or removed, update the numbers on all three pages and in the manuscript.
+
+## Maintaining the Final-Paper Page
+
+Each section in the planned structure has a status label. Change its `data-status` value and text to `not-started` (Not Started), `in-progress` (In Progress), or `drafted` (Drafted), and update the "Section progress as of" date.
+
+The manuscript block (version note, PDF buttons, preview, and a Cite This Survey line) is already written inside an HTML comment in `paper.html`. When a draft is ready, follow the steps in that comment to turn it on.
+
+## Link Checking
+
+`.github/workflows/check-links.yml` checks every link on the website: links between pages, anchors such as `annotations.html#paper-45`, files in `assets/`, and external DOI and PDF links. It runs every Monday, after HTML changes reach `main`, and on demand from the Actions tab (Check links > Run workflow).
+
+A failed run means at least one link needs attention, and the run's summary page lists each broken link. Publishers often refuse automated checkers, so 403 (Forbidden) and 429 (Too Many Requests) responses count as reachable.
+
+GitHub pauses scheduled workflows in public repositories after 60 days without repository activity. If that happens, re-enable the workflow from the Actions tab.
