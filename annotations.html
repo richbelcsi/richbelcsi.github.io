@@ -20,162 +20,6 @@
     >
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
-
-    <style>
-        .annotation-layout {
-            display: grid;
-            grid-template-columns: 14rem minmax(0, 1fr);
-            gap: clamp(1.5rem, 4vw, 3rem);
-            align-items: start;
-            padding-bottom: 4rem;
-        }
-
-        .annotation-navigation {
-            position: sticky;
-            top: 1.5rem;
-            padding: 1.25rem;
-            background: var(--wash);
-            border: 1px solid var(--line);
-            border-radius: 12px;
-        }
-
-        .annotation-navigation h2 {
-            margin: 0 0 1rem;
-            font-size: 1.25rem;
-            line-height: 1.4;
-        }
-
-        .annotation-navigation nav {
-            display: grid;
-            gap: 0.5rem;
-            margin: 0;
-        }
-
-        .annotation-navigation nav a {
-            display: block;
-            min-height: 0;
-            padding: 0.65rem 0.75rem;
-            border: 0;
-            border-radius: 6px;
-            color: var(--navy);
-            font-size: 0.95rem;
-            line-height: 1.5;
-            text-align: left;
-        }
-
-        .annotation-navigation nav a:hover {
-            background: #eee2d0;
-        }
-
-        .annotation-main {
-            width: 100%;
-            min-width: 0;
-            max-width: 78ch;
-        }
-
-        .annotation-intro,
-        .paper-annotation {
-            padding: clamp(1rem, 2.5vw, 1.75rem);
-            margin-bottom: 1.5rem;
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            overflow-wrap: anywhere;
-        }
-
-        .annotation-group > h2 {
-            font-size: clamp(1.5rem, 2.5vw, 1.9rem);
-            line-height: 1.3;
-        }
-
-        .annotation-intro p,
-        .paper-annotation p {
-            margin: 0 0 1rem;
-            line-height: 1.75;
-        }
-
-        .annotation-intro > :last-child,
-        .paper-annotation > :last-child {
-            margin-bottom: 0;
-        }
-
-        .annotation-group {
-            margin-top: 2.5rem;
-            scroll-margin-top: 1.5rem;
-        }
-
-        .paper-annotation {
-            scroll-margin-top: 1.5rem;
-        }
-
-        .paper-annotation h3 {
-            margin: 0 0 1rem;
-            font-size: 1.3rem;
-            line-height: 1.45;
-        }
-
-        .annotation-citation {
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        [hidden] {
-            display: none !important;
-        }
-
-        @media (max-width: 1000px) {
-            .header-inner {
-                flex-wrap: wrap;
-            }
-
-            .annotation-layout {
-                grid-template-columns: 12rem minmax(0, 1fr);
-                gap: 1.5rem;
-            }
-        }
-
-        @media (max-width: 760px) {
-            .annotation-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .annotation-navigation {
-                position: static;
-            }
-
-            .annotation-main {
-                max-width: none;
-            }
-
-            .paper-annotation h3 {
-                font-size: 1.15rem;
-            }
-        }
-
-        @media print {
-            .annotation-layout {
-                display: block;
-            }
-
-            .annotation-navigation {
-                display: none;
-            }
-
-            .annotation-main {
-                max-width: none;
-            }
-
-            .annotation-intro,
-            .paper-annotation {
-                padding: 0;
-                border: 0;
-            }
-
-            .paper-annotation h3 {
-                break-after: avoid;
-            }
-        }
-    </style>
 </head>
 
 <body id="top">
@@ -226,6 +70,8 @@
                 shortlist also includes abstract summaries and consists of
                 4 foundational papers, 8 recent journal papers, and
                 8 conference papers or technical reports.
+                Numbers in brackets, such as [45], match the bibliography
+                reference numbers.
             </p>
         </section>
 
@@ -264,8 +110,9 @@
                         <input
                             id="annotation-search"
                             type="search"
-                            placeholder="Search authors, titles, or keywords"
+                            placeholder="Search authors, titles, or keywords (press /)"
                             autocomplete="off"
+                            aria-keyshortcuts="/"
                         >
                     </div>
 
@@ -328,17 +175,13 @@
 
                     <article class="paper-annotation" id="paper-45">
                         <h3>
-                            1. An Agent-Based Microsimulation Model of Swiss
+                            <span class="ref-number">[45]</span>
+                            An Agent-Based Microsimulation Model of Swiss
                             Travel: First Results
                         </h3>
                         <p class="annotation-citation">
-                            Raney, B. et al. 2003. An Agent-Based Microsimulation
-                            Model of Swiss Travel: First Results.
-                            <em>Networks and Spatial Economics</em>
-                            3, 1 (Jan. 2003), 23–41.
-                            <a href="https://doi.org/10.1023/A:1022096916806">
-                                https://doi.org/10.1023/A:1022096916806
-                            </a>.
+                            Raney, B. et al. 2003. An Agent-Based Microsimulation Model of Swiss Travel: First Results. <em>Networks and Spatial Economics</em> 3, 1 (January 2003), 23–41.
+                            <a href="https://doi.org/10.1023/A:1022096916806">https://doi.org/10.1023/A:1022096916806</a>.
                         </p>
                         <p class="paper-access">
                             <a href="https://svn.vsp.tu-berlin.de/repos/public-svn/publications/kn-old/ch-trb/ch-trb.pdf">
@@ -362,22 +205,16 @@
 
                     <article class="paper-annotation" id="paper-6">
                         <h3>
-                            2. A Distributed Approach for Coordination of
+                            <span class="ref-number">[6]</span>
+                            A Distributed Approach for Coordination of
                             Traffic Signal Agents
                         </h3>
                         <p class="annotation-citation">
-                            Bazzan, A. L. C. 2005. A Distributed Approach for
-                            Coordination of Traffic Signal Agents.
-                            <em>Autonomous Agents and Multi-Agent Systems</em>
-                            10, 1 (Jan. 2005), 131–164.
-                            <a href="https://doi.org/10.1007/s10458-004-6975-9">
-                                https://doi.org/10.1007/s10458-004-6975-9
-                            </a>.
+                            Bazzan, A. L. C. 2005. A Distributed Approach for Coordination of Traffic Signal Agents. <em>Autonomous Agents and Multi-Agent Systems</em> 10, 1 (January 2005), 131–164.
+                            <a href="https://doi.org/10.1007/s10458-004-6975-9">https://doi.org/10.1007/s10458-004-6975-9</a>.
                         </p>
                         <p class="paper-access">
-                            <a href="https://silo.tips/download/a-distributed-approach-for-coordination-of-traffic-signal-agents">
-                                Download &amp; Read PDF version
-                            </a>
+                            Full text may require institutional access.
                         </p>
                         <p class="abstract-summary">
                             <strong>Abstract Summary:</strong>
@@ -396,17 +233,13 @@
 
                     <article class="paper-annotation" id="paper-10">
                         <h3>
-                            3. Generating complete all-day activity plans
+                            <span class="ref-number">[10]</span>
+                            Generating complete all-day activity plans
                             with genetic algorithms
                         </h3>
                         <p class="annotation-citation">
-                            Charypar, D. and Nagel, K. 2005. Generating complete
-                            all-day activity plans with genetic algorithms.
-                            <em>Transportation</em>
-                            32, 4 (Jul. 2005), 369–397.
-                            <a href="https://doi.org/10.1007/s11116-004-8287-y">
-                                https://doi.org/10.1007/s11116-004-8287-y
-                            </a>.
+                            Charypar, D. and Nagel, K. 2005. Generating complete all-day activity plans with genetic algorithms. <em>Transportation</em> 32, 4 (July 2005), 369–397.
+                            <a href="https://doi.org/10.1007/s11116-004-8287-y">https://doi.org/10.1007/s11116-004-8287-y</a>.
                         </p>
                         <p class="paper-access">
                             <a href="https://svn.vsp.tu-berlin.de/repos/public-svn/publications/vspwp/2004/04-04/30nov04.pdf">
@@ -430,16 +263,12 @@
 
                     <article class="paper-annotation" id="paper-48">
                         <h3>
-                            4. Interactive hybrid simulation of large-scale traffic
+                            <span class="ref-number">[48]</span>
+                            Interactive hybrid simulation of large-scale traffic
                         </h3>
                         <p class="annotation-citation">
-                            Sewall, J. et al. 2011. Interactive hybrid simulation
-                            of large-scale traffic.
-                            <em>ACM Transactions on Graphics</em>
-                            30, 6, Article 135 (Dec. 2011), 12 pages.
-                            <a href="https://doi.org/10.1145/2070781.2024169">
-                                https://doi.org/10.1145/2070781.2024169
-                            </a>.
+                            Sewall, J. et al. 2011. Interactive hybrid simulation of large-scale traffic. <em>ACM Transactions on Graphics</em> 30, 6, Article 135 (December 2011), 12 pages.
+                            <a href="https://doi.org/10.1145/2070781.2024169">https://doi.org/10.1145/2070781.2024169</a>.
                         </p>
                         <p class="paper-access">
                             Open-access full text and PDF.
@@ -466,19 +295,14 @@
 
                     <article class="paper-annotation" id="paper-1">
                         <h3>
-                            5. Analyzing communication policies in cooperative
+                            <span class="ref-number">[1]</span>
+                            Analyzing communication policies in cooperative
                             multi-agent reinforcement learning for traffic
                             signal control: A simulation-based study
                         </h3>
                         <p class="annotation-citation">
-                            Abidi, S. et al. 2025. Analyzing communication policies
-                            in cooperative multi-agent reinforcement learning
-                            for traffic signal control: A simulation-based study.
-                            <em>Simulation Modelling Practice and Theory</em>
-                            141, Article 103100 (May 2025).
-                            <a href="https://doi.org/10.1016/j.simpat.2025.103100">
-                                https://doi.org/10.1016/j.simpat.2025.103100
-                            </a>.
+                            Abidi, S. et al. 2025. Analyzing communication policies in cooperative multi-agent reinforcement learning for traffic signal control: A simulation-based study. <em>Simulation Modelling Practice and Theory</em> 141, Article 103100 (May 2025).
+                            <a href="https://doi.org/10.1016/j.simpat.2025.103100">https://doi.org/10.1016/j.simpat.2025.103100</a>.
                         </p>
                         <p class="paper-access">
                             Full text may require institutional access.
@@ -500,18 +324,13 @@
 
                     <article class="paper-annotation" id="paper-2">
                         <h3>
-                            6. RouteRL: Multi-agent reinforcement learning framework
+                            <span class="ref-number">[2]</span>
+                            RouteRL: Multi-agent reinforcement learning framework
                             for urban route choice with autonomous vehicles
                         </h3>
                         <p class="annotation-citation">
-                            Akman, A. O. et al. 2025. RouteRL: Multi-agent
-                            reinforcement learning framework for urban route
-                            choice with autonomous vehicles.
-                            <em>SoftwareX</em>
-                            31, Article 102279 (Sep. 2025).
-                            <a href="https://doi.org/10.1016/j.softx.2025.102279">
-                                https://doi.org/10.1016/j.softx.2025.102279
-                            </a>.
+                            Akman, A. O. et al. 2025. RouteRL: Multi-agent reinforcement learning framework for urban route choice with autonomous vehicles. <em>SoftwareX</em> 31, Article 102279 (September 2025).
+                            <a href="https://doi.org/10.1016/j.softx.2025.102279">https://doi.org/10.1016/j.softx.2025.102279</a>.
                         </p>
                         <p class="paper-access">
                             Open-access full text and PDF.
@@ -533,18 +352,13 @@
 
                     <article class="paper-annotation" id="paper-11">
                         <h3>
-                            7. Enhancing Travel Reservation Benefits Through
+                            <span class="ref-number">[11]</span>
+                            Enhancing Travel Reservation Benefits Through
                             Incentive and Penalty Mechanisms in Urban Congested Roads
                         </h3>
                         <p class="annotation-citation">
-                            Chen, H. et al. 2025. Enhancing Travel Reservation
-                            Benefits Through Incentive and Penalty Mechanisms
-                            in Urban Congested Roads.
-                            <em>Applied Sciences</em>
-                            15, 3, Article 1393 (Jan. 2025).
-                            <a href="https://doi.org/10.3390/app15031393">
-                                https://doi.org/10.3390/app15031393
-                            </a>.
+                            Chen, H. et al. 2025. Enhancing Travel Reservation Benefits Through Incentive and Penalty Mechanisms in Urban Congested Roads. <em>Applied Sciences</em> 15, 3, Article 1393 (January 2025).
+                            <a href="https://doi.org/10.3390/app15031393">https://doi.org/10.3390/app15031393</a>.
                         </p>
                         <p class="paper-access">
                             Open-access full text and PDF.
@@ -566,19 +380,13 @@
 
                     <article class="paper-annotation" id="paper-13">
                         <h3>
-                            8. FAIRLANE: A multi-agent approach to priority lane
+                            <span class="ref-number">[13]</span>
+                            FAIRLANE: A multi-agent approach to priority lane
                             management in diverse traffic composition
                         </h3>
                         <p class="annotation-citation">
-                            Dubey, R. K. et al. 2025. FAIRLANE: A multi-agent
-                            approach to priority lane management in diverse
-                            traffic composition.
-                            <em>Transportation Research Part C:
-                                Emerging Technologies</em>
-                            171, Article 104919 (Feb. 2025).
-                            <a href="https://doi.org/10.1016/j.trc.2024.104919">
-                                https://doi.org/10.1016/j.trc.2024.104919
-                            </a>.
+                            Dubey, R. K. et al. 2025. FAIRLANE: A multi-agent approach to priority lane management in diverse traffic composition. <em>Transportation Research Part C: Emerging Technologies</em> 171, Article 104919 (February 2025).
+                            <a href="https://doi.org/10.1016/j.trc.2024.104919">https://doi.org/10.1016/j.trc.2024.104919</a>.
                         </p>
                         <p class="paper-access">
                             Open-access full text and PDF.
@@ -600,18 +408,13 @@
 
                     <article class="paper-annotation" id="paper-20">
                         <h3>
-                            9. Social implications of coexistence of CAVs and
+                            <span class="ref-number">[20]</span>
+                            Social implications of coexistence of CAVs and
                             human drivers in the context of route choice
                         </h3>
                         <p class="annotation-citation">
-                            Jamróz, G. et al. 2025. Social implications of
-                            coexistence of CAVs and human drivers in the
-                            context of route choice.
-                            <em>Scientific Reports</em>
-                            15, Article 6768 (Feb. 2025).
-                            <a href="https://doi.org/10.1038/s41598-025-90783-w">
-                                https://doi.org/10.1038/s41598-025-90783-w
-                            </a>.
+                            Jamróz, G. et al. 2025. Social implications of coexistence of CAVs and human drivers in the context of route choice. <em>Scientific Reports</em> 15, Article 6768 (February 2025).
+                            <a href="https://doi.org/10.1038/s41598-025-90783-w">https://doi.org/10.1038/s41598-025-90783-w</a>.
                         </p>
                         <p class="paper-access">
                             Open-access full text and PDF.
@@ -633,18 +436,13 @@
 
                     <article class="paper-annotation" id="paper-26">
                         <h3>
-                            10. Simplifying traffic simulation - from Euclidean
+                            <span class="ref-number">[25]</span>
+                            Simplifying traffic simulation - from Euclidean
                             distances to agent-based models
                         </h3>
                         <p class="annotation-citation">
-                            Khan, T. S. et al. 2024. Simplifying traffic
-                            simulation - from Euclidean distances to agent-based
-                            models.
-                            <em>Computational Urban Science</em>
-                            4, Article 32 (Nov. 2024).
-                            <a href="https://doi.org/10.1007/s43762-024-00145-x">
-                                https://doi.org/10.1007/s43762-024-00145-x
-                            </a>.
+                            Khan, T. S. et al. 2024. Simplifying traffic simulation - from Euclidean distances to agent-based models. <em>Computational Urban Science</em> 4, Article 32 (November 2024).
+                            <a href="https://doi.org/10.1007/s43762-024-00145-x">https://doi.org/10.1007/s43762-024-00145-x</a>.
                         </p>
                         <p class="paper-access">
                             Open-access full text and PDF.
@@ -666,19 +464,13 @@
 
                     <article class="paper-annotation" id="paper-39">
                         <h3>
-                            11. Machine learning surrogates for agent-based models
+                            <span class="ref-number">[39]</span>
+                            Machine learning surrogates for agent-based models
                             in transportation policy analysis
                         </h3>
                         <p class="annotation-citation">
-                            Natterer, E. S. et al. 2025. Machine learning
-                            surrogates for agent-based models in transportation
-                            policy analysis.
-                            <em>Transportation Research Part C:
-                                Emerging Technologies</em>
-                            180, Article 105360 (Nov. 2025).
-                            <a href="https://doi.org/10.1016/j.trc.2025.105360">
-                                https://doi.org/10.1016/j.trc.2025.105360
-                            </a>.
+                            Natterer, E. S. et al. 2025. Machine learning surrogates for agent-based models in transportation policy analysis. <em>Transportation Research Part C: Emerging Technologies</em> 180, Article 105360 (November 2025).
+                            <a href="https://doi.org/10.1016/j.trc.2025.105360">https://doi.org/10.1016/j.trc.2025.105360</a>.
                         </p>
                         <p class="paper-access">
                             Open-access full text and PDF.
@@ -700,17 +492,13 @@
 
                     <article class="paper-annotation" id="paper-50">
                         <h3>
-                            12. FLAME-GPU for Traffic Systems: A Scalable
+                            <span class="ref-number">[50]</span>
+                            FLAME-GPU for Traffic Systems: A Scalable
                             Agent-Based Simulation Framework
                         </h3>
                         <p class="annotation-citation">
-                            Smilovitskiy, M. et al. 2025. FLAME-GPU for Traffic
-                            Systems: A Scalable Agent-Based Simulation Framework.
-                            <em>Systems</em>
-                            13, 5, Article 376 (May 2025).
-                            <a href="https://doi.org/10.3390/systems13050376">
-                                https://doi.org/10.3390/systems13050376
-                            </a>.
+                            Smilovitskiy, M. et al. 2025. FLAME-GPU for Traffic Systems: A Scalable Agent-Based Simulation Framework. <em>Systems</em> 13, 5, Article 376 (May 2025).
+                            <a href="https://doi.org/10.3390/systems13050376">https://doi.org/10.3390/systems13050376</a>.
                         </p>
                         <p class="paper-access">
                             Open-access full text and PDF.
@@ -739,22 +527,15 @@
 
                     <article class="paper-annotation" id="paper-3">
                         <h3>
-                            13. An agent-based urban simulation to assess the
+                            <span class="ref-number">[3]</span>
+                            An agent-based urban simulation to assess the
                             system-wide, spatial, and modal impacts of the
                             deployment of an automated vehicle corridor with
                             mixed traffic: a case study in New York City
                         </h3>
                         <p class="annotation-citation">
-                            Alnajjar, H. et al. 2024. An agent-based urban
-                            simulation to assess the system-wide, spatial, and
-                            modal impacts of the deployment of an automated
-                            vehicle corridor with mixed traffic: a case study
-                            in New York City.
-                            In <em>Procedia Computer Science</em>
-                            238 (2024), 706–713.
-                            <a href="https://doi.org/10.1016/j.procs.2024.06.081">
-                                https://doi.org/10.1016/j.procs.2024.06.081
-                            </a>.
+                            Alnajjar, H. et al. 2024. An agent-based urban simulation to assess the system-wide, spatial, and modal impacts of the deployment of an automated vehicle corridor with mixed traffic: a case study in New York City. In <em>Procedia Computer Science</em> 238 (2024), 706–713.
+                            <a href="https://doi.org/10.1016/j.procs.2024.06.081">https://doi.org/10.1016/j.procs.2024.06.081</a>.
                         </p>
                         <p class="paper-access">
                             Open-access full text and PDF.
@@ -776,18 +557,13 @@
 
                     <article class="paper-annotation" id="paper-23">
                         <h3>
-                            14. Overcoming Data Scarcity in Calibrating SUMO
+                            <span class="ref-number">[23]</span>
+                            Overcoming Data Scarcity in Calibrating SUMO
                             Scenarios With Evolutionary Algorithms
                         </h3>
                         <p class="annotation-citation">
-                            Kappenberger, J. and Stuckenschmidt, H. 2025.
-                            Overcoming Data Scarcity in Calibrating SUMO
-                            Scenarios With Evolutionary Algorithms.
-                            In <em>SUMO Conference Proceedings</em>
-                            6 (Jul. 2025), 133–148.
-                            <a href="https://doi.org/10.52825/scp.v6i.2590">
-                                https://doi.org/10.52825/scp.v6i.2590
-                            </a>.
+                            Kappenberger, J. and Stuckenschmidt, H. 2025. Overcoming Data Scarcity in Calibrating SUMO Scenarios With Evolutionary Algorithms. In <em>SUMO Conference Proceedings</em> 6 (July 2025), 133–148.
+                            <a href="https://doi.org/10.52825/scp.v6i.2590">https://doi.org/10.52825/scp.v6i.2590</a>.
                         </p>
                         <p class="paper-access">
                             Open-access full text and PDF.
@@ -809,20 +585,13 @@
 
                     <article class="paper-annotation" id="paper-25">
                         <h3>
-                            15. A New Discrete Event Simulation of Large-Scale
+                            <span class="ref-number">[26]</span>
+                            A New Discrete Event Simulation of Large-Scale
                             Car Traffic at Microscopic Level
                         </h3>
                         <p class="annotation-citation">
-                            Kieu, T. P. et al. 2025. A New Discrete Event
-                            Simulation of Large-Scale Car Traffic at
-                            Microscopic Level.
-                            In <em>Proceedings of the 39th ACM SIGSIM Conference
-                            on Principles of Advanced Discrete Simulation</em>
-                            (SIGSIM-PADS ’25), Santa Fe, USA. Association for
-                            Computing Machinery, New York, NY, USA, 143–153.
-                            <a href="https://doi.org/10.1145/3726301.3728409">
-                                https://doi.org/10.1145/3726301.3728409
-                            </a>.
+                            Kieu, T. P. et al. 2025. A New Discrete Event Simulation of Large-Scale Car Traffic at Microscopic Level. In <em>Proceedings of the 39th ACM SIGSIM Conference on Principles of Advanced Discrete Simulation</em> (SIGSIM-PADS ’25), Santa Fe, USA. Association for Computing Machinery, New York, NY, USA, 143–153.
+                            <a href="https://doi.org/10.1145/3726301.3728409">https://doi.org/10.1145/3726301.3728409</a>.
                         </p>
                         <p class="paper-access">
                             Open-access full text and PDF.
@@ -844,16 +613,12 @@
 
                     <article class="paper-annotation" id="paper-43">
                         <h3>
-                            16. Digital Twin-Aided Municipal Traffic Control
+                            <span class="ref-number">[43]</span>
+                            Digital Twin-Aided Municipal Traffic Control
                         </h3>
                         <p class="annotation-citation">
-                            Pradhananga, R. et al. 2025. Digital Twin-Aided
-                            Municipal Traffic Control.
-                            In <em>SUMO Conference Proceedings</em>
-                            6 (Jul. 2025), 149–161.
-                            <a href="https://doi.org/10.52825/scp.v6i.2619">
-                                https://doi.org/10.52825/scp.v6i.2619
-                            </a>.
+                            Pradhananga, R. et al. 2025. Digital Twin-Aided Municipal Traffic Control. In <em>SUMO Conference Proceedings</em> 6 (July 2025), 149–161.
+                            <a href="https://doi.org/10.52825/scp.v6i.2619">https://doi.org/10.52825/scp.v6i.2619</a>.
                         </p>
                         <p class="paper-access">
                             Open-access full text and PDF.
@@ -875,19 +640,14 @@
 
                     <article class="paper-annotation" id="paper-44">
                         <h3>
-                            17. Advancing the MATSim Open Berlin Scenario:
+                            <span class="ref-number">[44]</span>
+                            Advancing the MATSim Open Berlin Scenario:
                             Improvements in transport scenario generation
                             and calibration methods
                         </h3>
                         <p class="annotation-citation">
-                            Rakow, C. et al. 2025. Advancing the MATSim Open Berlin
-                            Scenario: Improvements in transport scenario
-                            generation and calibration methods.
-                            In <em>Transportation Research Procedia</em>
-                            86 (2025), 732–739.
-                            <a href="https://doi.org/10.1016/j.trpro.2025.04.091">
-                                https://doi.org/10.1016/j.trpro.2025.04.091
-                            </a>.
+                            Rakow, C. et al. 2025. Advancing the MATSim Open Berlin Scenario: Improvements in transport scenario generation and calibration methods. In <em>Transportation Research Procedia</em> 86 (2025), 732–739.
+                            <a href="https://doi.org/10.1016/j.trpro.2025.04.091">https://doi.org/10.1016/j.trpro.2025.04.091</a>.
                         </p>
                         <p class="paper-access">
                             Open-access full text and PDF.
@@ -909,20 +669,13 @@
 
                     <article class="paper-annotation" id="paper-49">
                         <h3>
-                            18. Autonomic Partition-Aware Malleable Microscopic
+                            <span class="ref-number">[49]</span>
+                            Autonomic Partition-Aware Malleable Microscopic
                             Traffic Simulation
                         </h3>
                         <p class="annotation-citation">
-                            Siguenza-Torres, A. et al. 2025. Autonomic
-                            Partition-Aware Malleable Microscopic Traffic
-                            Simulation.
-                            In <em>Proceedings of the 39th ACM SIGSIM Conference
-                            on Principles of Advanced Discrete Simulation</em>
-                            (SIGSIM-PADS ’25), Santa Fe, USA. Association for
-                            Computing Machinery, New York, NY, USA, 132–142.
-                            <a href="https://doi.org/10.1145/3726301.3728412">
-                                https://doi.org/10.1145/3726301.3728412
-                            </a>.
+                            Siguenza-Torres, A. et al. 2025. Autonomic Partition-Aware Malleable Microscopic Traffic Simulation. In <em>Proceedings of the 39th ACM SIGSIM Conference on Principles of Advanced Discrete Simulation</em> (SIGSIM-PADS ’25), Santa Fe, USA. Association for Computing Machinery, New York, NY, USA, 132–142.
+                            <a href="https://doi.org/10.1145/3726301.3728412">https://doi.org/10.1145/3726301.3728412</a>.
                         </p>
                         <p class="paper-access">
                             Open-access full text and PDF.
@@ -944,18 +697,13 @@
 
                     <article class="paper-annotation" id="paper-29">
                         <h3>
-                            19. Addressing Urban Traffic Congestion: A Deep
+                            <span class="ref-number">[29]</span>
+                            Addressing Urban Traffic Congestion: A Deep
                             Reinforcement Learning-Based Approach
                         </h3>
                         <p class="annotation-citation">
-                            Liu, T. 2025.
-                            <em>Addressing Urban Traffic Congestion: A Deep
-                            Reinforcement Learning-Based Approach</em>.
-                            Technical Report 25-13.
-                            Mineta Transportation Institute.
-                            <a href="https://rosap.ntl.bts.gov/view/dot/84808">
-                                https://rosap.ntl.bts.gov/view/dot/84808
-                            </a>.
+                            Liu, T. 2025. <em>Addressing Urban Traffic Congestion: A Deep Reinforcement Learning-Based Approach</em>. Technical Report 25-13. Mineta Transportation Institute.
+                            <a href="https://rosap.ntl.bts.gov/view/dot/84808">https://rosap.ntl.bts.gov/view/dot/84808</a>.
                         </p>
                         <p class="paper-access">
                             <a href="https://rosap.ntl.bts.gov/view/dot/84808/dot_84808_DS1.pdf">
@@ -979,21 +727,14 @@
 
                     <article class="paper-annotation" id="paper-35">
                         <h3>
-                            20. Verification and Calibration of Microscopic Traffic
+                            <span class="ref-number">[35]</span>
+                            Verification and Calibration of Microscopic Traffic
                             Simulation Using Driver Behavior and Car-Following
                             Metrics for Freeway Segments
                         </h3>
                         <p class="annotation-citation">
-                            Medina, J. C. et al. 2024.
-                            <em>Verification and Calibration of Microscopic
-                            Traffic Simulation Using Driver Behavior and
-                            Car-Following Metrics for Freeway Segments</em>.
-                            Technical Report FHWA-HRT-24-103.
-                            Federal Highway Administration, Office of Safety
-                            and Operations Research and Development.
-                            <a href="https://rosap.ntl.bts.gov/view/dot/74233">
-                                https://rosap.ntl.bts.gov/view/dot/74233
-                            </a>.
+                            Medina, J. C. et al. 2024. <em>Verification and Calibration of Microscopic Traffic Simulation Using Driver Behavior and Car-Following Metrics for Freeway Segments</em>. Technical Report FHWA-HRT-24-103. Federal Highway Administration, Office of Safety and Operations Research and Development.
+                            <a href="https://rosap.ntl.bts.gov/view/dot/74233">https://rosap.ntl.bts.gov/view/dot/74233</a>.
                         </p>
                         <p class="paper-access">
                             <a href="https://rosap.ntl.bts.gov/view/dot/74233/dot_74233_DS1.pdf">
@@ -1026,7 +767,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-03">
                         <h3>
-                            21. Adaptive traffic signal control with actor-critic
+                            <span class="ref-number">[4]</span>
+                            Adaptive traffic signal control with actor-critic
                             methods in a real-world traffic network with
                             different traffic disruption events
                         </h3>
@@ -1044,7 +786,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-04">
                         <h3>
-                            22. Curvature-based distribution algorithm:
+                            <span class="ref-number">[5]</span>
+                            Curvature-based distribution algorithm:
                             rebalancing bike sharing system with agent-based simulation
                         </h3>
                         <p class="annotation-citation">
@@ -1061,7 +804,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-05">
                         <h3>
-                            23. A review on agent-based technology for traffic
+                            <span class="ref-number">[7]</span>
+                            A review on agent-based technology for traffic
                             and transportation
                         </h3>
                         <p class="annotation-citation">
@@ -1078,7 +822,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-06">
                         <h3>
-                            24. Adaptivity in multi-level traffic simulation
+                            <span class="ref-number">[8]</span>
+                            Adaptivity in multi-level traffic simulation
                             using experimental frames
                         </h3>
                         <p class="annotation-citation">
@@ -1095,7 +840,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-07">
                         <h3>
-                            25. Video-based personalized traffic learning
+                            <span class="ref-number">[9]</span>
+                            Video-based personalized traffic learning
                         </h3>
                         <p class="annotation-citation">
                             Chao, Q. et al. 2013. Video-based personalized traffic learning.
@@ -1111,7 +857,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-09">
                         <h3>
-                            26. Multi-objective eco-routing for dynamic control
+                            <span class="ref-number">[12]</span>
+                            Multi-objective eco-routing for dynamic control
                             of connected &amp; automated vehicles
                         </h3>
                         <p class="annotation-citation">
@@ -1128,7 +875,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-11">
                         <h3>
-                            27. Modeling multi-agent systems to simulate
+                            <span class="ref-number">[14]</span>
+                            Modeling multi-agent systems to simulate
                             sensor-based Smart Roads
                         </h3>
                         <p class="annotation-citation">
@@ -1145,7 +893,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-12">
                         <h3>
-                            28. Agent-based simulation framework for mixed traffic
+                            <span class="ref-number">[15]</span>
+                            Agent-based simulation framework for mixed traffic
                             of cars, pedestrians and trams
                         </h3>
                         <p class="annotation-citation">
@@ -1162,7 +911,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-13">
                         <h3>
-                            29. Simulation model of traffic flow based on
+                            <span class="ref-number">[16]</span>
+                            Simulation model of traffic flow based on
                             agent-based modeling
                         </h3>
                         <p class="annotation-citation">
@@ -1179,7 +929,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-14">
                         <h3>
-                            30. Urban Traffic Simulators for Intelligent
+                            <span class="ref-number">[17]</span>
+                            Urban Traffic Simulators for Intelligent
                             Transportation Systems
                         </h3>
                         <p class="annotation-citation">
@@ -1196,7 +947,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-56">
                         <h3>
-                            31. Multi-Agent Multimodal Transportation Simulation
+                            <span class="ref-number">[18]</span>
+                            Multi-Agent Multimodal Transportation Simulation
                             for Mega-cities: Application of Los Angeles
                         </h3>
                         <p class="annotation-citation">
@@ -1213,7 +965,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-15">
                         <h3>
-                            32. Decentralized management of ephemeral traffic incidents
+                            <span class="ref-number">[19]</span>
+                            Decentralized management of ephemeral traffic incidents
                         </h3>
                         <p class="annotation-citation">
                             Hu, W. et al. 2022. Decentralized management of ephemeral traffic incidents.
@@ -1229,7 +982,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-16">
                         <h3>
-                            33. An agent-based model of the influence of
+                            <span class="ref-number">[21]</span>
+                            An agent-based model of the influence of
                             neighbourhood design on daily trip patterns
                         </h3>
                         <p class="annotation-citation">
@@ -1246,7 +1000,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-17">
                         <h3>
-                            34. Simultaneous internalization of traffic congestion
+                            <span class="ref-number">[22]</span>
+                            Simultaneous internalization of traffic congestion
                             and noise exposure costs
                         </h3>
                         <p class="annotation-citation">
@@ -1263,17 +1018,13 @@
 
                     <article class="paper-annotation" id="annotation-ref-59">
                         <h3>
-                            35. GPUDrive: Data-driven, multi-agent driving
+                            <span class="ref-number">[24]</span>
+                            GPUDrive: Data-driven, multi-agent driving
                             simulation at 1 million FPS
                         </h3>
                         <p class="annotation-citation">
-                            Kazemkhani, S. et al. 2025. GPUDrive: Data-driven, multi-agent driving simulation at 1 million FPS.
-                            In <em>Proceedings of the Thirteenth International
-                            Conference on Learning Representations (ICLR 2025)</em>,
-                            19320–19336.
-                            <a href="https://proceedings.iclr.cc/paper_files/paper/2025/hash/3107ddd4209e5f93c0371425763041a3-Abstract-Conference.html">
-                                Conference publication
-                            </a>.
+                            Kazemkhani, S. et al. 2025. GPUDrive: Data-driven, multi-agent driving simulation at 1 million FPS. In <em>Proceedings of the Thirteenth International Conference on Learning Representations (ICLR 2025)</em>, 19320–19336.
+                            <a href="https://proceedings.iclr.cc/paper_files/paper/2025/hash/3107ddd4209e5f93c0371425763041a3-Abstract-Conference.html">https://proceedings.iclr.cc/paper_files/paper/2025/hash/3107ddd4209e5f93c0371425763041a3-Abstract-Conference.html</a>.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
@@ -1283,7 +1034,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-19">
                         <h3>
-                            36. Multi-agent-based simulation system for
+                            <span class="ref-number">[27]</span>
+                            Multi-agent-based simulation system for
                             construction operations with congested flows
                         </h3>
                         <p class="annotation-citation">
@@ -1300,7 +1052,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-20">
                         <h3>
-                            37. Evolving lane merge traffic behaviour simulations
+                            <span class="ref-number">[28]</span>
+                            Evolving lane merge traffic behaviour simulations
                             via a macroscopic objective function and a machine
                             learning system trained through bootstrapped human judgement
                         </h3>
@@ -1318,7 +1071,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-21">
                         <h3>
-                            38. An Agent-Based Simulation Approach for Evaluating
+                            <span class="ref-number">[30]</span>
+                            An Agent-Based Simulation Approach for Evaluating
                             the Performance of On-Demand Bus Services
                         </h3>
                         <p class="annotation-citation">
@@ -1335,7 +1089,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-22">
                         <h3>
-                            39. A modeling framework for urban traffic systems
+                            <span class="ref-number">[31]</span>
+                            A modeling framework for urban traffic systems
                             microscopic simulation
                         </h3>
                         <p class="annotation-citation">
@@ -1352,7 +1107,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-23">
                         <h3>
-                            40. A Hybrid Method for Predicting Traffic Congestion
+                            <span class="ref-number">[32]</span>
+                            A Hybrid Method for Predicting Traffic Congestion
                             during Peak Hours in the Subway System of Shenzhen
                         </h3>
                         <p class="annotation-citation">
@@ -1369,7 +1125,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-62">
                         <h3>
-                            41. Spatio-Temporal AI Modeling for Urban Traffic
+                            <span class="ref-number">[33]</span>
+                            Spatio-Temporal AI Modeling for Urban Traffic
                             Calibration: A SUMO-Based Approach
                         </h3>
                         <p class="annotation-citation">
@@ -1386,7 +1143,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-24">
                         <h3>
-                            42. Two distribution methods for multiagent
+                            <span class="ref-number">[34]</span>
+                            Two distribution methods for multiagent
                             traffic simulations
                         </h3>
                         <p class="annotation-citation">
@@ -1403,7 +1161,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-25">
                         <h3>
-                            43. Human and Environmental Factors Analysis in
+                            <span class="ref-number">[36]</span>
+                            Human and Environmental Factors Analysis in
                             Traffic Using Agent-Based Simulation
                         </h3>
                         <p class="annotation-citation">
@@ -1420,7 +1179,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-64">
                         <h3>
-                            44. Self-organisation in traffic signal control
+                            <span class="ref-number">[37]</span>
+                            Self-organisation in traffic signal control
                             algorithms under light traffic conditions
                         </h3>
                         <p class="annotation-citation">
@@ -1437,7 +1197,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-27">
                         <h3>
-                            45. Evaluating the impacts of shared automated
+                            <span class="ref-number">[38]</span>
+                            Evaluating the impacts of shared automated
                             mobility on-demand services: an activity-based
                             accessibility approach
                         </h3>
@@ -1455,7 +1216,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-29">
                         <h3>
-                            46. An overview of agent-based traffic simulators
+                            <span class="ref-number">[40]</span>
+                            An overview of agent-based traffic simulators
                         </h3>
                         <p class="annotation-citation">
                             Nguyen, J. et al. 2021. An overview of agent-based traffic simulators.
@@ -1471,7 +1233,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-31">
                         <h3>
-                            47. Impacts of Automated Mobility-on-Demand on traffic
+                            <span class="ref-number">[41]</span>
+                            Impacts of Automated Mobility-on-Demand on traffic
                             dynamics, energy and emissions: A case study of Singapore
                         </h3>
                         <p class="annotation-citation">
@@ -1488,7 +1251,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-32">
                         <h3>
-                            48. Metamodel-based calibration of large-scale
+                            <span class="ref-number">[42]</span>
+                            Metamodel-based calibration of large-scale
                             multimodal microscopic traffic simulation
                         </h3>
                         <p class="annotation-citation">
@@ -1505,7 +1269,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-33">
                         <h3>
-                            49. Uncertainties of Sub-Scaled Supply and Demand in
+                            <span class="ref-number">[46]</span>
+                            Uncertainties of Sub-Scaled Supply and Demand in
                             Agent-Based Mobility Simulations with Queuing Traffic Model
                         </h3>
                         <p class="annotation-citation">
@@ -1522,7 +1287,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-34">
                         <h3>
-                            50. Dealing with mixed and non-normative traffic.
+                            <span class="ref-number">[47]</span>
+                            Dealing with mixed and non-normative traffic.
                             An agent-based simulation with the GAMA platform
                         </h3>
                         <p class="annotation-citation">
@@ -1539,7 +1305,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-69">
                         <h3>
-                            51. Calibration of Microscopic Traffic Simulation
+                            <span class="ref-number">[51]</span>
+                            Calibration of Microscopic Traffic Simulation
                             in an Urban Environment Using GPS-Data
                         </h3>
                         <p class="annotation-citation">
@@ -1556,7 +1323,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-37">
                         <h3>
-                            52. Assessing the impacts of ridesharing services:
+                            <span class="ref-number">[52]</span>
+                            Assessing the impacts of ridesharing services:
                             An agent-based simulation approach
                         </h3>
                         <p class="annotation-citation">
@@ -1573,16 +1341,13 @@
 
                     <article class="paper-annotation" id="annotation-ref-38">
                         <h3>
-                            53. TrafficSim: Learning to Simulate Realistic
+                            <span class="ref-number">[53]</span>
+                            TrafficSim: Learning to Simulate Realistic
                             Multi-Agent Behaviors
                         </h3>
                         <p class="annotation-citation">
-                            Suo, S. et al. 2021. TrafficSim: Learning to Simulate Realistic Multi-Agent Behaviors.
-                            In <em>Proceedings of the IEEE/CVF Conference on Computer
-                            Vision and Pattern Recognition (CVPR)</em>, 10400–10409.
-                            <a href="https://openaccess.thecvf.com/content/CVPR2021/html/Suo_TrafficSim_Learning_To_Simulate_Realistic_Multi-Agent_Behaviors_CVPR_2021_paper.html">
-                                Conference publication
-                            </a>.
+                            Suo, S. et al. 2021. TrafficSim: Learning to Simulate Realistic Multi-Agent Behaviors. In <em>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>, 10400–10409.
+                            <a href="https://openaccess.thecvf.com/content/CVPR2021/html/Suo_TrafficSim_Learning_To_Simulate_Realistic_Multi-Agent_Behaviors_CVPR_2021_paper.html">https://openaccess.thecvf.com/content/CVPR2021/html/Suo_TrafficSim_Learning_To_Simulate_Realistic_Multi-Agent_Behaviors_CVPR_2021_paper.html</a>.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>
@@ -1592,7 +1357,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-39">
                         <h3>
-                            54. An agent-based platform to evaluate V2X
+                            <span class="ref-number">[54]</span>
+                            An agent-based platform to evaluate V2X
                             routing road traffic scenarios
                         </h3>
                         <p class="annotation-citation">
@@ -1609,7 +1375,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-42">
                         <h3>
-                            55. A multi-agent based cellular automata model
+                            <span class="ref-number">[55]</span>
+                            A multi-agent based cellular automata model
                             for intersection traffic control simulation
                         </h3>
                         <p class="annotation-citation">
@@ -1626,7 +1393,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-43">
                         <h3>
-                            56. Driver profiling – Data-based identification of
+                            <span class="ref-number">[56]</span>
+                            Driver profiling – Data-based identification of
                             driver behavior dimensions and affecting driver
                             characteristics for multi-agent traffic simulation
                         </h3>
@@ -1644,7 +1412,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-46">
                         <h3>
-                            57. Multi-agent based modeling and simulation
+                            <span class="ref-number">[57]</span>
+                            Multi-agent based modeling and simulation
                             of microscopic traffic in virtual reality system
                         </h3>
                         <p class="annotation-citation">
@@ -1661,7 +1430,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-47">
                         <h3>
-                            58. Multi-driver agent-based traffic simulation systems
+                            <span class="ref-number">[58]</span>
+                            Multi-driver agent-based traffic simulation systems
                             for evaluating the effects of advanced driver assistance
                             systems on road traffic accidents
                         </h3>
@@ -1679,7 +1449,8 @@
 
                     <article class="paper-annotation" id="annotation-ref-48">
                         <h3>
-                            59. Travel decision making under uncertainty and road
+                            <span class="ref-number">[59]</span>
+                            Travel decision making under uncertainty and road
                             traffic behavior: The multifold role of ambiguity attitude
                         </h3>
                         <p class="annotation-citation">
@@ -1696,17 +1467,13 @@
 
                     <article class="paper-annotation" id="annotation-ref-50">
                         <h3>
-                            60. Agent-Based Simulation Model for Real-Time
+                            <span class="ref-number">[60]</span>
+                            Agent-Based Simulation Model for Real-Time
                             Traffic Analyses
                         </h3>
                         <p class="annotation-citation">
-                            Zornić, N. et al. 2017. Agent-Based Simulation Model for Real-Time Traffic Analyses.
-                            In <em>Proceedings of the 28th Central European Conference
-                            on Information and Intelligent Systems (CECIIS 2017)</em>,
-                            213–217.
-                            <a href="https://archive.ceciis.foi.hr/public/conferences/2017/05/CECIIS-2017_paper_48_final.pdf">
-                                Conference paper PDF
-                            </a>.
+                            Zornić, N. et al. 2017. Agent-Based Simulation Model for Real-Time Traffic Analyses. In <em>Proceedings of the 28th Central European Conference on Information and Intelligent Systems (CECIIS 2017)</em>, 213–217.
+                            <a href="https://archive.ceciis.foi.hr/public/conferences/2017/05/CECIIS-2017_paper_48_final.pdf">https://archive.ceciis.foi.hr/public/conferences/2017/05/CECIIS-2017_paper_48_final.pdf</a>.
                         </p>
                         <p class="brief-comments">
                             <strong>Comments:</strong>

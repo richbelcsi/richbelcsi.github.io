@@ -3,7 +3,7 @@
     --navy: #252525;
     --ink: #302c27;
     --muted: #6b6258;
-    --teal: #8a4517;
+    --rust: #8a4517;
     --line: #ded7cc;
     --paper: #faf8f3;
     --wash: #f2ede4;
@@ -34,7 +34,7 @@ select {
 }
 
 a {
-    color: var(--teal);
+    color: var(--rust);
     text-underline-offset: 4px;
 }
 
@@ -55,7 +55,7 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 summary:focus-visible {
-    outline: 3px solid #8a4517;
+    outline: 3px solid var(--rust);
     outline-offset: 4px;
 }
 
@@ -156,13 +156,13 @@ p {
     letter-spacing: 0.03em;
 }
 
-nav {
+.site-header nav {
     display: flex;
     align-items: stretch;
     gap: 30px;
 }
 
-nav a {
+.site-header nav a {
     color: var(--muted);
     text-decoration: none;
     font-size: 0.92rem;
@@ -173,14 +173,15 @@ nav a {
     border-bottom: 3px solid transparent;
 }
 
-nav a:hover {
+.site-header nav a:hover {
     color: var(--navy);
     border-bottom-color: #c9a46a;
 }
 
-nav a[aria-current="page"] {
-    color: var(--teal);
-    border-bottom-color: var(--teal);
+/* "page" marks the current page; "true" marks the parent section of a subpage. */
+.site-header nav a[aria-current] {
+    color: var(--rust);
+    border-bottom-color: var(--rust);
 }
 
 /* This is for the homepage introduction section. */
@@ -205,7 +206,7 @@ nav a[aria-current="page"] {
     letter-spacing: 0.16em;
     font-size: 0.7rem;
     font-weight: 700;
-    color: var(--teal);
+    color: var(--rust);
     margin-bottom: 20px;
 }
 
@@ -318,7 +319,7 @@ nav a[aria-current="page"] {
 }
 
 .project-details {
-    border-top: 3px solid var(--teal);
+    border-top: 3px solid var(--rust);
     align-self: start;
     padding-top: 22px;
 }
@@ -375,7 +376,7 @@ nav a[aria-current="page"] {
 
 .index {
     font-size: 0.75rem;
-    color: var(--teal);
+    color: var(--rust);
     display: block;
     margin-bottom: 18px;
 }
@@ -501,7 +502,7 @@ nav a[aria-current="page"] {
 .text-button {
     border: 0;
     background: transparent;
-    color: var(--teal);
+    color: var(--rust);
     text-decoration: underline;
     text-underline-offset: 3px;
     padding: 10px 0;
@@ -515,19 +516,14 @@ nav a[aria-current="page"] {
 
 .bibliography {
     margin: 0;
-    padding-left: 30px;
+    padding-left: 0;
+    list-style: none;
 }
 
 .bibliography > li {
-    padding: 27px 0 27px 12px;
+    padding: 27px 0;
     border-bottom: 1px solid var(--line);
     scroll-margin-top: 24px;
-}
-
-.bibliography > li::marker {
-    color: var(--teal);
-    font-size: 0.8rem;
-    font-weight: 600;
 }
 
 .reference p {
@@ -594,7 +590,7 @@ nav a[aria-current="page"] {
 }
 
 .collection-guide .eyebrow {
-    color: var(--teal);
+    color: var(--rust);
     font-size: 0.67rem;
 }
 
@@ -646,7 +642,7 @@ summary::-webkit-details-marker {
 
 summary::before {
     content: "+";
-    color: var(--teal);
+    color: var(--rust);
     font-size: 1.3rem;
     width: 16px;
 }
@@ -710,7 +706,7 @@ summary > span:first-of-type {
     width: 9px;
     height: 9px;
     border-radius: 50%;
-    background: var(--teal);
+    background: var(--rust);
 }
 
 .milestones li:last-child {
@@ -719,7 +715,7 @@ summary > span:first-of-type {
 
 .milestones time {
     display: block;
-    color: var(--teal);
+    color: var(--rust);
     font-size: 0.72rem;
     font-weight: 600;
     margin-bottom: 3px;
@@ -757,7 +753,7 @@ summary > span:first-of-type {
     height: 1.1rem;
     margin: 0;
     padding: 0;
-    accent-color: var(--teal);
+    accent-color: var(--rust);
 }
 
 .selection-link {
@@ -856,12 +852,12 @@ summary > span:first-of-type {
 
 .utility-button:hover {
     background: var(--wash);
-    border-color: var(--teal);
+    border-color: var(--rust);
 }
 
 /* This highlights a paper reached through a direct link. */
 .paper-annotation:target {
-    outline: 2px solid var(--teal);
+    outline: 2px solid var(--rust);
     outline-offset: 4px;
 }
 
@@ -909,7 +905,7 @@ summary > span:first-of-type {
 /* These are for highlighting the next research stage. */
 .milestones li.milestone-focus {
     padding: 1rem;
-    border: 1px solid var(--teal);
+    border: 1px solid var(--rust);
     border-radius: 8px;
     background: var(--paper);
 }
@@ -920,7 +916,7 @@ summary > span:first-of-type {
 
 .milestones li > .milestone-note {
     margin-top: 0.5rem;
-    color: var(--teal);
+    color: var(--rust);
     font-size: 0.8rem;
     font-weight: 600;
 }
@@ -1008,10 +1004,6 @@ summary > span:first-of-type {
         width: calc(100% - 48px);
     }
 
-    nav {
-        gap: 18px;
-    }
-
     .overview-layout {
         gap: 40px;
         grid-template-columns: minmax(0, 1fr) 250px;
@@ -1044,12 +1036,11 @@ summary > span:first-of-type {
         font-size: 0.98rem;
     }
 
-    nav {
-        gap: 12px;
+    .site-header nav {
         margin-top: 12px;
     }
 
-    nav a {
+    .site-header nav a {
         flex: 1;
         justify-content: center;
         text-align: center;
@@ -1186,14 +1177,6 @@ summary > span:first-of-type {
         font-size: 0.83rem;
     }
 
-    .bibliography {
-        padding-left: 24px;
-    }
-
-    .bibliography > li {
-        padding-left: 5px;
-    }
-
     .footer-inner {
         align-items: flex-start;
         font-size: 0.72rem;
@@ -1221,11 +1204,7 @@ summary > span:first-of-type {
         width: calc(100% - 32px);
     }
 
-    nav {
-        gap: 8px;
-    }
-
-    nav a {
+    .site-header nav a {
         font-size: 0.76rem;
     }
 
@@ -1325,7 +1304,7 @@ summary > span:first-of-type {
     padding: 0.5rem 0.85rem;
     border: 1px solid var(--line);
     border-radius: 6px;
-    color: var(--teal);
+    color: var(--rust);
     font-size: 0.85rem;
     font-weight: 600;
     text-decoration: none;
@@ -1333,7 +1312,7 @@ summary > span:first-of-type {
 
 .back-to-top:hover {
     background: var(--wash);
-    border-color: var(--teal);
+    border-color: var(--rust);
 }
 
 /* Smaller logo on mobile */
@@ -1401,7 +1380,7 @@ summary > span:first-of-type {
     }
 
     .bibliography > li {
-        padding: 12px 0 12px 6px;
+        padding: 12px 0;
     }
 
     .publication-link::after {
@@ -1484,5 +1463,999 @@ summary > span:first-of-type {
 
     .deliverable-summary {
         max-width: none;
+    }
+}
+
+/* ========================================================================== */
+/* Bibliography page (moved from bibliography.html)                           */
+/* ========================================================================== */
+
+.acm-citation {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+}
+
+.reference .selection-link {
+    margin: 0.65rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+@media print {
+    .acm-citation {
+        font-size: 11pt;
+    }
+}
+
+/* ========================================================================== */
+/* Annotations page (moved from annotations.html)                             */
+/* ========================================================================== */
+
+.annotation-layout {
+    display: grid;
+    grid-template-columns: 14rem minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: start;
+    padding-bottom: 4rem;
+}
+
+.annotation-navigation {
+    position: sticky;
+    top: 1.5rem;
+    padding: 1.25rem;
+    background: var(--wash);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+}
+
+.annotation-navigation h2 {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+}
+
+.annotation-navigation nav {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+}
+
+.annotation-navigation nav a {
+    display: block;
+    font-weight: 600;
+    text-decoration: none;
+    min-height: 0;
+    padding: 0.65rem 0.75rem;
+    border: 0;
+    border-radius: 6px;
+    color: var(--navy);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.annotation-navigation nav a:hover {
+    background: #eee2d0;
+}
+
+.annotation-main {
+    width: 100%;
+    min-width: 0;
+    max-width: 78ch;
+}
+
+.annotation-intro,
+.paper-annotation {
+    padding: clamp(1rem, 2.5vw, 1.75rem);
+    margin-bottom: 1.5rem;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow-wrap: anywhere;
+}
+
+.annotation-group > h2 {
+    font-size: clamp(1.5rem, 2.5vw, 1.9rem);
+    line-height: 1.3;
+}
+
+.annotation-intro p,
+.paper-annotation p {
+    margin: 0 0 1rem;
+    line-height: 1.75;
+}
+
+.annotation-intro > :last-child,
+.paper-annotation > :last-child {
+    margin-bottom: 0;
+}
+
+.annotation-group {
+    margin-top: 2.5rem;
+    scroll-margin-top: 1.5rem;
+}
+
+.paper-annotation {
+    scroll-margin-top: 1.5rem;
+}
+
+.paper-annotation h3 {
+    margin: 0 0 1rem;
+    font-size: 1.3rem;
+    line-height: 1.45;
+}
+
+.annotation-citation {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 1000px) {
+    .annotation-layout {
+        grid-template-columns: 12rem minmax(0, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 760px) {
+    .annotation-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .annotation-navigation {
+        position: static;
+    }
+
+    .annotation-main {
+        max-width: none;
+    }
+
+    .paper-annotation h3 {
+        font-size: 1.15rem;
+    }
+}
+
+@media print {
+    .annotation-layout {
+        display: block;
+    }
+
+    .annotation-navigation {
+        display: none;
+    }
+
+    .annotation-main {
+        max-width: none;
+    }
+
+    .annotation-intro,
+    .paper-annotation {
+        padding: 0;
+        border: 0;
+    }
+
+    .paper-annotation h3 {
+        break-after: avoid;
+    }
+}
+
+/* ========================================================================== */
+/* Detailed review page (moved from review.html)                              */
+/* ========================================================================== */
+
+/* These are for the page layout. */
+.review-content {
+    padding-bottom: 4rem;
+}
+
+.review-overview,
+.review-comparison {
+    margin-bottom: 2.5rem;
+}
+
+.review-overview p {
+    max-width: 78ch;
+}
+
+.review-content h2 {
+    font-size: clamp(1.5rem, 2.5vw, 1.9rem);
+    line-height: 1.3;
+}
+
+.review-progress {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* Comparison table */
+.review-table-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fff;
+}
+
+.review-table-scroll:focus-visible {
+    outline: 3px solid var(--rust);
+    outline-offset: 4px;
+}
+
+.review-comparison-table {
+    width: 100%;
+    min-width: 44rem;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.review-comparison-table th,
+.review-comparison-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+}
+
+.review-comparison-table thead th {
+    background: var(--wash);
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.review-comparison-table tbody th {
+    width: 29%;
+    font-weight: 600;
+}
+
+.review-comparison-table tbody:last-child tr:last-child th,
+.review-comparison-table tbody:last-child tr:last-child td {
+    border-bottom: 0;
+}
+
+/* These are for the research categories and detailed reviews. */
+.review-category {
+    scroll-margin-top: 1.5rem;
+}
+
+.review-category + .review-category {
+    margin-top: 3rem;
+}
+
+.review-category-description {
+    max-width: 78ch;
+    color: var(--muted);
+}
+
+.detailed-review {
+    padding: clamp(1rem, 3vw, 2rem);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #fff;
+    scroll-margin-top: 1.5rem;
+    overflow-wrap: anywhere;
+}
+
+.detailed-review + .detailed-review {
+    margin-top: 2rem;
+}
+
+.detailed-review:target {
+    outline: 2px solid var(--rust);
+    outline-offset: 4px;
+}
+
+.review-paper-heading {
+    max-width: 78ch;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.review-paper-heading h3 {
+    margin-bottom: 1rem;
+    font-size: clamp(1.2rem, 2vw, 1.45rem);
+    line-height: 1.4;
+}
+
+.review-citation {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.review-paper-heading > :last-child {
+    margin-bottom: 0;
+}
+
+.review-text {
+    max-width: 78ch;
+}
+
+.review-text p {
+    margin-bottom: 1.4rem;
+    line-height: 1.8;
+}
+
+.review-text > :last-child {
+    margin-bottom: 0;
+}
+
+/* These are for the classification of each paper. */
+.review-classification {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+}
+
+.review-classification h4 {
+    margin: 0 0 0.75rem;
+    color: var(--navy);
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.review-classification-note {
+    max-width: 78ch;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.review-classification-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.review-classification-table th,
+.review-classification-table td {
+    padding: 0.8rem;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+}
+
+.review-classification-table th {
+    width: 30%;
+    background: var(--wash);
+    font-weight: 600;
+}
+
+.review-classification-table tr:last-child th,
+.review-classification-table tr:last-child td {
+    border-bottom: 0;
+}
+
+.review-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 1.25rem 0;
+}
+
+.review-toolbar .review-progress {
+    margin: 0;
+}
+
+.review-toolbar [hidden] {
+    display: none !important;
+}
+
+/* These are for navigating within the detailed review page. */
+.review-page-navigation {
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+}
+
+.review-page-navigation > p {
+    margin: 0 0 0.75rem;
+}
+
+.review-jump-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0.65rem;
+    width: 100%;
+}
+
+.review-jump-links a {
+    display: inline-flex;
+    font-weight: 600;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 0 1 auto;
+    min-height: 44px;
+    max-width: 100%;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: left;
+    text-decoration: none;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.review-jump-links a:hover {
+    background: var(--wash);
+    border-color: var(--rust);
+    color: var(--rust);
+}
+
+.review-jump-links a:focus-visible {
+    outline: 3px solid var(--rust);
+    outline-offset: 3px;
+}
+
+/* These are for the comparisons across the reviewed papers. */
+.review-findings {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    scroll-margin-top: 1.5rem;
+}
+
+.review-findings-intro {
+    max-width: 78ch;
+    margin-bottom: 1.5rem;
+    color: var(--muted);
+}
+
+.review-findings-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.review-finding {
+    min-width: 0;
+    padding: clamp(1rem, 2.5vw, 1.75rem);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #fff;
+    overflow-wrap: anywhere;
+}
+
+.review-finding h3 {
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--line);
+    font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+    line-height: 1.4;
+    scroll-margin-top: 1.5rem;
+}
+
+.review-finding p {
+    margin: 0 0 1.25rem;
+    line-height: 1.8;
+}
+
+.review-finding > :last-child {
+    margin-bottom: 0;
+}
+
+.review-finding a {
+    color: var(--rust);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+}
+
+.review-finding a:hover {
+    color: var(--ink);
+}
+
+.review-finding a:focus-visible {
+    outline: 2px solid var(--rust);
+    outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+    .review-content {
+        padding-bottom: 2.5rem;
+    }
+
+    .review-overview,
+    .review-comparison {
+        margin-bottom: 2rem;
+    }
+
+    .review-classification-table {
+        font-size: 0.88rem;
+    }
+
+    .review-classification-table th {
+        width: 36%;
+    }
+
+    .review-classification-table th,
+    .review-classification-table td {
+        padding: 0.65rem;
+    }
+}
+
+/* These are for placing classifications beside each review on wide screens. */
+@media screen and (min-width: 1100px) {
+    .detailed-review {
+        display: grid;
+        grid-template-columns: minmax(0, 1.8fr) minmax(18rem, 1fr);
+        gap: 2rem;
+        align-items: start;
+    }
+
+    .review-paper-heading {
+        grid-column: 1 / -1;
+        max-width: none;
+        margin-bottom: 0;
+    }
+
+    .review-text {
+        min-width: 0;
+        max-width: none;
+    }
+
+    .review-classification {
+        min-width: 0;
+        margin-top: 0;
+        padding: 0 0 0 1.5rem;
+        border-top: 0;
+        border-left: 1px solid var(--line);
+    }
+
+    .review-classification-table {
+        font-size: 0.88rem;
+    }
+
+    .review-classification-table th,
+    .review-classification-table td {
+        padding: 0.65rem;
+    }
+
+    .review-findings-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .review-finding-wide {
+        grid-column: 1 / -1;
+    }
+
+    .review-finding-wide p {
+        max-width: none;
+    }
+}
+
+@media print {
+    .review-content {
+        max-width: none;
+        padding-bottom: 0;
+    }
+
+    .review-overview,
+    .review-comparison {
+        margin-bottom: 1.5rem;
+    }
+
+    .review-table-scroll {
+        overflow: visible;
+        border: 0;
+        border-radius: 0;
+    }
+
+    .review-comparison-table {
+        min-width: 0;
+        font-size: 9pt;
+    }
+
+    .review-comparison-table th,
+    .review-comparison-table td {
+        padding: 0.5rem;
+    }
+
+    .detailed-review {
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+    }
+
+    .detailed-review:target {
+        outline: none;
+    }
+
+    .review-paper-heading,
+    .review-text,
+    .review-overview p {
+        max-width: none;
+    }
+
+    .review-content h2,
+    .review-content h3,
+    .review-content h4 {
+        break-after: avoid;
+    }
+
+    .review-text p {
+        orphans: 3;
+        widows: 3;
+    }
+
+    .review-comparison-table tr,
+    .review-classification-table tr {
+        break-inside: avoid;
+    }
+
+    .review-toolbar {
+        display: none !important;
+    }
+
+    .review-page-navigation {
+        display: none;
+    }
+
+    .review-findings {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+    }
+
+    .review-findings-intro,
+    .review-finding-wide p {
+        max-width: none;
+    }
+
+    .review-findings-grid {
+        display: block;
+    }
+
+    .review-finding {
+        margin-bottom: 1.5rem;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        break-inside: auto;
+    }
+
+    .review-finding h3 {
+        break-after: avoid;
+    }
+
+    .review-finding p {
+        orphans: 3;
+        widows: 3;
+    }
+
+    .review-finding a {
+        color: inherit;
+    }
+}
+
+/* ========================================================================== */
+/* Reference numbers, grouped comparison table, and review contents sidebar   */
+/* ========================================================================== */
+
+/* Reference numbers shared by the bibliography, annotations, and reviews. */
+.ref-number {
+    color: var(--rust);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.acm-citation .ref-number,
+h3 > .ref-number {
+    margin-right: 0.35rem;
+}
+
+/* Comparison table: category group rows. */
+.review-comparison-table .table-group-row th {
+    width: auto;
+    padding-top: 1.25rem;
+    background: var(--paper);
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.02rem;
+    font-weight: 500;
+}
+
+.table-group-row a {
+    color: var(--navy);
+}
+
+.table-group-count {
+    margin-left: 0.5rem;
+    color: var(--muted);
+    font-family: "Manrope", Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Review page: "Back to contents" links and the sticky contents sidebar. */
+.review-sidebar {
+    display: none;
+}
+
+.review-back-link {
+    margin: 1.5rem 0 0;
+    font-size: 0.9rem;
+}
+
+.review-sidebar h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.15rem;
+    line-height: 1.4;
+}
+
+.review-contents-list,
+.review-contents-list ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.review-contents-list > li + li {
+    margin-top: 0.3rem;
+}
+
+.review-contents-list ol {
+    margin: 0.2rem 0 0.4rem 0.55rem;
+    padding-left: 0.55rem;
+    border-left: 1px solid var(--line);
+}
+
+.review-contents-list a {
+    display: block;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    color: var(--navy);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-decoration: none;
+}
+
+.review-contents-list > li > a {
+    font-weight: 600;
+}
+
+.review-contents-list ol a {
+    color: var(--ink);
+    font-size: 0.85rem;
+}
+
+.review-contents-list a:hover {
+    background: #eee2d0;
+}
+
+.review-contents-list .ref-number {
+    font-size: 0.8rem;
+}
+
+@media screen and (min-width: 1100px) {
+    .detailed-review > .review-back-link {
+        grid-column: 1 / -1;
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .review-content {
+        display: grid;
+        grid-template-columns: 13.5rem minmax(0, 1fr);
+        column-gap: 2.5rem;
+        align-items: start;
+    }
+
+    .review-content > * {
+        grid-column: 2;
+    }
+
+    .review-content > .review-overview {
+        grid-column: 1 / -1;
+    }
+
+    /* Spans every row below the overview so it stays visible while scrolling. */
+    .review-content > .review-sidebar {
+        display: block;
+        grid-column: 1;
+        grid-row: 2 / span 20;
+        position: sticky;
+        top: 1.5rem;
+        max-height: calc(100vh - 3rem);
+        overflow-y: auto;
+        padding: 1.25rem 1rem;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--wash);
+    }
+
+    .review-page-navigation,
+    .review-back-link {
+        display: none;
+    }
+
+    /* Give the classification column more room beside the sidebar. */
+    .detailed-review {
+        grid-template-columns: minmax(0, 1.6fr) minmax(19rem, 1fr);
+    }
+
+    .review-classification-table th {
+        width: 38%;
+        overflow-wrap: normal;
+        hyphens: auto;
+    }
+}
+
+@media print {
+    .review-sidebar,
+    .review-back-link {
+        display: none !important;
+    }
+
+    .review-content {
+        display: block;
+    }
+}
+
+/* ============================================================================= */
+/* Copy buttons, search highlights, shortcuts, floating top link, paper progress */
+/* ============================================================================= */
+
+/* Text that is read by screen readers but not shown. */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Search matches inside the bibliography and annotations. */
+mark.search-hit {
+    padding: 0 0.05em;
+    border-radius: 2px;
+    background: #f8dc95;
+    color: inherit;
+}
+
+/* Buttons beside the result count on the bibliography page. */
+.results-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* "Copy citation" and "Copy link" buttons. */
+.copy-button {
+    min-height: 32px;
+    padding: 0.3rem 0;
+    border: 0;
+    background: transparent;
+    color: var(--rust);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.copy-button:hover {
+    text-decoration-thickness: 2px;
+}
+
+.reference > p:last-child .copy-button {
+    margin-left: 0.85rem;
+}
+
+.reference .selection-link .copy-button {
+    margin-left: 0;
+}
+
+.heading-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.heading-row > h3 {
+    flex: 1;
+    min-width: 0;
+}
+
+.heading-row > .copy-button {
+    flex: none;
+    margin-top: 0.1rem;
+    color: var(--muted);
+}
+
+.heading-row > .copy-button:hover {
+    color: var(--rust);
+}
+
+/* "Discussed in the cross-paper findings" note at the end of each review. */
+.review-text > .review-discussed {
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+/* Floating "Top" link, shown only on smaller screens after scrolling. */
+.floating-top {
+    display: none;
+}
+
+@media (max-width: 1279px) {
+    .floating-top {
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        z-index: 20;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        min-height: 44px;
+        padding: 0.5rem 0.95rem;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(37, 37, 37, 0.15);
+        color: var(--rust);
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+    }
+}
+
+/* Section progress on the final-paper page. */
+.section-progress li {
+    padding-left: 0.25rem;
+}
+
+.section-status {
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0.05rem 0.55rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--wash);
+    color: var(--ink);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    vertical-align: 0.1em;
+    white-space: nowrap;
+}
+
+.section-status[data-status="drafted"] {
+    background: #e3efe6;
+    border-color: #9cc3a6;
+}
+
+.section-status[data-status="in-progress"] {
+    background: #fbf0d9;
+    border-color: #e2c27c;
+}
+
+@media print {
+    .copy-button,
+    .results-actions,
+    .floating-top {
+        display: none !important;
+    }
+
+    mark.search-hit {
+        background: none;
     }
 }

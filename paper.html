@@ -33,7 +33,7 @@
             <nav aria-label="Main navigation">
                 <a href="index.html">Description</a>
                 <a href="bibliography.html">Bibliography</a>
-                <a href="materials.html">Project Materials</a>
+                <a href="materials.html" aria-current="true">Project Materials</a>
                 <a href="annotations.html">Annotations</a>
                 <a href="review.html">Detailed Review</a>
             </nav>
@@ -54,7 +54,7 @@
                 <span class="status">In Progress</span>
                 <p class="content-updated">
                     Content Updated:
-                    <time datetime="2026-11-15">November 15, 2026</time>
+                    <time datetime="2026-11-19">November 19, 2026</time>
                 </p>
             </div>
         </section>
@@ -93,18 +93,43 @@
             <section aria-labelledby="paper-structure">
                 <h2 id="paper-structure">Planned Structure</h2>
 
-                <ol class="deliverable-summary">
-                    <li>Abstract, problem introduction, and motivation.</li>
-                    <li>Basic terminology, background, and related work.</li>
-                    <li>Literature selection and the research classification scheme.</li>
+                <p class="deliverable-summary muted">
+                    Section progress as of
+                    <time datetime="2026-11-19">November 19, 2026</time>.
+                </p>
+
+                <!-- Status values: not-started (Not Started), in-progress (In Progress), drafted (Drafted). -->
+                <ol class="deliverable-summary section-progress">
                     <li>
+                        <span class="section-status" data-status="in-progress">In Progress</span>
+                        Abstract, problem introduction, and motivation.
+                    </li>
+                    <li>
+                        <span class="section-status" data-status="not-started">Not Started</span>
+                        Basic terminology, background, and related work.
+                    </li>
+                    <li>
+                        <span class="section-status" data-status="not-started">Not Started</span>
+                        Literature selection and the research classification scheme.
+                    </li> 
+                    <li>
+                        <span class="section-status" data-status="not-started">Not Started</span>
                         Major approaches and representative methods within each category,
                         including major results that justify the classification and
                         discussion of supporting and minor results.
                     </li>
-                    <li>Comparative findings, supporting evidence, and limitations.</li>
-                    <li>Research trends, recommendations, and future work.</li>
-                    <li>Conclusions and references covering all 60 bibliography publications.</li>
+                    <li>
+                        <span class="section-status" data-status="not-started">Not Started</span>
+                        Comparative findings, supporting evidence, and limitations.
+                    </li>
+                    <li>
+                        <span class="section-status" data-status="not-started">Not Started</span>
+                        Research trends, recommendations, and future work.
+                    </li>
+                    <li>
+                        <span class="section-status" data-status="not-started">Not Started</span>
+                        Conclusions and references covering all 60 bibliography publications.
+                    </li>
                 </ol>
             </section>
 
@@ -116,6 +141,50 @@
                     be added here when a draft is ready to share. The final submission
                     is due <time datetime="2026-12-10">December 10, 2026</time>.
                 </p>
+
+                <!--
+                    When a draft is ready to share:
+                    1. Add the PDF to assets/ and use its filename in the three places below.
+                    2. Replace the paragraph above with the abstract.
+                    3. Remove the two comment lines that open and close this block.
+                    4. Update the version note, the status label at the top of this page,
+                       the Current Progress list in README.md, and the Content Updated date.
+
+                <p class="deliverable-summary">
+                    <strong>Version:</strong> Draft 1, shared
+                    <time datetime="2026-11-26">November 26, 2026</time>.
+                </p>
+
+                <div class="deliverable-actions">
+                    <a class="utility-button" href="assets/CSC754_Survey_Paper_Draft.pdf">
+                        Open Paper (PDF)
+                    </a>
+
+                    <a class="utility-button" href="assets/CSC754_Survey_Paper_Draft.pdf" download>
+                        Download PDF
+                    </a>
+                </div>
+
+                <p class="muted">
+                    If the preview is unavailable on your device, use the PDF link above.
+                </p>
+
+                <iframe
+                    class="document-preview"
+                    src="assets/CSC754_Survey_Paper_Draft.pdf"
+                    title="Urban Traffic Survey Paper PDF"
+                    loading="lazy">
+                </iframe>
+
+                <h3>Cite This Survey</h3>
+
+                <p class="deliverable-summary">
+                    Belitski, R. and Jehangir, M. 2026. Agent-Based Modeling and
+                    Simulation of Urban Traffic. CSC754 Survey Paper.
+                    https://richbelcsi.github.io/paper.html.
+                </p>
+                -->
+
 
                 <div class="deliverable-actions">
                     <a class="utility-button" href="bibliography.html">
