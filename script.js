@@ -100,7 +100,7 @@
     // so a filtered view can be shared or restored after a refresh.
     const readFilters = () => new URLSearchParams(window.location.search);
 
-    const saveFilters = (values) => {
+    const saveFilters = (values, hash = window.location.hash) => {
         const params = new URLSearchParams();
 
         Object.entries(values).forEach(([key, value]) => {
@@ -113,7 +113,7 @@
         const address =
             window.location.pathname +
             (query ? `?${query}` : "") +
-            window.location.hash;
+            hash;
 
         try {
             history.replaceState(history.state, "", address);
@@ -504,7 +504,7 @@
             category.value = saved.get("group");
         }
 
-        function updateAnnotations() {
+        function updateAnnotations(hash = window.location.hash) {
             const terms = getSearchTerms(search);
             let shown = 0;
 
@@ -546,7 +546,7 @@
             saveFilters({
                 q: search.value.trim(),
                 group: category.value === "all" ? "" : category.value
-            });
+            }, hash);
         }
 
         function clearAnnotationFilters() {
@@ -587,11 +587,15 @@
             event.preventDefault();
         });
 
-        search.addEventListener("input", updateAnnotations);
-        category.addEventListener("change", updateAnnotations);
+        // Once the reader edits the filters, the URL should describe
+        // the filtered list rather than the paper they originally opened.
+        const applyEditedFilters = () => updateAnnotations("");
+
+        search.addEventListener("input", applyEditedFilters);
+        category.addEventListener("change", applyEditedFilters);
 
         form.addEventListener("reset", () => {
-            requestAnimationFrame(updateAnnotations);
+            requestAnimationFrame(applyEditedFilters);
         });
 
         if (print) {
