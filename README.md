@@ -22,7 +22,7 @@ DEVSJAVA is considered as a possible platform for future model implementation. T
 - Added paraphrased abstract summaries for the 20-paper shortlist.
 - Completed detailed reviews and classifications for all 20 shortlisted papers, including a comparison table and cross-paper findings.
 - Completed the class presentation and made the 40-slide submission deck available in PDF and PowerPoint formats.
-- Began drafting the final survey paper, starting with the introduction.
+- Drafted Sections 1–3: Introduction, Technical Background and Related Work, and Review Methodology and Classification Criteria. Section 4 will compare representative models and findings across the five research categories.
 
 The final paper will reference all 60 publications in relevant discussions, with detailed technical comparisons centered on the 20-paper shortlist.
 
